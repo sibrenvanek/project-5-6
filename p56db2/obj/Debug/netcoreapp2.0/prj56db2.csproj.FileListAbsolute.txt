@@ -1,0 +1,10 @@
+C:\VScode\p56db2\obj\Debug\netcoreapp2.0\prj56db2.csproj.CoreCompileInputs.cache
+C:\VScode\p56db2\obj\Debug\netcoreapp2.0\prj56db2.AssemblyInfoInputs.cache
+C:\VScode\p56db2\obj\Debug\netcoreapp2.0\prj56db2.AssemblyInfo.cs
+C:\VScode\p56db2\bin\Debug\netcoreapp2.0\prj56db2.deps.json
+C:\VScode\p56db2\bin\Debug\netcoreapp2.0\prj56db2.runtimeconfig.json
+C:\VScode\p56db2\bin\Debug\netcoreapp2.0\prj56db2.runtimeconfig.dev.json
+C:\VScode\p56db2\bin\Debug\netcoreapp2.0\prj56db2.dll
+C:\VScode\p56db2\bin\Debug\netcoreapp2.0\prj56db2.pdb
+C:\VScode\p56db2\obj\Debug\netcoreapp2.0\prj56db2.dll
+C:\VScode\p56db2\obj\Debug\netcoreapp2.0\prj56db2.pdb
