@@ -2,6 +2,9 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "chocolatey/0.9.8.3": {
+        "type": "package"
+      },
       "Google.Protobuf/3.3.0": {
         "type": "package",
         "dependencies": {
@@ -497,6 +500,12 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "mysql/5.5.14.1": {
+        "type": "package",
+        "dependencies": {
+          "chocolatey": "0.9.8.3"
         }
       },
       "MySql.Data/8.0.8-dmr": {
@@ -2422,6 +2431,24 @@
     }
   },
   "libraries": {
+    "chocolatey/0.9.8.3": {
+      "sha512": "Vnh4z2rilpXn9mUm9tFXj1Sxt+HSCemrm/znxDL0HFO50HvtJuRRQ0SQnLzt/Po3UjmJvnfQk5z6bJY/2doJrQ==",
+      "type": "package",
+      "path": "chocolatey/0.9.8.3",
+      "files": [
+        "chocolatey.0.9.8.3.nupkg.sha512",
+        "chocolatey.nuspec",
+        "chocolateyicon.gif",
+        "tools/chocolateyInstall.ps1",
+        "tools/chocolateyInstall/LICENSE.txt",
+        "tools/chocolateyInstall/NuGet.exe",
+        "tools/chocolateyInstall/chocolatey.cmd",
+        "tools/chocolateyInstall/chocolatey.ps1",
+        "tools/chocolateyInstall/helpers/chocolateyInstaller.psm1",
+        "tools/chocolateysetup.psm1",
+        "tools/init.ps1"
+      ]
+    },
     "Google.Protobuf/3.3.0": {
       "sha512": "W0TsIYM2ED9dc/FgdbdtP68vUP1JdbwaFscG3DeVtJNlfm8A/ozjAT0H3dWIk0jJd9Zcx6B7XZ1LYERF8PqqJA==",
       "type": "package",
@@ -3111,6 +3138,19 @@
         "runtimes/win/lib/net46/Microsoft.Win32.Registry.dll",
         "runtimes/win/lib/netcore50/_._",
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll"
+      ]
+    },
+    "mysql/5.5.14.1": {
+      "sha512": "x5XrAlCImJ7KmgzSsbgiUIqq70N08riTAARfECjO4TdzBy5gwS1dGkki0oFfHAPvmYi8dMX/lhzsEvakXEadOA==",
+      "type": "package",
+      "path": "mysql/5.5.14.1",
+      "files": [
+        "content/mysql.ReadMe.txt",
+        "mysql.5.5.14.1.nupkg.sha512",
+        "mysql.nuspec",
+        "mysqllogo.png",
+        "tools/chocolateyInstall.ps1",
+        "tools/install.ps1"
       ]
     },
     "MySql.Data/8.0.8-dmr": {
@@ -7588,33 +7628,36 @@
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.EntityFrameworkCore.Design >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
+      "MySql >= 5.5.14.1",
       "Mysql.Data.EntityFrameworkCore >= 8.0.8-dmr",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 2.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\erikv\\.nuget\\packages\\": {},
+    "C:\\Users\\sibre\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\VScode\\p56db2\\P56DB2.csproj",
+      "projectUniqueName": "C:\\Users\\sibre\\Documents\\studie\\project 5-6\\github\\project-5-6\\p56db2\\P56DB2.csproj",
       "projectName": "P56DB2",
-      "projectPath": "C:\\VScode\\p56db2\\P56DB2.csproj",
-      "packagesPath": "C:\\Users\\erikv\\.nuget\\packages\\",
-      "outputPath": "C:\\VScode\\p56db2\\obj\\",
+      "projectPath": "C:\\Users\\sibre\\Documents\\studie\\project 5-6\\github\\project-5-6\\p56db2\\P56DB2.csproj",
+      "packagesPath": "C:\\Users\\sibre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sibre\\Documents\\studie\\project 5-6\\github\\project-5-6\\p56db2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\erikv\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\sibre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7639,6 +7682,10 @@
           "Microsoft.EntityFrameworkCore.Design": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "MySql": {
+            "target": "Package",
+            "version": "5.5.14.1"
           },
           "Mysql.Data.EntityFrameworkCore": {
             "target": "Package",

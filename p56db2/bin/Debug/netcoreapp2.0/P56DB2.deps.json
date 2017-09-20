@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "dfa024600f7f01a824423898b4dcd0e4cda06823"
+    "signature": "b7d59774dcf8313236b8fad901a6511907339329"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,6 +9,7 @@
       "P56DB2/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "2.0.0",
+          "mysql": "5.5.14.1",
           "MySql.Data.EntityFrameworkCore": "8.0.8-dmr",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.0"
         },
@@ -16,6 +17,7 @@
           "P56DB2.dll": {}
         }
       },
+      "chocolatey/0.9.8.3": {},
       "Google.Protobuf/3.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -221,6 +223,11 @@
             "rid": "win",
             "assetType": "runtime"
           }
+        }
+      },
+      "mysql/5.5.14.1": {
+        "dependencies": {
+          "chocolatey": "0.9.8.3"
         }
       },
       "MySql.Data/8.0.8-dmr": {
@@ -1563,6 +1570,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "chocolatey/0.9.8.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Vnh4z2rilpXn9mUm9tFXj1Sxt+HSCemrm/znxDL0HFO50HvtJuRRQ0SQnLzt/Po3UjmJvnfQk5z6bJY/2doJrQ==",
+      "path": "chocolatey/0.9.8.3",
+      "hashPath": "chocolatey.0.9.8.3.nupkg.sha512"
+    },
     "Google.Protobuf/3.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1723,6 +1737,13 @@
       "sha512": "sha512-Lw1/VwLH1yxz6SfFEjVRCN0pnflLEsWgnV4qsdJ512/HhTwnKXUG+zDQ4yTO3K/EJQemGoNaBHX5InISNKTzUQ==",
       "path": "microsoft.win32.registry/4.3.0",
       "hashPath": "microsoft.win32.registry.4.3.0.nupkg.sha512"
+    },
+    "mysql/5.5.14.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-x5XrAlCImJ7KmgzSsbgiUIqq70N08riTAARfECjO4TdzBy5gwS1dGkki0oFfHAPvmYi8dMX/lhzsEvakXEadOA==",
+      "path": "mysql/5.5.14.1",
+      "hashPath": "mysql.5.5.14.1.nupkg.sha512"
     },
     "MySql.Data/8.0.8-dmr": {
       "type": "package",

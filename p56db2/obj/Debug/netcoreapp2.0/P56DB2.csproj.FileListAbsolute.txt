@@ -8,3 +8,13 @@ C:\VScode\p56db2\obj\Debug\netcoreapp2.0\P56DB2.AssemblyInfoInputs.cache
 C:\VScode\p56db2\obj\Debug\netcoreapp2.0\P56DB2.AssemblyInfo.cs
 C:\VScode\p56db2\obj\Debug\netcoreapp2.0\P56DB2.dll
 C:\VScode\p56db2\obj\Debug\netcoreapp2.0\P56DB2.pdb
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\bin\Debug\netcoreapp2.0\P56DB2.deps.json
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\bin\Debug\netcoreapp2.0\P56DB2.runtimeconfig.json
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\bin\Debug\netcoreapp2.0\P56DB2.runtimeconfig.dev.json
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\bin\Debug\netcoreapp2.0\P56DB2.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\bin\Debug\netcoreapp2.0\P56DB2.pdb
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\obj\Debug\netcoreapp2.0\P56DB2.csproj.CoreCompileInputs.cache
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\obj\Debug\netcoreapp2.0\P56DB2.AssemblyInfoInputs.cache
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\obj\Debug\netcoreapp2.0\P56DB2.AssemblyInfo.cs
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\obj\Debug\netcoreapp2.0\P56DB2.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\p56db2\obj\Debug\netcoreapp2.0\P56DB2.pdb
