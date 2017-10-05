@@ -37,7 +37,6 @@ namespace EFFY
                     nit = "whatsanit",
                     address = "9999tx"
                 };
-
                 
                 db.Customer.Add(c);
                 db.SaveChanges();
