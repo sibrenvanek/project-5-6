@@ -37,9 +37,10 @@ namespace EFFY
                     nit = "whatsanit",
                     address = "9999tx"
                 };
+
                 
-                db.Customer.Add(c);
-                db.SaveChanges();
+                //db.Customer.Add(c);
+                //db.SaveChanges();
 
                 Console.WriteLine("Connection established");
 
@@ -52,13 +53,14 @@ namespace EFFY
                 }
 
             }
+            Console.ReadLine();
         }
     }
-    //[Table("customer")]
+    [Table("customer")]
     public class Customer
     {
-        //[Key]
-        //[Column("id_customer")]
+        [Key]
+        [Column("id_customer")]
         public int id_customer { get; set; }
 
         public string customername { get; set; }
@@ -69,7 +71,7 @@ namespace EFFY
     }
     public partial class db_Entities : DbContext
     {
-        public db_Entities() : base(nameOrConnectionString: "Server=10.0.0.213;Database=prj_56_db;Uid=Admin;Pwd = Admin;") { }
+        public db_Entities() : base(nameOrConnectionString: "nametest") { }
         
         
         public DbSet<Customer> Customer { get; set; }
