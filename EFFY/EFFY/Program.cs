@@ -6,6 +6,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Infrastructure;
+using MySql.Data.Entity;
+using System.Data.Common;
+using MySql.Data.MySqlClient;
+
 
 namespace EFFY
 {
@@ -14,49 +19,73 @@ namespace EFFY
         static void Main(string[] args)
         {
             Console.WriteLine("Hello world");
-
-            //using (var db = new db_Entities())
-            //{
-                
-            //    foreach (var customer in db.Customer)
-            //    {
-            //        Console.WriteLine("customer name" + customer.customername);
-            //        foreach (var cust in db.Customer.Where(a => customer.id == 1))
-            //        {
-            //            Console.WriteLine("Found customer with name" + customer.customername);
-            //        }
-            //    }
-            //}
-
+            var c = new Customer
+            {
+                id_customer=1,
+                customername = "custname3",
+                nit = "whatsanit2",
+                address = "9999tx2"
+            };
+            var p = new Product2
+            {
+                id_product = 1,
+                productname = "producttestname1"
+            };
+            
             using (var db = new db_Entities())
             {
-                Customer c = new Customer
+
+                db.Database.CreateIfNotExists();
+
+
+                db.Products.Add(p);
+                foreach(var prod in db.Products)
                 {
-                    id_customer = 2,
-                    customername = "custname2",
-                    nit = "whatsanit",
-                    address = "9999tx"
-                };
+                    Console.WriteLine(prod.id_product + " " + prod.productname);
+                }
 
                 
-                //db.Customer.Add(c);
-                //db.SaveChanges();
-
-                Console.WriteLine("Connection established");
-
-                var customers = db.Customer.ToList();
-                foreach (var cust in customers)
+                db.Customers.Add(c);
+                var Customers = db.Customers.ToList();
+                foreach (var cust in Customers)
                 {
                     Console.WriteLine("printing customer name here");
                     Console.WriteLine(cust.id_customer + " " + cust.customername + " " + cust.address);
                     
                 }
 
+
+                db.Blogs.Add(new Blog { Name = "Another Blog " });
+                db.SaveChanges();
+
+                foreach (var blog in db.Blogs)
+                {
+                    Console.WriteLine(blog.Name);
+                }
+
             }
             Console.ReadLine();
         }
     }
-    [Table("customer")]
+    
+    public partial class db_Entities : DbContext,IDisposable //db context
+    {
+        public db_Entities() : base(nameOrConnectionString: "nametest") { }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<Customer>().MapToStoredProcedures();
+        }
+
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Product2> Products { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+    }
+
+
+    [Table("customer")] //customer table
     public class Customer
     {
         [Key]
@@ -69,11 +98,30 @@ namespace EFFY
 
         public string address { get; set; }
     }
-    public partial class db_Entities : DbContext
+    [Table("product2")]
+    public class Product2
     {
-        public db_Entities() : base(nameOrConnectionString: "nametest") { }
-        
-        
-        public DbSet<Customer> Customer { get; set; }
+        [Key]
+        [Column("id_product")]
+        public int id_product { get; set; }
+        public string productname { get; set; }
     }
+    public class Blog
+    {
+        public int BlogId { get; set; }
+        public string Name { get; set; }
+        public int Rating { get; set; }
+        public virtual List<Post> Posts { get; set; }
+    }
+    public class Post
+    {
+        public int PostId { get; set; }
+        [MaxLength(200)]
+        public string Title { get; set; }
+        public string Content { get; set; }
+
+        public int BlogId { get; set; }
+        public Blog Blog { get; set; }
+    }
+
 }
