@@ -70,15 +70,15 @@ namespace EFFY
                     Console.WriteLine(cas.Color + cas.Material + cas.CaseId);
                 }
 
-                foreach (var prod in db.Products) //example for printing out products
-                {
-                    Console.WriteLine(prod.id_product + " " + prod.productname);
-                }
-                foreach (var cust in db.Customers) //example for printing out customers
-                {
-                    Console.WriteLine("printing customer name here");
-                    Console.WriteLine(cust.id_customer + " " + cust.customername + " " + cust.address);
-                }
+                //foreach (var prod in db.Products) //example for printing out products
+                //{
+                //    Console.WriteLine(prod.id_product + " " + prod.productname);
+                //}
+                //foreach (var cust in db.Customers) //example for printing out customers
+                //{
+                //    Console.WriteLine("printing customer name here");
+                //    Console.WriteLine(cust.id_customer + " " + cust.customername + " " + cust.address);
+                //}
                 
             }
             Console.ReadLine(); //discontinues the program so it doesnt exit
@@ -96,13 +96,13 @@ namespace EFFY
             //modelBuilder.Entity<Customer>().MapToStoredProcedures();
         }
         public DbSet<Case> Cases { get; set; }//Migrated
+        public DbSet<CPUCooler>CpuCoolers { get; set; }
+        public DbSet<GPU> GPUs { get; set; }
+        public DbSet<InternalHDD> HDDs { get; set; }
+        public DbSet<Motherboard>Motherboards { get; set; }
 
 
 
-
-        public DbSet<Customer> Customers { get; set; } //example
-        public DbSet<Product2> Products { get; set; } //example
-        public DbSet<Blog> Blogs { get; set; } //example
     }
     [Table("case")]
     public class Case //migrated Column for Cases
@@ -143,11 +143,80 @@ namespace EFFY
             
     }
 
+    [Table("CPUCooler")]
+    public class CPUCooler
+    {
+        [Key]
+        [Column("CPUCoolerId")]
+        public int CPUCoolerId { get; set; }
+        public string Brand { get; set; }
+        public int FanConnections { get; set; }
+        public string CoolingMethod { get; set; }
+        public string Socket { get; set; }
+        public int DiameterFan { get; set; }
+        public int Min_RotationSpeed { get; set; }
+        public int Max_RotationSpeed { get; set; }
+        public float Min_SoundProduction { get; set; }
+        public float Max_SoundProduction { get; set; }
+        public int Heatpipes { get; set; }
+        public float Weight { get; set; }
+        public float Width { get; set; }
+        public float Depth { get; set; }
+        public float Height { get; set; }
+    }
 
+    [Table("gpu")]
+    public class GPU
+    {
+        [Key]
+        [Column("GPUId")]
+        public int GPUId { get; set; }
+        public string Brand { get; set; }
+        public string BusType { get; set; }
+        public int FreeLocksRequired { get; set; }
+        public bool LowProfile { get; set; }
+        public string Resolution { get; set; }
+        public string Manufacturer { get; set; }
+        public string TypeOfGPU { get; set; }
+        public int Clockspeed { get; set; }
+        public int TurboFrequency { get; set; }
+        public int StreamProcessors { get; set; }
+        public string CoolingMethod { get; set; }
+        public int VideoMemory { get; set; }
+        public string TypeOfMemory { get; set; }
+        public int ClockSpeedMemoryModule { get; set; }
+        public int BandwithMemoryBus { get; set; }
+        public bool VGAPort { get; set; }
+        public int DVIOutputs { get; set; }
+        public int HDMIOutputs { get; set; }
+        public int DisplayPorts { get; set; }
+        public int MaxPowerConsumption { get; set; }
+        public int MinRequiredFeed { get; set; }
+        public string PowerConnectors { get; set; }
+        public float DirectX { get; set; }
+        public float OpenGL { get; set; }
+        public bool AMDCrossfireX { get; set; }
+        public bool NVIDEASLI { get; set; }
+        public bool HDCP { get; set; }
+        public float Width { get; set; }
+        public float Depth { get; set; }
+        public float Height { get; set; }
+    }
 
-
-
-
+    [Table("Inernal hard disk")]
+    public class InternalHDD
+    {
+        [Key]
+        [Column("Internal HDD")]
+        public int InternalHDDId { get; set; }
+        public string Brand { get; set; }
+        public string StorageType { get; set; }
+        public int HDDSpeed { get; set; }
+        public int Cache { get; set; }
+        public float HDDFormat { get; set; }
+        public float Height { get; set; }
+        public string internalHDDDiskcol { get; set; }
+    }
 
 
     [Table("customer")] //customer table example
@@ -164,32 +233,57 @@ namespace EFFY
         public string address { get; set; }
     }
     
-
-    [Table("product2")]
-    public class Product2 //example
+    [Table("motherboard")]
+    public class Motherboard
     {
         [Key]
-        [Column("id_product")]
-        public int id_product { get; set; }
-        public string productname { get; set; }
-    }
+        [Column("MotherboardId")]
+        public int MotherboardId { get; set; }
+        public string Brand { get; set; }
+        public string FormatMotherboard { get; set; }
+        public int Socket { get; set; }
+        public string Chipset { get; set; }
+        public int ClockSpeedMemoryModule { get; set; }
+        public int Max_AmountOfMemory { get; set; }
+        public int MemoryLockedTotal { get; set; }
+        public string Memory { get; set; }
+        public int PCIx16 { get; set; }
+        public int PCIx8 { get; set; }
+        public int PCIx4 { get; set; }
+        public int PCIx2 { get; set; }
+        public int PCILocks { get; set; }
+        public int PICMini { get; set; }
+        public int EthernetPorts { get; set; }
+        public bool BuiltInWiFi { get; set; }
+        public bool Bluetooth { get; set; }
+        public bool FireWire { get; set; }
+        public int USB2Ports { get; set; }
+        public int USB3Ports { get; set; }
+        public bool Thunderbolt { get; set; }
+        public bool PS2 { get; set; }
+        public int SATA300 { get; set; }
+        public int SATA600 { get; set; }
+        public int mSATA { get; set; }
+        public int M2Connections { get; set; }
+        public string RAID { get; set; }
+        public int SpeakerChannels { get; set; }
+        public bool OpticalConnection { get; set; }
+        public string AudioProcessor { get; set; }
+        public bool VGAPort { get; set; }
+        public bool DVIPort { get; set; }
+        public bool HDMIPort { get; set; }
+        public bool DisplayPort { get; set; }
+        public string Chipsetcooler { get; set; }
+        public int CasefanConnections { get; set; }
+        public bool UEFIBIOS { get; set; }
+        public bool NVIDEASLI { get; set; }
+        public bool CrossfireX { get; set; }
+        public bool KillerNIC { get; set; }
+        public float Width { get; set; }
+        public float Depth { get; set; }
+        public float Height { get; set; }
 
-    public class Blog //example
-    {
-        public int BlogId { get; set; }
-        public string Name { get; set; }
-        public int Rating { get; set; }
-        public virtual List<Post> Posts { get; set; }
     }
-    public class Post //example
-    {
-        public int PostId { get; set; }
-        [MaxLength(200)]
-        public string Title { get; set; }
-        public string Content { get; set; }
-
-        public int BlogId { get; set; }
-        public Blog Blog { get; set; }
-    }
+    
 
 }

@@ -10,9 +10,8 @@ c:\users\erikv\onedrive\documents\visual studio 2015\Projects\EFFY\EFFY\bin\Debu
 c:\users\erikv\onedrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.csprojResolveAssemblyReference.cache
 c:\users\erikv\onedrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.exe
 c:\users\erikv\onedrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.pdb
-C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddPostClass.resources
 C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.csproj.GenerateResource.Cache
-C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddProduct2.resources
-C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.Addcustomer.resources
-C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddCase.resources
-C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddCase1.resources
+C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddCPUCooler.resources
+C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddGPU.resources
+C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddHDD.resources
+C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddMotherboard.resources

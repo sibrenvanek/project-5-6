@@ -59,27 +59,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201710061205545_AddPostClass.cs" />
-    <Compile Include="Migrations\201710061205545_AddPostClass.Designer.cs">
-      <DependentUpon>201710061205545_AddPostClass.cs</DependentUpon>
+    <Compile Include="Migrations\201710071542300_AddCPUCooler.cs" />
+    <Compile Include="Migrations\201710071542300_AddCPUCooler.Designer.cs">
+      <DependentUpon>201710071542300_AddCPUCooler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710061223566_AddProduct2.cs" />
-    <Compile Include="Migrations\201710061223566_AddProduct2.Designer.cs">
-      <DependentUpon>201710061223566_AddProduct2.cs</DependentUpon>
+    <Compile Include="Migrations\201710071712219_AddGPU.cs" />
+    <Compile Include="Migrations\201710071712219_AddGPU.Designer.cs">
+      <DependentUpon>201710071712219_AddGPU.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710061228164_Addcustomer.cs" />
-    <Compile Include="Migrations\201710061228164_Addcustomer.Designer.cs">
-      <DependentUpon>201710061228164_Addcustomer.cs</DependentUpon>
+    <Compile Include="Migrations\201710071725403_AddHDD.cs" />
+    <Compile Include="Migrations\201710071725403_AddHDD.Designer.cs">
+      <DependentUpon>201710071725403_AddHDD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710071117303_AddCase.cs" />
-    <Compile Include="Migrations\201710071117303_AddCase.Designer.cs">
-      <DependentUpon>201710071117303_AddCase.cs</DependentUpon>
+    <Compile Include="Migrations\201710071747261_AddMotherboard.cs" />
+    <Compile Include="Migrations\201710071747261_AddMotherboard.Designer.cs">
+      <DependentUpon>201710071747261_AddMotherboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710071157491_AddCase1.cs" />
-    <Compile Include="Migrations\201710071157491_AddCase1.Designer.cs">
-      <DependentUpon>201710071157491_AddCase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\AddBlogUrl.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,20 +86,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710061205545_AddPostClass.resx">
-      <DependentUpon>201710061205545_AddPostClass.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710071542300_AddCPUCooler.resx">
+      <DependentUpon>201710071542300_AddCPUCooler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710061223566_AddProduct2.resx">
-      <DependentUpon>201710061223566_AddProduct2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710071712219_AddGPU.resx">
+      <DependentUpon>201710071712219_AddGPU.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710061228164_Addcustomer.resx">
-      <DependentUpon>201710061228164_Addcustomer.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710071725403_AddHDD.resx">
+      <DependentUpon>201710071725403_AddHDD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071117303_AddCase.resx">
-      <DependentUpon>201710071117303_AddCase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071157491_AddCase1.resx">
-      <DependentUpon>201710071157491_AddCase1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710071747261_AddMotherboard.resx">
+      <DependentUpon>201710071747261_AddMotherboard.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
