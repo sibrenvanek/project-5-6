@@ -14,3 +14,5 @@ C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debu
 C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.csproj.GenerateResource.Cache
 C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddProduct2.resources
 C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.Addcustomer.resources
+C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddCase.resources
+C:\Users\erikv\OneDrive\documents\visual studio 2015\Projects\EFFY\EFFY\obj\Debug\EFFY.Migrations.AddCase1.resources

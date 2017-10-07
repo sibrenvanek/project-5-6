@@ -71,6 +71,14 @@
     <Compile Include="Migrations\201710061228164_Addcustomer.Designer.cs">
       <DependentUpon>201710061228164_Addcustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710071117303_AddCase.cs" />
+    <Compile Include="Migrations\201710071117303_AddCase.Designer.cs">
+      <DependentUpon>201710071117303_AddCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710071157491_AddCase1.cs" />
+    <Compile Include="Migrations\201710071157491_AddCase1.Designer.cs">
+      <DependentUpon>201710071157491_AddCase1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AddBlogUrl.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -91,6 +99,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710061228164_Addcustomer.resx">
       <DependentUpon>201710061228164_Addcustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710071117303_AddCase.resx">
+      <DependentUpon>201710071117303_AddCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710071157491_AddCase1.resx">
+      <DependentUpon>201710071157491_AddCase1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
