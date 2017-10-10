@@ -59,21 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201710071542300_AddCPUCooler.cs" />
-    <Compile Include="Migrations\201710071542300_AddCPUCooler.Designer.cs">
-      <DependentUpon>201710071542300_AddCPUCooler.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710071712219_AddGPU.cs" />
-    <Compile Include="Migrations\201710071712219_AddGPU.Designer.cs">
-      <DependentUpon>201710071712219_AddGPU.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710071725403_AddHDD.cs" />
-    <Compile Include="Migrations\201710071725403_AddHDD.Designer.cs">
-      <DependentUpon>201710071725403_AddHDD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710071747261_AddMotherboard.cs" />
-    <Compile Include="Migrations\201710071747261_AddMotherboard.Designer.cs">
-      <DependentUpon>201710071747261_AddMotherboard.cs</DependentUpon>
+    <Compile Include="Migrations\201710101528108_SupplierFKS.cs" />
+    <Compile Include="Migrations\201710101528108_SupplierFKS.Designer.cs">
+      <DependentUpon>201710101528108_SupplierFKS.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -86,17 +74,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710071542300_AddCPUCooler.resx">
-      <DependentUpon>201710071542300_AddCPUCooler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071712219_AddGPU.resx">
-      <DependentUpon>201710071712219_AddGPU.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071725403_AddHDD.resx">
-      <DependentUpon>201710071725403_AddHDD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071747261_AddMotherboard.resx">
-      <DependentUpon>201710071747261_AddMotherboard.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710101528108_SupplierFKS.resx">
+      <DependentUpon>201710101528108_SupplierFKS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

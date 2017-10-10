@@ -10,7 +10,8 @@ using System.Data.Entity.Infrastructure;
 using MySql.Data.Entity;
 using System.Data.Common;
 using MySql.Data.MySqlClient;
-
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace EFFY
 {
@@ -18,9 +19,9 @@ namespace EFFY
     {
         static void Main(string[] args)
         {
-            
-            
-            
+
+
+
             using (var db = new db_Entities()) //connects to database
             {
 
@@ -28,41 +29,41 @@ namespace EFFY
                                                  // db.Blogs.Add(new Blog { Name = "Another Blog " }); example for adding entries to database
 
 
-                db.Cases.Add(
-                    new Case
-                    {
-                        CaseId = 1,
-                        Brand = "Brandtest",
-                        ComputerHousing = "testHousing",
-                        FormatMotherboard = "testformat",
-                        USB2 = 500,
-                        USB3 = 5000,
-                        Bays35 = 654,
-                        Bays25 = 687,
-                        Bays525 = 64897,
-                        ExtensionLocks = 354,
-                        Max_Length_Videocard = 654,
-                        Fanpositions = 54654,
-                        FrontFan = 654,
-                        RearSideFan = 6987,
-                        SideFan = 1,
-                        TopSideLock = 68468,
-                        BottomSideLock = 68684,
-                        FanSupplied = 68464,
-                        MaximumAltitudeProcessor = 328,
-                        LocationPowersupply = "very far",
-                        PanelDoor = true,
-                        NoiseReduction = false,
-                        DustFilter = true,
-                        FanController = true,
-                        SoundProofingMats = false,
-                        Weight = 500000,
-                        Width = 6000,
-                        Depth = 500123,
-                        Height = 53465,
-                        Color = "Rainbow",
-                        Material = "Unicorn Horns"
-                    });
+                //db.Cases.Add(
+                //    new Case
+                //    {
+                //        CaseId = 1,
+                //        Brand = "Brandtest",
+                //        ComputerHousing = "testHousing",
+                //        FormatMotherboard = "testformat",
+                //        USB2 = 500,
+                //        USB3 = 5000,
+                //        Bays35 = 654,
+                //        Bays25 = 687,
+                //        Bays525 = 64897,
+                //        ExtensionLocks = 354,
+                //        Max_Length_Videocard = 654,
+                //        Fanpositions = 54654,
+                //        FrontFan = 654,
+                //        RearSideFan = 6987,
+                //        SideFan = 1,
+                //        TopSideLock = 68468,
+                //        BottomSideLock = 68684,
+                //        FanSupplied = 68464,
+                //        MaximumAltitudeProcessor = 328,
+                //        LocationPowersupply = "very far",
+                //        PanelDoor = true,
+                //        NoiseReduction = false,
+                //        DustFilter = true,
+                //        FanController = true,
+                //        SoundProofingMats = false,
+                //        Weight = 500000,
+                //        Width = 6000,
+                //        Depth = 500123,
+                //        Height = 53465,
+                //        Color = "Rainbow",
+                //        Material = "Unicorn Horns"
+                //    });
                 db.SaveChanges(); //saves changes to database (call right after new DB entry)
 
                 foreach (var cas in db.Cases)
@@ -70,22 +71,25 @@ namespace EFFY
                     Console.WriteLine(cas.Color + cas.Material + cas.CaseId);
                 }
 
-                //foreach (var prod in db.Products) //example for printing out products
+                //foreach (var prod in db.Products) //example for printing out Products
                 //{
-                //    Console.WriteLine(prod.id_product + " " + prod.productname);
+                //    Console.WriteLine(prod.id_Product + " " + prod.Productname);
                 //}
                 //foreach (var cust in db.Customers) //example for printing out customers
                 //{
                 //    Console.WriteLine("printing customer name here");
                 //    Console.WriteLine(cust.id_customer + " " + cust.customername + " " + cust.address);
                 //}
-                
+
             }
             Console.ReadLine(); //discontinues the program so it doesnt exit
+
+            
+            Console.ReadLine();
         }
     }
-    
-    public partial class db_Entities : DbContext,IDisposable //db context
+
+    public partial class db_Entities : DbContext, IDisposable //db context
     {
         public db_Entities() : base(nameOrConnectionString: "nametest") { }
 
@@ -95,14 +99,23 @@ namespace EFFY
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Entity<Customer>().MapToStoredProcedures();
         }
+        public DbSet<Product> Products { get; set; }
         public DbSet<Case> Cases { get; set; }//Migrated
-        public DbSet<CPUCooler>CpuCoolers { get; set; }
+        public DbSet<CPUCooler> CpuCoolers { get; set; }
         public DbSet<GPU> GPUs { get; set; }
         public DbSet<InternalHDD> HDDs { get; set; }
-        public DbSet<Motherboard>Motherboards { get; set; }
+        public DbSet<Motherboard> Motherboards { get; set; }
+        public DbSet<PowerSupply> PowerSupplies { get; set; }
+        public DbSet<RAM> RAMs { get; set; }
+        public DbSet<SSD> SSDs { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<User> Users { get; set; } //<- not yet migrated , FK
+        public DbSet<Wishlist> Wishlists { get; set; }
+        
 
 
 
+        
     }
     [Table("case")]
     public class Case //migrated Column for Cases
@@ -140,7 +153,17 @@ namespace EFFY
         public float Height { get; set; }
         public string Color { get; set; }
         public string Material { get; set; }
-            
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        [ForeignKey("Supplier")] //FK supplier
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public ICollection<User> Suppliers { get; set; }
+
     }
 
     [Table("CPUCooler")]
@@ -163,6 +186,17 @@ namespace EFFY
         public float Width { get; set; }
         public float Depth { get; set; }
         public float Height { get; set; }
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        [ForeignKey("Supplier")] //FK supplier
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public ICollection<User> Suppliers { get; set; }
+
     }
 
     [Table("gpu")]
@@ -201,6 +235,17 @@ namespace EFFY
         public float Width { get; set; }
         public float Depth { get; set; }
         public float Height { get; set; }
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        [ForeignKey("Supplier")] //FK supplier
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public ICollection<User> Suppliers { get; set; }
+
     }
 
     [Table("Inernal hard disk")]
@@ -216,23 +261,18 @@ namespace EFFY
         public float HDDFormat { get; set; }
         public float Height { get; set; }
         public string internalHDDDiskcol { get; set; }
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        [ForeignKey("Supplier")] //FK supplier
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public ICollection<User> Suppliers { get; set; }
     }
 
-
-    [Table("customer")] //customer table example
-    public class Customer
-    {
-        [Key]
-        [Column("id_customer")]
-        public int id_customer { get; set; }
-
-        public string customername { get; set; }
-
-        public string nit { get; set; }
-
-        public string address { get; set; }
-    }
-    
     [Table("motherboard")]
     public class Motherboard
     {
@@ -283,7 +323,241 @@ namespace EFFY
         public float Depth { get; set; }
         public float Height { get; set; }
 
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        [ForeignKey("Supplier")] //FK supplier
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public ICollection<User> Suppliers { get; set; }
+
     }
+
+    [Table("power supply")]
+    public class PowerSupply
+    {
+        [Key]
+        [Column("PowerSupplyId")]
+        public int PowerSupplyId { get; set; }
+        public string Brand { get; set; }
+        public string VersionFormFactor { get; set; }
+        public bool Modular { get; set; }
+        public float DiameterFan { get; set; }
+        public int Power { get; set; }
+        public string Certification { get; set; }
+        public int AverageLifespawn { get; set; }
+        public int ATX20 { get; set; }
+        public int CPUP8 { get; set; }
+        public int CPUP4 { get; set; }
+        public int CPUP4P4 { get; set; }
+        public int PCIExpress6pin { get; set; }
+        public int PCIExpress6pin2pin { get; set; }
+        public int IDE { get; set; }
+        public int SATA { get; set; }
+        public int FDD { get; set; }
+        public bool Currentspikes { get; set; }
+        public bool Overvoltage { get; set; }
+        public bool SurgeProtection { get; set; }
+        public bool UnderPressure { get; set; }
+        public bool Overload { get; set; }
+        public bool ShortCircuit { get; set; }
+        public bool OverheatingProtection { get; set; }
+        public float Width { get; set; }
+        public float Depth { get; set; }
+        public float Height { get; set; }
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        [ForeignKey("Supplier")] //FK supplier
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public ICollection<User> Suppliers { get; set; }
+    }
+
+    [Table("ram")]
+    public class RAM
+    {
+        [Key]
+        [Column("RAMId")]
+        public int RAMId { get; set; }
+        public string Brand { get; set; }
+        public string CompositionOfMemory { get; set; }
+        public string MemoryType { get; set; }
+        public int Clockspeed { get; set; }
+        public int CASlatency { get; set; }
+        public float Voltage { get; set; }
+        public int MemoryModuleConnection { get; set; }
+        public string MemorySuitableFor { get; set; }
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        [ForeignKey("Supplier")] //FK supplier
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public ICollection<User> Suppliers { get; set; }
+
+    }
+
+    [Table("SSD")]
+    public class SSD
+    {
+        [Key]
+        [Column("SSDId")]
+        public int SSDId { get; set; }
+        public string Brand { get; set; }
+        public string Connection { get; set; }
+        public int StorageCapacity { get; set; }
+        public int AverageTimeBetweenFailures { get; set; }
+        public string TypeOfMemory { get; set; }
+        public string SSDController { get; set; }
+        public float HardDiskFormat { get; set; }
+        public int Max_ReadingSpeed { get; set; }
+        public int Min_ReadingSpeed { get; set; }
+        public int Random_ReadingSpeed { get; set; }
+        public int Random_WriteSpeed { get; set; }
+        public float Width { get; set; }
+        public float Depth { get; set; }
+        public float Height { get; set; }
+        public string Color { get; set; }
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        [ForeignKey("Supplier")] //FK supplier
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public ICollection<User> Suppliers { get; set; }
+
+    }
+
+    [Table("Supplier")]
+    public class Supplier
+    {
+        [Key]
+        [Column("SupplierId")]
+        public int SupplierId { get; set; }
+        public string Name { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string Housenumber { get; set; }
+        public int KvKNumber { get; set; }
+        public string ShippingTime { get; set; }
+        public string Email { get; set; }
+
+        
+
+    }
+
+    [Table("user")]
+    public class User
+    {
+        [Key]
+        [Column("UserId")]
+        public int UserId { get; set; }
+        public string Adress { get; set; }
+        public string Username { get; set; }
+        public string DateOfBirth { get; set; }
+        public string UserType { get; set; }
+        public string Password { get; set; }
+
+        
+    }
+    [Table("Product")]  //add foreign keys to all other tables
+    public class Product
+    {
+        [Key]
+        [Column("ProductId")]
+        public int ProductId { get; set; }
+        public int Stock { get; set; }
+        public float Price { get; set; }
+        public string Name { get; set; }
+        public int Category { get; set; }
+        public string SubCategory { get; set; }
+        public string ShippingTime { get; set; }
+
+        [ForeignKey("Supplier")] //FK user
+        public int SupplierId { get; set; }
+        public Supplier Supplier { get; set; }
+        public ICollection<User> Suppliers { get; set; }
+
+
+    }
+
+    [Table("Wishlist")] 
+    public class Wishlist
+    {
+        [Key]
+        [Column("WishlistId")]
+        public int WishlistId { get; set; }
+        public int Quantity { get; set; }
+
+
+        [ForeignKey("User")] //FK user
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public ICollection<User> Users { get; set; }
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        
+    }
+
+    [Table("ShoppingCart")]
+    public class ShoppingCart
+    {
+        [Key]
+        [Column("ShippingCartId")]
+        public int ShippingCardId { get; set; }
+        public int Amount { get; set; }
+
+
+        [ForeignKey("User")] //FK user
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public ICollection<User> Users { get; set; }
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+        
+    }
+
+    [Table("PurchaseHistory")]
+    public class PurchaseHistory
+    {
+        [Key]
+        [Column("DateOfPurchase")]
+        public int DateOfPurchase { get; set; }
+
+
+        [ForeignKey("User")] //FK user
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public ICollection<User> Users { get; set; }
+
+        [ForeignKey("Product")] //Foreign key 
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
+
+
+    }
+
     
 
 }
