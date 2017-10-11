@@ -21,7 +21,7 @@ namespace EFFY
         static void Main(string[] args)
         {
 
-            Chat chat = new Chat();
+           
 
             using (var db = new db_Entities()) //connects to database
             {
@@ -30,8 +30,17 @@ namespace EFFY
                                                  // db.Blogs.Add(new Blog { Name = "Another Blog " }); example for adding entries to database
 
 
-               
-                db.SaveChanges(); //saves changes to database (call right after new DB entry)
+
+                
+                db.Chats.Add(
+                    new Chat
+                    {
+                        KeyId = 1
+                        
+
+                    }
+                );
+
 
                 //bool ChatStopped = false;
                 //while(ChatStopped==false)
@@ -41,9 +50,12 @@ namespace EFFY
                 //        Console.WriteLine(chatline.content);
                 //    }
                 //}
-                
 
-               
+                Console.WriteLine("adding");
+
+                db.SaveChanges(); //saves changes to database (call right after new DB entry)
+                Console.WriteLine("added");
+
 
             }
             Console.ReadLine(); //discontinues the program so it doesnt exit
@@ -542,13 +554,8 @@ namespace EFFY
         }
         public void WriteChat()
         {
-            while (ChatStopped == false)
-            {
-
                 content = Console.ReadLine();
 
-
-            }
         }
         
     }
