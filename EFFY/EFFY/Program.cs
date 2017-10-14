@@ -18,11 +18,56 @@ namespace EFFY
 {
     class Program
     {
+        static List<string> ReadChat()
+        {
+            List<string> messages = new List<string>();
+            int count=0;
+            using(var db=new db_Entities())
+            {
+                var chat = db.Chats;
+                int Count = chat.Count();
+                if(Count != count)
+                {
+                    count = Count;
+                    for (int i = 1; i <= Count; i++)
+                    {
+                        IQueryable<Chat> Chat = chat.Where(m => m.KeyId == i);
+                        var message = Chat.First().content;
+                        messages.Add(message);
+                    }
+                }
+            }
+
+            return messages;
+        }
         static void Main(string[] args)
         {
-
+            List<string> messages=new List<string>();
+            bool test = true;
+            bool first = true;
+            while (test)
+            {
+                int messagecount = messages.Count();
+                messages = ReadChat();
+                if(first)
+                {
+                    first = false;
+                    foreach (string message in messages)
+                    {
+                        Console.WriteLine(message);
+                    }
+                }
+                else if (messages.Count != messagecount)
+                {
+                    Console.Clear();
+                    foreach (string message in messages)
+                    {
+                        Console.WriteLine(message);
+                    }
+                }
+            }
            
-
+            /*
             using (var db = new db_Entities()) //connects to database
             {
 
@@ -57,7 +102,7 @@ namespace EFFY
                 Console.WriteLine("added");
 
 
-            }
+            }*/
             Console.ReadLine(); //discontinues the program so it doesnt exit
         }
     }
@@ -543,13 +588,16 @@ namespace EFFY
 
         //public User User2 { get; set; }
         public string content { get; set; }
+        //[Key]
+        //[Column("MessageId")]
+        //public int MessageId { get; set; }
 
         public bool ChatStopped { get; set; } = false;
 
 
         public Chat()
         {
-            WriteChat();
+            //WriteChat();
             
         }
         public void WriteChat()
