@@ -88,14 +88,36 @@ namespace EFFY
 
                     if (Console.ReadKey().Key == ConsoleKey.Enter) //enter new chatline
                     {
-                        db.Chat.Add(
-                                    new Chat
-                                    {
-                                        KeyId = 1,
-                                        content = Console.ReadLine()
-                                    });
-                        db.SaveChanges(); //saves changes to database (call right after new DB entry)
-                        Console.WriteLine("added");
+                        string Content = Console.ReadLine();
+                        if (Content == "")
+                        {
+                            Console.WriteLine("Can't send an empty message.");
+                        }
+                        else
+                        {
+                            if (Content[0] == '/')
+                            {
+                                if (Content == "/clear")
+                                {
+                                    Console.Clear();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Command not known.");
+                                }
+                            }
+                            else
+                            {
+                                db.Chat.Add(
+                                            new Chat
+                                            {
+                                                KeyId = 1,
+                                                content = Content
+                                            });
+                                db.SaveChanges(); //saves changes to database (call right after new DB entry)
+                                Console.WriteLine("added");
+                            }
+                        }
                     }
                 }
                 
