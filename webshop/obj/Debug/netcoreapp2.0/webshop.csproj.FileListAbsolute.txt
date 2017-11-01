@@ -1,0 +1,10 @@
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\obj\Debug\netcoreapp2.0\webshop.csproj.CoreCompileInputs.cache
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\obj\Debug\netcoreapp2.0\webshop.AssemblyInfoInputs.cache
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\obj\Debug\netcoreapp2.0\webshop.AssemblyInfo.cs
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\bin\Debug\netcoreapp2.0\webshop.deps.json
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\bin\Debug\netcoreapp2.0\webshop.runtimeconfig.json
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\bin\Debug\netcoreapp2.0\webshop.runtimeconfig.dev.json
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\bin\Debug\netcoreapp2.0\webshop.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\bin\Debug\netcoreapp2.0\webshop.pdb
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\obj\Debug\netcoreapp2.0\webshop.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop\obj\Debug\netcoreapp2.0\webshop.pdb
