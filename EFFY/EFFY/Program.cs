@@ -24,7 +24,7 @@ namespace EFFY
             int count=0;
             using(var db=new db_Entities())
             {
-                var chat = db.Chats;
+                var chat = db.Chat;
                 int Count = chat.Count();
                 if(Count != count)
                 {
@@ -88,7 +88,7 @@ namespace EFFY
 
                     if (Console.ReadKey().Key == ConsoleKey.Enter) //enter new chatline
                     {
-                        db.Chats.Add(
+                        db.Chat.Add(
                                     new Chat
                                     {
                                         KeyId = 1,
@@ -128,7 +128,7 @@ namespace EFFY
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<User> Users { get; set; } //<- not yet migrated , FK
         public DbSet<Wishlist> Wishlists { get; set; }
-        public DbSet<Chat> Chats { get; set; }
+        public DbSet<Chat> Chat { get; set; }
         
 
 

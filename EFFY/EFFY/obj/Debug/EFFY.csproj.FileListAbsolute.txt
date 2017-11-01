@@ -44,5 +44,5 @@ C:\Users\erikv\Desktop\PRJ 56\project-5-6-master\EFFY\EFFY\bin\Debug\EntityFrame
 C:\Users\erikv\Desktop\PRJ 56\project-5-6-master\EFFY\EFFY\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6-master\EFFY\EFFY\bin\Debug\ExcelDataReader.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6-master\EFFY\EFFY\obj\Debug\EFFY.csprojResolveAssemblyReference.cache
-C:\Users\erikv\Desktop\PRJ 56\project-5-6-master\EFFY\EFFY\obj\Debug\EFFY.Migrations.Chat1.resources
+C:\Users\erikv\Desktop\PRJ 56\project-5-6-master\EFFY\EFFY\obj\Debug\EFFY.Migrations.newChat.resources
 C:\Users\erikv\Desktop\PRJ 56\project-5-6-master\EFFY\EFFY\obj\Debug\EFFY.csproj.GenerateResource.Cache

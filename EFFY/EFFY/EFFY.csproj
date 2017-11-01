@@ -64,9 +64,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201710110927375_Chat1.cs" />
-    <Compile Include="Migrations\201710110927375_Chat1.Designer.cs">
-      <DependentUpon>201710110927375_Chat1.cs</DependentUpon>
+    <Compile Include="Migrations\201711010903178_newChat.cs" />
+    <Compile Include="Migrations\201711010903178_newChat.Designer.cs">
+      <DependentUpon>201711010903178_newChat.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -79,8 +79,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710110927375_Chat1.resx">
-      <DependentUpon>201710110927375_Chat1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711010903178_newChat.resx">
+      <DependentUpon>201711010903178_newChat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
