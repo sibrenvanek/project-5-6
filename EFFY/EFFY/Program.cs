@@ -42,32 +42,14 @@ namespace EFFY
         }
         static void Main(string[] args)
         {
-            List<string> messages=new List<string>();
-            bool test = true;
-            bool first = true;
-            while (test)
-            {
-                int messagecount = messages.Count();
-                messages = ReadChat();
-                if(first)
-                {
-                    first = false;
-                    foreach (string message in messages)
-                    {
-                        Console.WriteLine(message);
-                    }
-                }
-                else if (messages.Count != messagecount)
-                {
-                    Console.Clear();
-                    foreach (string message in messages)
-                    {
-                        Console.WriteLine(message);
-                    }
-                }
-            }
+
+            
+            
            
-            /*
+
+            
+           
+            
             using (var db = new db_Entities()) //connects to database
             {
 
@@ -76,33 +58,50 @@ namespace EFFY
 
 
 
-                
-                db.Chats.Add(
-                    new Chat
+
+                List<string> messages = new List<string>();
+                bool test = true;
+                bool first = true;
+                while (test)
+                {
+                    
+
+
+                    int messagecount = messages.Count();
+                    messages = ReadChat();
+                    if (first)
                     {
-                        KeyId = 1
-                        
-
+                        first = false;
+                        foreach (string message in messages)
+                        {
+                            Console.WriteLine(message);
+                        }
                     }
-                );
+                    else if (messages.Count != messagecount)
+                    {
+                        Console.Clear();
+                        foreach (string message in messages)
+                        {
+                            Console.WriteLine(message);
+                        }
+                    }
+
+                    if (Console.ReadKey().Key == ConsoleKey.Enter) //enter new chatline
+                    {
+                        db.Chats.Add(
+                                    new Chat
+                                    {
+                                        KeyId = 1,
+                                        content = Console.ReadLine()
+                                    });
+                        db.SaveChanges(); //saves changes to database (call right after new DB entry)
+                        Console.WriteLine("added");
+                    }
+                }
+                
 
 
-                //bool ChatStopped = false;
-                //while(ChatStopped==false)
-                //{
-                //    foreach (var chatline in db.Chats)
-                //    {
-                //        Console.WriteLine(chatline.content);
-                //    }
-                //}
-
-                Console.WriteLine("adding");
-
-                db.SaveChanges(); //saves changes to database (call right after new DB entry)
-                Console.WriteLine("added");
-
-
-            }*/
+            }
             Console.ReadLine(); //discontinues the program so it doesnt exit
         }
     }
