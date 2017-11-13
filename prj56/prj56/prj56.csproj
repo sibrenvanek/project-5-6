@@ -196,9 +196,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Context\DbContext.cs" />
+    <Compile Include="Context\Db_Entities.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DbController.cs" />
+    <Compile Include="Controllers\Db_Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
@@ -288,8 +288,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\User\ListUsers.cshtml" />
-    <Content Include="Views\db_Entities\Cases.cshtml" />
-    <Content Include="Views\db_Entities\Index.cshtml" />
+    <Content Include="Views\Db_\Index.cshtml" />
+    <Content Include="Views\Db_\Cases.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
