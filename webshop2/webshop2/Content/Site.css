@@ -16,6 +16,10 @@
     white-space: normal;
 }
 
+.navbar {
+    background-color: #FFFF00; // kind af green
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
