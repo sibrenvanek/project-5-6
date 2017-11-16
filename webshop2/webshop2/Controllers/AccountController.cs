@@ -72,10 +72,9 @@ namespace webshop2.Controllers
             {
                 return View(model);
             }
-
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await PasswordSignInDB(model.Email, model.Password/*, model.RememberMe, shouldLockout: false*/);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -89,6 +88,11 @@ namespace webshop2.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+        }
+        public Task<SignInStatus> PasswordSignInDB(string email, string password)
+        {
+            Decrypt(Encrypt(email, 33),33);
+            return new Task<SignInStatus>(new Func<SignInStatus>(()=>SignInStatus.Success));
         }
 
         //
@@ -515,11 +519,11 @@ namespace webshop2.Controllers
 
 
         /// <summary>
-        /// 
+        /// encrypts a string using a code
         /// </summary>
         /// <param name="s">string to encrypt</param>
-        /// <param name="code">code to encrypt the string with.</param>
-        /// <returns></returns>
+        /// <param name="code">code to encrypt the string with</param>
+        /// <returns>encrypted string</returns>
         public static string Encrypt(string s, int code)
         {
             string encryptedS = "";
@@ -535,6 +539,28 @@ namespace webshop2.Controllers
                 encryptedS += encryptedC;
             }
             return encryptedS;
+        }
+
+        /// <summary>
+        /// decrypts an encrypted string using a code
+        /// </summary>
+        /// <param name="s">string to decrypt</param>
+        /// <param name="code">code to decrypt the string with</param>
+        /// <returns>decrypted string</returns>
+        public static string Decrypt(string s, int code)
+        {
+            string decryptedS = "";
+            foreach(char c in s)
+            {
+                int C = Convert.ToInt32(c);
+                C -= code;
+                while (C < 32)
+                {
+                    C += 94;
+                }
+                decryptedS += Convert.ToChar(C);
+            }
+            return decryptedS;
         }
 
 
