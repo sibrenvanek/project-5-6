@@ -74,7 +74,7 @@ namespace webshop2.Controllers
             }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await PasswordSignInDB(model.Email, model.Password/*, model.RememberMe, shouldLockout: false*/);
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -88,11 +88,6 @@ namespace webshop2.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
-        }
-        public Task<SignInStatus> PasswordSignInDB(string email, string password)
-        {
-            Decrypt(Encrypt(email, 33),33);
-            return new Task<SignInStatus>(new Func<SignInStatus>(()=>SignInStatus.Success));
         }
 
         //
@@ -196,7 +191,7 @@ namespace webshop2.Controllers
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
                 }
