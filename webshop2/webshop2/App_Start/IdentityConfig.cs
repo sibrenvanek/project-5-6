@@ -18,7 +18,33 @@ namespace webshop2
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
+            // Credentials:
+            var sendGridUserName = "bright yellow";
+            var sentFrom = "infobrightyellow@gmail.com";
+            var sendGridPassword = "project56";
+
+            // Configure the client:
+            var client =
+                new System.Net.Mail.SmtpClient("smtp.gmail.com", Convert.ToInt32(587));
+
+            client.Port = 587;
+            client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+
+            // Create the credentials:
+            System.Net.NetworkCredential credentials =
+                new System.Net.NetworkCredential(sendGridUserName, sendGridPassword);
+
+            client.EnableSsl = true;
+            client.Credentials = credentials;
+
+            // Create the message:
+            var mail =
+                new System.Net.Mail.MailMessage(sentFrom, message.Destination);
+
+            mail.Subject = message.Subject;
+            mail.Body = message.Body;
+
             return Task.FromResult(0);
         }
     }
