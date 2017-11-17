@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="new_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="case">
+    <Key>
+      <PropertyRef Name="caseid" />
+    </Key>
+    <Property Name="caseid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="casename" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="productid" />
+    </Key>
+    <Property Name="productid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Decimal" />
+    <Property Name="count" Type="Int32" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adress" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="dateofbirth" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="phonenumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="new_testEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="case" EntityType="Self.case" />
+    <EntitySet Name="product" EntityType="Self.product" />
+    <EntitySet Name="user" EntityType="Self.user" />
+  </EntityContainer>
+</Schema>
