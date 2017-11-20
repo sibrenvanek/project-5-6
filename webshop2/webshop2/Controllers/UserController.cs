@@ -14,7 +14,7 @@ namespace webshop2.Controllers
         {
             List<user> listusers = new List<user>();
 
-            using (new_testEntities db = new new_testEntities())
+            using (new_testEntities1 db = new new_testEntities1())
             {
                 listusers = db.user.ToList();
             }
