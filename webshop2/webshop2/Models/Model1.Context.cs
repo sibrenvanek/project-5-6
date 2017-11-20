@@ -13,10 +13,10 @@ namespace webshop2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class new_testEntities : DbContext
+    public partial class new_testEntities1 : DbContext
     {
-        public new_testEntities()
-            : base("name=new_testEntities")
+        public new_testEntities1()
+            : base("name=new_testEntities1")
         {
         }
     
@@ -26,7 +26,17 @@ namespace webshop2.Models
         }
     
         public virtual DbSet<@case> @case { get; set; }
+        public virtual DbSet<chat> chat { get; set; }
+        public virtual DbSet<cpucooler> cpucooler { get; set; }
+        public virtual DbSet<gpu> gpu { get; set; }
+        public virtual DbSet<internalharddisk> internalharddisk { get; set; }
+        public virtual DbSet<motherboard> motherboard { get; set; }
+        public virtual DbSet<powersupply> powersupply { get; set; }
         public virtual DbSet<product> product { get; set; }
+        public virtual DbSet<ram> ram { get; set; }
+        public virtual DbSet<ssd> ssd { get; set; }
+        public virtual DbSet<supplier> supplier { get; set; }
         public virtual DbSet<user> user { get; set; }
+        public virtual DbSet<wishlist> wishlist { get; set; }
     }
 }
