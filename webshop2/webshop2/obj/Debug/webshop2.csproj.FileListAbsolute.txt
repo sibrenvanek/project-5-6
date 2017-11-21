@@ -375,3 +375,4 @@ C:\Users\Erik\Desktop\prj56\project-5-6 - Copy\webshop2\webshop2\bin\Microsoft.A
 C:\Users\Erik\Desktop\prj56\project-5-6 - Copy\webshop2\webshop2\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Erik\Desktop\prj56\project-5-6 - Copy\webshop2\webshop2\bin\Microsoft.AI.Web.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\obj\Debug\webshop2.csproj.CoreCompileInputs.cache
+C:\Users\erikv\Desktop\PRJ 56\project-5-6\webshop2\webshop2\obj\Debug\webshop2.csproj.CoreCompileInputs.cache
