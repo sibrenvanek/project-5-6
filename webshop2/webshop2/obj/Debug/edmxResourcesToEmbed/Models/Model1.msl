@@ -32,7 +32,7 @@
           <ScalarProperty Name="Width" ColumnName="Width" />
           <ScalarProperty Name="Depth" ColumnName="Depth" />
           <ScalarProperty Name="Height" ColumnName="Height" />
-          <ScalarProperty Name="Color" ColumnName="COlor" />
+          <ScalarProperty Name="COlor" ColumnName="COlor" />
           <ScalarProperty Name="Material" ColumnName="Material" />
         </MappingFragment>
       </EntityTypeMapping>
