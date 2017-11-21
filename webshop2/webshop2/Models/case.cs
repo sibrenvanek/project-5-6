@@ -42,7 +42,7 @@ namespace webshop2.Models
         public Nullable<int> Width { get; set; }
         public Nullable<int> Depth { get; set; }
         public Nullable<int> Height { get; set; }
-        public string COlor { get; set; }
+        public string Color { get; set; }
         public string Material { get; set; }
     }
 }
