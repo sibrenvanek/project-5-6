@@ -21,7 +21,7 @@ namespace webshop2.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("145.24.198.29", throwIfV1Schema: false)
         {
         }
 
