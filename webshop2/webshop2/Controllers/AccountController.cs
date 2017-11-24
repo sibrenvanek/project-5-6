@@ -438,6 +438,13 @@ namespace webshop2.Controllers
             return View();
         }
 
+        public ActionResult ShoppingCart()
+        {
+            ViewBag.Message = "Your Shopping Cart.";
+
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -457,7 +464,6 @@ namespace webshop2.Controllers
 
             base.Dispose(disposing);
         }
-
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

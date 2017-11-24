@@ -26,5 +26,12 @@ namespace webshop2.Controllers
 
             return View();
         }
+
+        public ActionResult ShoppingCart()
+        {
+            ViewBag.Message = "Your Shopping Cart.";
+
+            return View();
+        }
     }
 }
