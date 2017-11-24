@@ -22,7 +22,7 @@ namespace webshop2.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +34,9 @@ namespace webshop2.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -91,8 +91,8 @@ namespace webshop2.Controllers
         }
         public Task<SignInStatus> PasswordSignInDB(string email, string password)
         {
-            Decrypt(Encrypt(email, 33),33);
-            return new Task<SignInStatus>(new Func<SignInStatus>(()=>SignInStatus.Success));
+            Decrypt(Encrypt(email, 33), 33);
+            return new Task<SignInStatus>(new Func<SignInStatus>(() => SignInStatus.Success));
         }
 
         //
@@ -124,7 +124,7 @@ namespace webshop2.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -158,7 +158,9 @@ namespace webshop2.Controllers
                 int code = new Random().Next(0, 100);
                 string username = model.Username;
                 string name = Encrypt(model.Firstname + " " + model.Lastname, code);
-                string email = Encrypt(model.Email, code);
+                string dateofbirth = model.DateOfBirth;
+                DateTime dateOfBirth = Convert.ToDateTime(dateofbirth);//new DateTime(Convert.ToInt32(dateofbirth[6] + dateofbirth[7] + dateofbirth[8] + dateofbirth[9]), Convert.ToInt32(dateofbirth[3] + dateofbirth[4]), Convert.ToInt32(dateofbirth[0] + dateofbirth[1]));
+                string email = model.Email;
                 string password = Encrypt(model.Password, code);
                 string postcode = model.Postcode;
                 int housenumber = Convert.ToInt32(model.Housenumber);
@@ -176,12 +178,34 @@ namespace webshop2.Controllers
                 }
                 string addres = Encrypt(name + "\n" + street + " " + housenumber.ToString() + extension + "\n" + postcode + ", " + city, code);
 
-                var user = new ApplicationUser { UserName = username, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-
+                var user = new user { username = username, adress = addres, Email = email, dateofbirth = dateofbirth,password=password,name=name,phonenumber=phonenumber };
+                IdentityResult result = IdentityResult.Failed();
+                using(new_testEntities1 db = new new_testEntities1())
+                {
+                    bool check = true;
+                    foreach(user u in db.user)
+                    {
+                        if (u.Email == user.Email)
+                        {
+                            check = false;
+                        }
+                    }
+                    if (check)
+                    {
+                        db.user.Add(user);
+                        db.SaveChanges();
+                        result = IdentityResult.Success;
+                    }
+                    else
+                    {
+                        result = IdentityResult.Failed("Email already in use!");
+                    }
+                }
+                var User = new ApplicationUser { UserName = username, Email = email };
+                await User.GenerateUserIdentityAsync(UserManager);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    await SignInManager.SignInAsync(User, isPersistent: false, rememberBrowser: false);
                 }
 
                 return RedirectToAction("Index", "Home");
@@ -438,13 +462,6 @@ namespace webshop2.Controllers
             return View();
         }
 
-        public ActionResult ShoppingCart()
-        {
-            ViewBag.Message = "Your Shopping Cart.";
-
-            return View();
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -464,6 +481,7 @@ namespace webshop2.Controllers
 
             base.Dispose(disposing);
         }
+
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
@@ -556,7 +574,7 @@ namespace webshop2.Controllers
         public static string Decrypt(string s, int code)
         {
             string decryptedS = "";
-            foreach(char c in s)
+            foreach (char c in s)
             {
                 int C = Convert.ToInt32(c);
                 C -= code;
