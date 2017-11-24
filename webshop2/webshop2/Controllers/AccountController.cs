@@ -212,7 +212,7 @@ namespace webshop2.Controllers
                 }
                 string addres = Encrypt(name + "\n" + street + " " + housenumber.ToString() + extension + "\n" + postcode + ", " + city, code);
 
-                var user = new user { username = username, adress = addres, Email = email, dateofbirth = dateofbirth,password=password,name=name,phonenumber=phonenumber };
+                var user = new user { username = username, adress = addres, Email = email, dateofbirth = dateofbirth,password=password,name=name,phonenumber=phonenumber, code=code };
                 IdentityResult result = IdentityResult.Failed();
                 using(new_testEntities1 db = new new_testEntities1())
                 {
@@ -226,8 +226,8 @@ namespace webshop2.Controllers
                     }
                     if (check)
                     {
-                        db.user.Add(user);
-                        db.SaveChanges();
+                        //db.user.Add(user);
+                        //db.SaveChanges();
                         result = IdentityResult.Success;
                     }
                     else
