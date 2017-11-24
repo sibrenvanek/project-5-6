@@ -122,6 +122,11 @@ namespace webshop2.Models
         [DataType(DataType.Text)]
         [Display(Name = "Last Name")]
         public string Lastname { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Date of Birth(DD-MM-YYYY)")]
+        public string DateOfBirth { get; set; }
     }
 
     public class ResetPasswordViewModel

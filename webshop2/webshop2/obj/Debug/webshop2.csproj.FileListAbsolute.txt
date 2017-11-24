@@ -447,3 +447,9 @@ C:\Users\erikv\Desktop\PRJ 56\Backups\project-5-6 - kopie\webshop2\webshop2\obj\
 C:\Users\erikv\Desktop\PRJ 56\Backups\project-5-6 - kopie\webshop2\webshop2\obj\Debug\webshop2.csproj.CoreCompileInputs.cache
 C:\Users\erikv\Desktop\PRJ 56\Backups\project-5-6 - kopie\webshop2\webshop2\obj\Debug\webshop2.dll
 C:\Users\erikv\Desktop\PRJ 56\Backups\project-5-6 - kopie\webshop2\webshop2\obj\Debug\webshop2.pdb
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2\bin\MySql.Data.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2\bin\MySql.Data.Entity.EF6.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2\bin\MySql.Web.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2\bin\MySql.Data.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2\bin\MySql.Data.Entity.EF6.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2\bin\MySql.Web.xml
