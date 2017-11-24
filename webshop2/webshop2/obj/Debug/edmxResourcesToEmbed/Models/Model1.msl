@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="new_testModelStoreContainer" CdmEntityContainer="new_testEntities1">
+    <EntitySetMapping Name="case">
+      <EntityTypeMapping TypeName="new_testModel.case">
+        <MappingFragment StoreEntitySet="case">
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="ComputerHousing" ColumnName="ComputerHousing" />
+          <ScalarProperty Name="FormatMotherboard" ColumnName="FormatMotherboard" />
+          <ScalarProperty Name="USB2" ColumnName="USB2" />
+          <ScalarProperty Name="USB3" ColumnName="USB3" />
+          <ScalarProperty Name="Bays35" ColumnName="Bays35" />
+          <ScalarProperty Name="Bays25" ColumnName="Bays25" />
+          <ScalarProperty Name="Bays525" ColumnName="Bays525" />
+          <ScalarProperty Name="ExtensionLocks" ColumnName="ExtensionLocks" />
+          <ScalarProperty Name="Max_Length_Videocard" ColumnName="Max_Length_Videocard" />
+          <ScalarProperty Name="fanpositions" ColumnName="fanpositions" />
+          <ScalarProperty Name="FrontFan" ColumnName="FrontFan" />
+          <ScalarProperty Name="RearSideFan" ColumnName="RearSideFan" />
+          <ScalarProperty Name="SideFan" ColumnName="SideFan" />
+          <ScalarProperty Name="TOpSideLock" ColumnName="TOpSideLock" />
+          <ScalarProperty Name="FanSupplied" ColumnName="FanSupplied" />
+          <ScalarProperty Name="MaximumAltitutdeOricessir" ColumnName="MaximumAltitutdeOricessir" />
+          <ScalarProperty Name="LocationPowerSupply" ColumnName="LocationPowerSupply" />
+          <ScalarProperty Name="PanelDoor" ColumnName="PanelDoor" />
+          <ScalarProperty Name="NoiseReduction" ColumnName="NoiseReduction" />
+          <ScalarProperty Name="DustFilter" ColumnName="DustFilter" />
+          <ScalarProperty Name="FanController" ColumnName="FanController" />
+          <ScalarProperty Name="SoundProofingMats" ColumnName="SoundProofingMats" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="COlor" ColumnName="COlor" />
+          <ScalarProperty Name="Material" ColumnName="Material" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chat">
+      <EntityTypeMapping TypeName="new_testModel.chat">
+        <MappingFragment StoreEntitySet="chat">
+          <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="ChatStopped" ColumnName="ChatStopped" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cpucooler">
+      <EntityTypeMapping TypeName="new_testModel.cpucooler">
+        <MappingFragment StoreEntitySet="cpucooler">
+          <ScalarProperty Name="CPUCoolerId" ColumnName="CPUCoolerId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="FanConntections" ColumnName="FanConntections" />
+          <ScalarProperty Name="CoolingMethod" ColumnName="CoolingMethod" />
+          <ScalarProperty Name="Socket" ColumnName="Socket" />
+          <ScalarProperty Name="DiameterFan" ColumnName="DiameterFan" />
+          <ScalarProperty Name="Min_RotationSpeed" ColumnName="Min_RotationSpeed" />
+          <ScalarProperty Name="Max_RotationSpeed" ColumnName="Max_RotationSpeed" />
+          <ScalarProperty Name="Min_SounProduction" ColumnName="Min_SounProduction" />
+          <ScalarProperty Name="Max_SoundProduction" ColumnName="Max_SoundProduction" />
+          <ScalarProperty Name="HeitPipes" ColumnName="HeitPipes" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gpu">
+      <EntityTypeMapping TypeName="new_testModel.gpu">
+        <MappingFragment StoreEntitySet="gpu">
+          <ScalarProperty Name="GPUId" ColumnName="GPUId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="BusType" ColumnName="BusType" />
+          <ScalarProperty Name="FreeLocksReuired" ColumnName="FreeLocksReuired" />
+          <ScalarProperty Name="LowProfile" ColumnName="LowProfile" />
+          <ScalarProperty Name="Resotlution" ColumnName="Resotlution" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="TypeOfGPU" ColumnName="TypeOfGPU" />
+          <ScalarProperty Name="Clockspeed" ColumnName="Clockspeed" />
+          <ScalarProperty Name="Turbofrequency" ColumnName="Turbofrequency" />
+          <ScalarProperty Name="StreamProcessors" ColumnName="StreamProcessors" />
+          <ScalarProperty Name="CoolingMethod" ColumnName="CoolingMethod" />
+          <ScalarProperty Name="VideoMemory" ColumnName="VideoMemory" />
+          <ScalarProperty Name="TypeOfMemory" ColumnName="TypeOfMemory" />
+          <ScalarProperty Name="ClockspeedMemoryModule" ColumnName="ClockspeedMemoryModule" />
+          <ScalarProperty Name="BandwithMemoryBus" ColumnName="BandwithMemoryBus" />
+          <ScalarProperty Name="VGAport" ColumnName="VGAport" />
+          <ScalarProperty Name="DVIOutputs" ColumnName="DVIOutputs" />
+          <ScalarProperty Name="HDMIOutputs" ColumnName="HDMIOutputs" />
+          <ScalarProperty Name="DisplayPorts" ColumnName="DisplayPorts" />
+          <ScalarProperty Name="MaxPowerConsumption" ColumnName="MaxPowerConsumption" />
+          <ScalarProperty Name="MinRequiredFeed" ColumnName="MinRequiredFeed" />
+          <ScalarProperty Name="PowerConnectors" ColumnName="PowerConnectors" />
+          <ScalarProperty Name="Directx" ColumnName="Directx" />
+          <ScalarProperty Name="OpenGL" ColumnName="OpenGL" />
+          <ScalarProperty Name="AMDCrossfireX" ColumnName="AMDCrossfireX" />
+          <ScalarProperty Name="NVIDEASLI" ColumnName="NVIDEASLI" />
+          <ScalarProperty Name="HDCP" ColumnName="HDCP" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="internalharddisk">
+      <EntityTypeMapping TypeName="new_testModel.internalharddisk">
+        <MappingFragment StoreEntitySet="internalharddisk">
+          <ScalarProperty Name="InternalHDDId" ColumnName="InternalHDDId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="StorageType" ColumnName="StorageType" />
+          <ScalarProperty Name="HDDSpeed" ColumnName="HDDSpeed" />
+          <ScalarProperty Name="Cache" ColumnName="Cache" />
+          <ScalarProperty Name="HDDFormat" ColumnName="HDDFormat" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="InternalHDDDiskcol" ColumnName="InternalHDDDiskcol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="motherboard">
+      <EntityTypeMapping TypeName="new_testModel.motherboard">
+        <MappingFragment StoreEntitySet="motherboard">
+          <ScalarProperty Name="MotherboardId" ColumnName="MotherboardId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="FormatMotherboard" ColumnName="FormatMotherboard" />
+          <ScalarProperty Name="Socket" ColumnName="Socket" />
+          <ScalarProperty Name="Chipset" ColumnName="Chipset" />
+          <ScalarProperty Name="ClockSpeedMemoryModule" ColumnName="ClockSpeedMemoryModule" />
+          <ScalarProperty Name="Max_AmountOfMemoty" ColumnName="Max_AmountOfMemoty" />
+          <ScalarProperty Name="MemoryLockedTotal" ColumnName="MemoryLockedTotal" />
+          <ScalarProperty Name="Memory" ColumnName="Memory" />
+          <ScalarProperty Name="PXIx16" ColumnName="PXIx16" />
+          <ScalarProperty Name="PCIx8" ColumnName="PCIx8" />
+          <ScalarProperty Name="PCix4" ColumnName="PCix4" />
+          <ScalarProperty Name="PCIx2" ColumnName="PCIx2" />
+          <ScalarProperty Name="PCILocks" ColumnName="PCILocks" />
+          <ScalarProperty Name="PCIMini" ColumnName="PCIMini" />
+          <ScalarProperty Name="EthernetPorts" ColumnName="EthernetPorts" />
+          <ScalarProperty Name="BuiltINWifi" ColumnName="BuiltINWifi" />
+          <ScalarProperty Name="Bluetooth" ColumnName="Bluetooth" />
+          <ScalarProperty Name="FireWire" ColumnName="FireWire" />
+          <ScalarProperty Name="USB2Ports" ColumnName="USB2Ports" />
+          <ScalarProperty Name="USB3Ports" ColumnName="USB3Ports" />
+          <ScalarProperty Name="Thunderbolt" ColumnName="Thunderbolt" />
+          <ScalarProperty Name="PS2" ColumnName="PS2" />
+          <ScalarProperty Name="SATA300" ColumnName="SATA300" />
+          <ScalarProperty Name="SATA600" ColumnName="SATA600" />
+          <ScalarProperty Name="mSATA" ColumnName="mSATA" />
+          <ScalarProperty Name="M2Connections" ColumnName="M2Connections" />
+          <ScalarProperty Name="Raid" ColumnName="Raid" />
+          <ScalarProperty Name="SpeakerChannels" ColumnName="SpeakerChannels" />
+          <ScalarProperty Name="OpticalConnection" ColumnName="OpticalConnection" />
+          <ScalarProperty Name="AudioProcessor" ColumnName="AudioProcessor" />
+          <ScalarProperty Name="VGAPort" ColumnName="VGAPort" />
+          <ScalarProperty Name="DVIPort" ColumnName="DVIPort" />
+          <ScalarProperty Name="HDMIPort" ColumnName="HDMIPort" />
+          <ScalarProperty Name="DisplayPort" ColumnName="DisplayPort" />
+          <ScalarProperty Name="ChipsetCooler" ColumnName="ChipsetCooler" />
+          <ScalarProperty Name="CaseFanConnections" ColumnName="CaseFanConnections" />
+          <ScalarProperty Name="UEFIBIOS" ColumnName="UEFIBIOS" />
+          <ScalarProperty Name="NVIDEASLI" ColumnName="NVIDEASLI" />
+          <ScalarProperty Name="CrossfireX" ColumnName="CrossfireX" />
+          <ScalarProperty Name="KillerNIC" ColumnName="KillerNIC" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="powersupply">
+      <EntityTypeMapping TypeName="new_testModel.powersupply">
+        <MappingFragment StoreEntitySet="powersupply">
+          <ScalarProperty Name="PowerSupplyId" ColumnName="PowerSupplyId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="VersionFOrmFactor" ColumnName="VersionFOrmFactor" />
+          <ScalarProperty Name="Modular" ColumnName="Modular" />
+          <ScalarProperty Name="DiamterFan" ColumnName="DiamterFan" />
+          <ScalarProperty Name="Power" ColumnName="Power" />
+          <ScalarProperty Name="Certification" ColumnName="Certification" />
+          <ScalarProperty Name="AverageLifespawn" ColumnName="AverageLifespawn" />
+          <ScalarProperty Name="ATX20" ColumnName="ATX20" />
+          <ScalarProperty Name="CPU8" ColumnName="CPU8" />
+          <ScalarProperty Name="CPU4" ColumnName="CPU4" />
+          <ScalarProperty Name="CPU4p4" ColumnName="CPU4p4" />
+          <ScalarProperty Name="PCIExpress6pin" ColumnName="PCIExpress6pin" />
+          <ScalarProperty Name="PCIExpress6pin2pin" ColumnName="PCIExpress6pin2pin" />
+          <ScalarProperty Name="IDE" ColumnName="IDE" />
+          <ScalarProperty Name="SAtA" ColumnName="SAtA" />
+          <ScalarProperty Name="FDD" ColumnName="FDD" />
+          <ScalarProperty Name="currentspkes" ColumnName="currentspkes" />
+          <ScalarProperty Name="Overvoltag" ColumnName="Overvoltag" />
+          <ScalarProperty Name="SurgePortection" ColumnName="SurgePortection" />
+          <ScalarProperty Name="UnderPressure" ColumnName="UnderPressure" />
+          <ScalarProperty Name="Overload" ColumnName="Overload" />
+          <ScalarProperty Name="ShortCircuit" ColumnName="ShortCircuit" />
+          <ScalarProperty Name="OverheatingProtection" ColumnName="OverheatingProtection" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product">
+      <EntityTypeMapping TypeName="new_testModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="productid" ColumnName="productid" />
+          <ScalarProperty Name="productname" ColumnName="productname" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ram">
+      <EntityTypeMapping TypeName="new_testModel.ram">
+        <MappingFragment StoreEntitySet="ram">
+          <ScalarProperty Name="RAMId" ColumnName="RAMId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="CompositionOfMemory" ColumnName="CompositionOfMemory" />
+          <ScalarProperty Name="MemoryType" ColumnName="MemoryType" />
+          <ScalarProperty Name="Clockspeed" ColumnName="Clockspeed" />
+          <ScalarProperty Name="CASlatency" ColumnName="CASlatency" />
+          <ScalarProperty Name="Voltage" ColumnName="Voltage" />
+          <ScalarProperty Name="MemoryModuleCOnnection" ColumnName="MemoryModuleCOnnection" />
+          <ScalarProperty Name="MemorySuitableFor" ColumnName="MemorySuitableFor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ssd">
+      <EntityTypeMapping TypeName="new_testModel.ssd">
+        <MappingFragment StoreEntitySet="ssd">
+          <ScalarProperty Name="SSDId" ColumnName="SSDId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Connection" ColumnName="Connection" />
+          <ScalarProperty Name="StorageCapacity" ColumnName="StorageCapacity" />
+          <ScalarProperty Name="AverageTimeBetweenFailures" ColumnName="AverageTimeBetweenFailures" />
+          <ScalarProperty Name="TypeOfMemory" ColumnName="TypeOfMemory" />
+          <ScalarProperty Name="SSDController" ColumnName="SSDController" />
+          <ScalarProperty Name="HardDiskFormat" ColumnName="HardDiskFormat" />
+          <ScalarProperty Name="Max_ReadSpeed" ColumnName="Max_ReadSpeed" />
+          <ScalarProperty Name="Min_ReadingSpeed" ColumnName="Min_ReadingSpeed" />
+          <ScalarProperty Name="Random_ReadingSpeed" ColumnName="Random_ReadingSpeed" />
+          <ScalarProperty Name="Random_WriteSpeed" ColumnName="Random_WriteSpeed" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="supplier">
+      <EntityTypeMapping TypeName="new_testModel.supplier">
+        <MappingFragment StoreEntitySet="supplier">
+          <ScalarProperty Name="SUpplierId" ColumnName="SUpplierId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Housenumber" ColumnName="Housenumber" />
+          <ScalarProperty Name="KvKNumber" ColumnName="KvKNumber" />
+          <ScalarProperty Name="ShippingTime" ColumnName="ShippingTime" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="new_testModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wishlist">
+      <EntityTypeMapping TypeName="new_testModel.wishlist">
+        <MappingFragment StoreEntitySet="wishlist">
+          <ScalarProperty Name="WishlistId" ColumnName="WishlistId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
