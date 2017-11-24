@@ -74,11 +74,33 @@ namespace webshop2.Controllers
             }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await PasswordSignInDB(model.Email, model.Password/*, model.RememberMe, shouldLockout: false*/);
+            bool check = PasswordSignInDB(model.Email, model.Password);
+            SignInStatus result = SignInStatus.Failure;
+            if (check)
+            {
+                string username = null;
+                using (new_testEntities1 db = new new_testEntities1())
+                {
+                    foreach (user u in db.user)
+                    {
+                        if (u.Email == model.Email)
+                        {
+                            if (Decrypt(u.password, 20) == model.Password)
+                            {
+                                username = u.username;
+                                break;
+                            }
+                        }
+                    }
+                }
+                var user = await UserManager.FindByEmailAsync(model.Email);
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                result = SignInStatus.Success;
+            }
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToLocal("../Home/Index");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -89,10 +111,22 @@ namespace webshop2.Controllers
                     return View(model);
             }
         }
-        public Task<SignInStatus> PasswordSignInDB(string email, string password)
+        public bool PasswordSignInDB(string email, string password)
         {
-            Decrypt(Encrypt(email, 33), 33);
-            return new Task<SignInStatus>(new Func<SignInStatus>(() => SignInStatus.Success));
+            using(new_testEntities1 db=new new_testEntities1())
+            {
+                foreach(user u in db.user)
+                {
+                    if (u.Email == email)
+                    {
+                        if (Decrypt(u.password, 20)==password)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
 
         //
