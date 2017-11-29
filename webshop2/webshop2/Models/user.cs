@@ -11,11 +11,10 @@ namespace webshop2.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class user
-    {
+    using Microsoft.AspNet.Identity.EntityFramework;
 
-        public int userid { get; set; }
+    public partial class user : IdentityUser
+    {
         public string adress { get; set; }
         public string Email { get; set; }
         public string dateofbirth { get; set; }
