@@ -173,9 +173,6 @@ C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsof
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsoft.Owin.Security.OAuth.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsoft.Owin.Security.Twitter.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Data.dll
-C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Data.Entity.EF6.dll
-C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Web.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Newtonsoft.Json.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Owin.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\System.Web.Helpers.dll
@@ -191,7 +188,6 @@ C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\EntityFr
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Data.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Data.Entity.EF6.xml
-C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Web.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\System.Web.Helpers.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\System.Web.Mvc.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\System.Web.Optimization.xml
@@ -530,3 +526,4 @@ C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microso
 C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.Web.xml
+C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\obj\Debug\webshop2.csproj.CoreCompileInputs.cache
