@@ -547,9 +547,9 @@
         </EntityType>
         <EntityType Name="user">
           <Key>
-            <PropertyRef Name="userid" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="adress" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="dateofbirth" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -850,7 +850,7 @@
           <EntitySetMapping Name="user">
             <EntityTypeMapping TypeName="new_testModel.user">
               <MappingFragment StoreEntitySet="user">
-                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="Id" ColumnName="userid" />
                 <ScalarProperty Name="adress" ColumnName="adress" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fc034c7a75774f05b1dca551f6680da4" Name="Diagram1" ZoomLevel="94">
+      <Diagram DiagramId="fc034c7a75774f05b1dca551f6680da4" Name="Diagram1" ZoomLevel="106">
         <EntityTypeShape EntityType="new_testModel.case" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.chat" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.cpucooler" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="new_testModel.motherboard" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.powersupply" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.product" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.ram" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.ram" Width="2.875" PointX="3" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.ssd" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.supplier" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.user" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />

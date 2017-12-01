@@ -1,0 +1,32 @@
+﻿@model webshop2.Models.ram
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+</head>
+<body>
+    <div>
+        <h4>ram</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <iframe src="@Url.Content(Model.ImagePath)" width="250" height="250" />
+            </dt>
+    
+            
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RAMId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

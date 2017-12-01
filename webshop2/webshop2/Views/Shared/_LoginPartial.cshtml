@@ -10,12 +10,9 @@
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-<<<<<<< HEAD
         <a href="@Url.Action("ShoppingCart", "Account")" class="navbar-brand">
             <img src="~/images/cart.png" title="Cart" alt="" width="50" height="50" />
         </a> 
-=======
->>>>>>> 9c3ee09b8a92a731b60904d7ac1bb20bda0c67e5
     </ul>
     }
 }

@@ -173,9 +173,6 @@ C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsof
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsoft.Owin.Security.OAuth.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsoft.Owin.Security.Twitter.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Data.dll
-C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Data.Entity.EF6.dll
-C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Web.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Newtonsoft.Json.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Owin.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\System.Web.Helpers.dll
@@ -191,7 +188,6 @@ C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\EntityFr
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Data.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Data.Entity.EF6.xml
-C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\MySql.Web.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\System.Web.Helpers.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\System.Web.Mvc.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\System.Web.Optimization.xml
@@ -453,6 +449,7 @@ C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2
 C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2\bin\MySql.Data.xml
 C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2\bin\MySql.Data.Entity.EF6.xml
 C:\Users\sibre\Documents\studie\project 5-6\github\project-5-6\webshop2\webshop2\bin\MySql.Web.xml
+<<<<<<< HEAD
 C:\Users\niels\Documents\GitHub\project-5-6\webshop2\webshop2\bin\ApplicationInsights.config
 C:\Users\niels\Documents\GitHub\project-5-6\webshop2\webshop2\bin\webshop2.dll.config
 C:\Users\niels\Documents\GitHub\project-5-6\webshop2\webshop2\bin\webshop2.dll
@@ -530,3 +527,83 @@ C:\Users\niels\Documents\GitHub\project-5-6\webshop2\webshop2\obj\Debug\webshop2
 C:\Users\niels\Documents\GitHub\project-5-6\webshop2\webshop2\obj\Debug\webshop2.csproj.CoreCompileInputs.cache
 C:\Users\niels\Documents\GitHub\project-5-6\webshop2\webshop2\obj\Debug\webshop2.dll
 C:\Users\niels\Documents\GitHub\project-5-6\webshop2\webshop2\obj\Debug\webshop2.pdb
+=======
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\obj\Debug\webshop2.csprojResolveAssemblyReference.cache
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\obj\Debug\webshop2.csproj.CoreCompileInputs.cache
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\obj\Debug\webshop2.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\obj\Debug\webshop2.pdb
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\ApplicationInsights.config
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\webshop2.dll.config
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\webshop2.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\webshop2.pdb
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Antlr3.Runtime.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\EntityFramework.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\EntityFramework.SqlServer.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.Web.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.ApplicationInsights.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\MySql.Data.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\MySql.Data.Entity.EF6.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\MySql.Web.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Newtonsoft.Json.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Owin.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.Helpers.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.Mvc.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.Optimization.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.Razor.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.WebPages.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.WebPages.Razor.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\WebGrease.dll
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\EntityFramework.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\EntityFramework.SqlServer.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\MySql.Data.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\MySql.Data.Entity.EF6.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\MySql.Web.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.Helpers.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.Mvc.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.Optimization.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.Razor.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.WebPages.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\System.Web.WebPages.Razor.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Antlr3.Runtime.pdb
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Newtonsoft.Json.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.ApplicationInsights.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\sibre\Documents\studie\project 5-6\github\webshop2\webshop2\bin\Microsoft.AI.Web.xml
+C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\obj\Debug\webshop2.csproj.CoreCompileInputs.cache
+>>>>>>> ed1545bd7f4549a02ca40cf7ee09b35492ff7837
