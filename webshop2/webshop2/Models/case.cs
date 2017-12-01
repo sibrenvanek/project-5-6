@@ -44,5 +44,6 @@ namespace webshop2.Models
         public Nullable<int> Height { get; set; }
         public string COlor { get; set; }
         public string Material { get; set; }
+        public string ImagePath { get; set; }
     }
 }

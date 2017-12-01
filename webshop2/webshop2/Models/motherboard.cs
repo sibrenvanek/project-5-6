@@ -58,5 +58,6 @@ namespace webshop2.Models
         public Nullable<float> Width { get; set; }
         public Nullable<float> Depth { get; set; }
         public Nullable<float> Height { get; set; }
+        public string ImagePath { get; set; }
     }
 }

@@ -22,5 +22,6 @@ namespace webshop2.Models
         public Nullable<float> HDDFormat { get; set; }
         public Nullable<float> Height { get; set; }
         public string InternalHDDDiskcol { get; set; }
+        public string ImagePath { get; set; }
     }
 }
