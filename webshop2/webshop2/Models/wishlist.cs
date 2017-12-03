@@ -14,7 +14,8 @@ namespace webshop2.Models
     
     public partial class wishlist
     {
-        public int WishlistId { get; set; }
+        public int ProductId { get; set; }
         public Nullable<int> Quantity { get; set; }
+        public int UserId { get; set; }
     }
 }

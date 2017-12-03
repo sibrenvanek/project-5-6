@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class product
     {
-        public int productid { get; set; }
+        public int ProductId { get; set; }
         public string productname { get; set; }
         public Nullable<decimal> price { get; set; }
         public Nullable<int> count { get; set; }

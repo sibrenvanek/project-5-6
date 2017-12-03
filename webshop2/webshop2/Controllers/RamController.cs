@@ -14,7 +14,7 @@ namespace webshop2.Controllers
         {
             ram ramimage = new ram();
 
-            using (new_testEntities1 db = new new_testEntities1())
+            using (new_testEntities3 db = new new_testEntities3())
             {
                 db.ram.Add(new ram {
                     Brand ="testbrand",
@@ -23,13 +23,13 @@ namespace webshop2.Controllers
                     Clockspeed=1,
                     CASlatency=1,
                     Voltage=1,
-                    MemoryModuleCOnnection=50,
+                    MemoryModuleConnection=50,
                     MemorySuitableFor="datatest",
                     ImagePath = "C:/Users/erikv/Desktop/PRJ 56/project-5-6 - kopie/webshop2/webshop2/Content/ram1.jpg" });
                  
                 db.SaveChanges();
 
-                ramimage = db.ram.Where(x => x.RAMId == id).FirstOrDefault();
+                ramimage = db.ram.Where(x => x.RamId == id).FirstOrDefault();
             }
                 return View(ramimage);
         }

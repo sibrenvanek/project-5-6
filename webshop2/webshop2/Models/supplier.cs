@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class supplier
     {
-        public int SUpplierId { get; set; }
+        public int SupplierId { get; set; }
         public string Name { get; set; }
         public string City { get; set; }
         public string Street { get; set; }

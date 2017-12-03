@@ -13,10 +13,10 @@ namespace webshop2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class new_testEntities1 : DbContext
+    public partial class new_testEntities3 : DbContext
     {
-        public new_testEntities1()
-            : base("name=new_testEntities1")
+        public new_testEntities3()
+            : base("name=new_testEntities3")
         {
         }
     

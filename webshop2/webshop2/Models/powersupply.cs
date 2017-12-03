@@ -14,14 +14,14 @@ namespace webshop2.Models
     
     public partial class powersupply
     {
-        public int PowerSupplyId { get; set; }
+        public int ProductId { get; set; }
         public string Brand { get; set; }
-        public string VersionFOrmFactor { get; set; }
+        public string VersionFormFactor { get; set; }
         public Nullable<sbyte> Modular { get; set; }
-        public Nullable<float> DiamterFan { get; set; }
+        public Nullable<float> DiameterFan { get; set; }
         public Nullable<int> Power { get; set; }
         public string Certification { get; set; }
-        public Nullable<int> AverageLifespawn { get; set; }
+        public Nullable<int> AverageLifespan { get; set; }
         public Nullable<int> ATX20 { get; set; }
         public Nullable<int> CPU8 { get; set; }
         public Nullable<int> CPU4 { get; set; }
@@ -29,11 +29,11 @@ namespace webshop2.Models
         public Nullable<int> PCIExpress6pin { get; set; }
         public Nullable<int> PCIExpress6pin2pin { get; set; }
         public Nullable<int> IDE { get; set; }
-        public Nullable<int> SAtA { get; set; }
+        public Nullable<int> SATA { get; set; }
         public Nullable<int> FDD { get; set; }
-        public Nullable<sbyte> currentspkes { get; set; }
-        public Nullable<sbyte> Overvoltag { get; set; }
-        public Nullable<sbyte> SurgePortection { get; set; }
+        public Nullable<sbyte> currentspikes { get; set; }
+        public Nullable<sbyte> Overvoltage { get; set; }
+        public Nullable<sbyte> SurgeProtection { get; set; }
         public Nullable<sbyte> UnderPressure { get; set; }
         public Nullable<sbyte> Overload { get; set; }
         public Nullable<sbyte> ShortCircuit { get; set; }
@@ -41,6 +41,5 @@ namespace webshop2.Models
         public Nullable<float> Width { get; set; }
         public Nullable<float> Depth { get; set; }
         public Nullable<float> Height { get; set; }
-        public string ImagePath { get; set; }
     }
 }

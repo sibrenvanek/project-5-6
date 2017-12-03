@@ -14,13 +14,13 @@ namespace webshop2.Models
     
     public partial class motherboard
     {
-        public int MotherboardId { get; set; }
+        public int ProductId { get; set; }
         public string Brand { get; set; }
         public string FormatMotherboard { get; set; }
         public Nullable<int> Socket { get; set; }
         public string Chipset { get; set; }
         public Nullable<int> ClockSpeedMemoryModule { get; set; }
-        public Nullable<int> Max_AmountOfMemoty { get; set; }
+        public Nullable<int> Max_AmountOfMemory { get; set; }
         public Nullable<int> MemoryLockedTotal { get; set; }
         public string Memory { get; set; }
         public Nullable<int> PXIx16 { get; set; }
@@ -58,6 +58,5 @@ namespace webshop2.Models
         public Nullable<float> Width { get; set; }
         public Nullable<float> Depth { get; set; }
         public Nullable<float> Height { get; set; }
-        public string ImagePath { get; set; }
     }
 }

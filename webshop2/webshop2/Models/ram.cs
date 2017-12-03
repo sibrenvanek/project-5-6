@@ -14,15 +14,16 @@ namespace webshop2.Models
     
     public partial class ram
     {
-        public int RAMId { get; set; }
+        public int RamId { get; set; }
         public string Brand { get; set; }
         public string CompositionOfMemory { get; set; }
         public string MemoryType { get; set; }
         public Nullable<int> Clockspeed { get; set; }
         public Nullable<int> CASlatency { get; set; }
         public Nullable<float> Voltage { get; set; }
-        public Nullable<int> MemoryModuleCOnnection { get; set; }
+        public Nullable<int> MemoryModuleConnection { get; set; }
         public string MemorySuitableFor { get; set; }
         public string ImagePath { get; set; }
+        public string teststring { get; set; }
     }
 }

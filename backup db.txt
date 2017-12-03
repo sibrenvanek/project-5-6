@@ -1,4 +1,4 @@
-CREATE DATABASE `new_test` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE `new_test`
 
 CREATE TABLE `case` (
   `ProductId` int(11) NOT NULL,
