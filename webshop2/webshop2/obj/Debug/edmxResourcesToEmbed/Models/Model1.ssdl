@@ -254,9 +254,9 @@
   </EntityType>
   <EntityType Name="user">
     <Key>
-      <PropertyRef Name="UserId" />
+      <PropertyRef Name="userid" />
     </Key>
-    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="adress" Type="varchar" MaxLength="45" />
     <Property Name="Email" Type="varchar" MaxLength="45" />
     <Property Name="dateofbirth" Type="varchar" MaxLength="45" />
