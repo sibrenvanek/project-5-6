@@ -9,6 +9,14 @@ namespace webshop2.Controllers
 {
     public class RamController : Controller
     {
+        public ActionResult Index()
+        {
+            using (new_testEntities3 db = new new_testEntities3())
+            {
+                return View(db.ram.ToList());
+            }
+                
+        }
         // GET: Image
         [HttpGet]
         public ActionResult View(int id)
