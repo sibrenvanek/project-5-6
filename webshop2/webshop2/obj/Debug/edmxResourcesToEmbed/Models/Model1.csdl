@@ -254,9 +254,8 @@
   </EntityType>
   <EntityType Name="user">
     <Key>
-      <PropertyRef Name="userid" />
+      <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="adress" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="dateofbirth" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -265,6 +264,7 @@
     <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="phonenumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="code" Type="Int32" />
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="wishlist">
     <Key>

@@ -267,7 +267,7 @@
     <EntitySetMapping Name="user">
       <EntityTypeMapping TypeName="new_testModel.user">
         <MappingFragment StoreEntitySet="user">
-          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="adress" ColumnName="adress" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
