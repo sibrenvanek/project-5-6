@@ -1,0 +1,95 @@
+﻿@model IEnumerable<webshop2.Models.ram>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>            
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompositionOfMemory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemoryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clockspeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CASlatency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voltage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemoryModuleConnection)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemorySuitableFor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.teststring)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompositionOfMemory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemoryType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clockspeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CASlatency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voltage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemoryModuleConnection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemorySuitableFor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImagePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teststring)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.RamId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.RamId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.RamId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

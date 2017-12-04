@@ -14,12 +14,12 @@ namespace webshop2.Models
     
     public partial class gpu
     {
-        public int GPUId { get; set; }
+        public int ProductId { get; set; }
         public string Brand { get; set; }
         public string BusType { get; set; }
-        public Nullable<int> FreeLocksReuired { get; set; }
+        public Nullable<int> FreeLocksRequired { get; set; }
         public Nullable<sbyte> LowProfile { get; set; }
-        public string Resotlution { get; set; }
+        public string Resolution { get; set; }
         public string Manufacturer { get; set; }
         public string TypeOfGPU { get; set; }
         public Nullable<int> Clockspeed { get; set; }
@@ -45,6 +45,5 @@ namespace webshop2.Models
         public Nullable<float> Width { get; set; }
         public Nullable<float> Depth { get; set; }
         public Nullable<float> Height { get; set; }
-        public string ImagePath { get; set; }
     }
 }

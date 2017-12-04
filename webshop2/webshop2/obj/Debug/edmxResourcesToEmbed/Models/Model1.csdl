@@ -2,9 +2,9 @@
 <Schema Namespace="new_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="case">
     <Key>
-      <PropertyRef Name="caseid" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="caseid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="ComputerHousing" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="FormatMotherboard" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -19,7 +19,7 @@
     <Property Name="FrontFan" Type="Int32" />
     <Property Name="RearSideFan" Type="Int32" />
     <Property Name="SideFan" Type="Int32" />
-    <Property Name="TOpSideLock" Type="Int32" />
+    <Property Name="TopSideLock" Type="Int32" />
     <Property Name="FanSupplied" Type="Int32" />
     <Property Name="MaximumAltitutdeOricessir" Type="Int32" />
     <Property Name="LocationPowerSupply" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -32,7 +32,7 @@
     <Property Name="Width" Type="Int32" />
     <Property Name="Depth" Type="Int32" />
     <Property Name="Height" Type="Int32" />
-    <Property Name="COlor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Color" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Material" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="chat">
@@ -45,19 +45,19 @@
   </EntityType>
   <EntityType Name="cpucooler">
     <Key>
-      <PropertyRef Name="CPUCoolerId" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="CPUCoolerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="FanConntections" Type="Int32" />
+    <Property Name="FanConnections" Type="Int32" />
     <Property Name="CoolingMethod" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Socket" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="DiameterFan" Type="Int32" />
     <Property Name="Min_RotationSpeed" Type="Int32" />
     <Property Name="Max_RotationSpeed" Type="Int32" />
-    <Property Name="Min_SounProduction" Type="Single" />
+    <Property Name="Min_SoundProduction" Type="Single" />
     <Property Name="Max_SoundProduction" Type="Single" />
-    <Property Name="HeitPipes" Type="Int32" />
+    <Property Name="HeatPipes" Type="Int32" />
     <Property Name="Weight" Type="Single" />
     <Property Name="Width" Type="Single" />
     <Property Name="Depth" Type="Single" />
@@ -65,14 +65,14 @@
   </EntityType>
   <EntityType Name="gpu">
     <Key>
-      <PropertyRef Name="GPUId" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="GPUId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="BusType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="FreeLocksReuired" Type="Int32" />
+    <Property Name="FreeLocksRequired" Type="Int32" />
     <Property Name="LowProfile" Type="SByte" />
-    <Property Name="Resotlution" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Resolution" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Manufacturer" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="TypeOfGPU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Clockspeed" Type="Int32" />
@@ -101,9 +101,9 @@
   </EntityType>
   <EntityType Name="internalharddisk">
     <Key>
-      <PropertyRef Name="InternalHDDId" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="InternalHDDId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="StorageType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="HDDSpeed" Type="Int32" />
@@ -114,15 +114,15 @@
   </EntityType>
   <EntityType Name="motherboard">
     <Key>
-      <PropertyRef Name="MotherboardId" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="MotherboardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="FormatMotherboard" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Socket" Type="Int32" />
     <Property Name="Chipset" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="ClockSpeedMemoryModule" Type="Int32" />
-    <Property Name="Max_AmountOfMemoty" Type="Int32" />
+    <Property Name="Max_AmountOfMemory" Type="Int32" />
     <Property Name="MemoryLockedTotal" Type="Int32" />
     <Property Name="Memory" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="PXIx16" Type="Int32" />
@@ -163,16 +163,16 @@
   </EntityType>
   <EntityType Name="powersupply">
     <Key>
-      <PropertyRef Name="PowerSupplyId" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="PowerSupplyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="VersionFOrmFactor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="VersionFormFactor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Modular" Type="SByte" />
-    <Property Name="DiamterFan" Type="Single" />
+    <Property Name="DiameterFan" Type="Single" />
     <Property Name="Power" Type="Int32" />
     <Property Name="Certification" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="AverageLifespawn" Type="Int32" />
+    <Property Name="AverageLifespan" Type="Int32" />
     <Property Name="ATX20" Type="Int32" />
     <Property Name="CPU8" Type="Int32" />
     <Property Name="CPU4" Type="Int32" />
@@ -180,11 +180,11 @@
     <Property Name="PCIExpress6pin" Type="Int32" />
     <Property Name="PCIExpress6pin2pin" Type="Int32" />
     <Property Name="IDE" Type="Int32" />
-    <Property Name="SAtA" Type="Int32" />
+    <Property Name="SATA" Type="Int32" />
     <Property Name="FDD" Type="Int32" />
-    <Property Name="currentspkes" Type="SByte" />
-    <Property Name="Overvoltag" Type="SByte" />
-    <Property Name="SurgePortection" Type="SByte" />
+    <Property Name="currentspikes" Type="SByte" />
+    <Property Name="Overvoltage" Type="SByte" />
+    <Property Name="SurgeProtection" Type="SByte" />
     <Property Name="UnderPressure" Type="SByte" />
     <Property Name="Overload" Type="SByte" />
     <Property Name="ShortCircuit" Type="SByte" />
@@ -195,32 +195,34 @@
   </EntityType>
   <EntityType Name="product">
     <Key>
-      <PropertyRef Name="productid" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="productid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="productname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="price" Type="Decimal" />
     <Property Name="count" Type="Int32" />
   </EntityType>
   <EntityType Name="ram">
     <Key>
-      <PropertyRef Name="RAMId" />
+      <PropertyRef Name="RamId" />
     </Key>
-    <Property Name="RAMId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="CompositionOfMemory" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="MemoryType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Clockspeed" Type="Int32" />
     <Property Name="CASlatency" Type="Int32" />
     <Property Name="Voltage" Type="Single" />
-    <Property Name="MemoryModuleCOnnection" Type="Int32" />
+    <Property Name="MemoryModuleConnection" Type="Int32" />
     <Property Name="MemorySuitableFor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="teststring" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="ssd">
     <Key>
-      <PropertyRef Name="SSDId" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="SSDId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Connection" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="StorageCapacity" Type="Int32" />
@@ -239,9 +241,9 @@
   </EntityType>
   <EntityType Name="supplier">
     <Key>
-      <PropertyRef Name="SUpplierId" />
+      <PropertyRef Name="SupplierId" />
     </Key>
-    <Property Name="SUpplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="City" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Street" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -252,9 +254,9 @@
   </EntityType>
   <EntityType Name="user">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="userid" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="adress" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="dateofbirth" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -262,15 +264,18 @@
     <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="phonenumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="code" Type="Int32" />
   </EntityType>
   <EntityType Name="wishlist">
     <Key>
-      <PropertyRef Name="WishlistId" />
+      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="WishlistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="new_testEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="new_testEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="case" EntityType="Self.case" />
     <EntitySet Name="chat" EntityType="Self.chat" />
     <EntitySet Name="cpucooler" EntityType="Self.cpucooler" />

@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class @case
     {
-        public int caseid { get; set; }
+        public int ProductId { get; set; }
         public string Brand { get; set; }
         public string ComputerHousing { get; set; }
         public string FormatMotherboard { get; set; }
@@ -29,7 +29,7 @@ namespace webshop2.Models
         public Nullable<int> FrontFan { get; set; }
         public Nullable<int> RearSideFan { get; set; }
         public Nullable<int> SideFan { get; set; }
-        public Nullable<int> TOpSideLock { get; set; }
+        public Nullable<int> TopSideLock { get; set; }
         public Nullable<int> FanSupplied { get; set; }
         public Nullable<int> MaximumAltitutdeOricessir { get; set; }
         public string LocationPowerSupply { get; set; }
@@ -42,8 +42,7 @@ namespace webshop2.Models
         public Nullable<int> Width { get; set; }
         public Nullable<int> Depth { get; set; }
         public Nullable<int> Height { get; set; }
-        public string COlor { get; set; }
+        public string Color { get; set; }
         public string Material { get; set; }
-        public string ImagePath { get; set; }
     }
 }
