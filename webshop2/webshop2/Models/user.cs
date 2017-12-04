@@ -14,7 +14,6 @@ namespace webshop2.Models
     
     public partial class user
     {
-        public int userid { get; set; }
         public string adress { get; set; }
         public string Email { get; set; }
         public string dateofbirth { get; set; }
@@ -23,5 +22,6 @@ namespace webshop2.Models
         public string name { get; set; }
         public string phonenumber { get; set; }
         public Nullable<int> code { get; set; }
+        public int UserId { get; set; }
     }
 }
