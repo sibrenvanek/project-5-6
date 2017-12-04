@@ -12,16 +12,16 @@ namespace webshop2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class user : ApplicationUser
     {
-        public int userid { get; set; }
+        public int UserId { get; set; }
         public string adress { get; set; }
-        public string Email { get; set; }
+        public override string Email { get; set; }
         public string dateofbirth { get; set; }
         public string password { get; set; }
         public string username { get; set; }
         public string name { get; set; }
         public string phonenumber { get; set; }
-        public Nullable<int> code { get; set; }
+        public int code { get; set; }
     }
 }
