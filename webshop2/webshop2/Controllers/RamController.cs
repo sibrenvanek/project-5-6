@@ -11,7 +11,7 @@ namespace webshop2.Controllers
     {
         public ActionResult Index()
         {
-            using (new_testEntities3 db = new new_testEntities3())
+            using (new_testEntities db = new new_testEntities())
             {
                 return View(db.ram.ToList());
             }
@@ -23,7 +23,7 @@ namespace webshop2.Controllers
         {
             ram ramimage = new ram();
 
-            using (new_testEntities3 db = new new_testEntities3())
+            using (new_testEntities db = new new_testEntities())
             {
                 //db.ram.Add(new ram
                 //{
@@ -40,7 +40,7 @@ namespace webshop2.Controllers
                 
                 //db.SaveChanges();
 
-                ramimage = db.ram.Where(x => x.RamId == id).FirstOrDefault();
+                ramimage = db.ram.Where(x => x.ID == id).FirstOrDefault();
             }
                 return View(ramimage);
         }

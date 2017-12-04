@@ -89,7 +89,7 @@ namespace webshop2.Controllers
             }
             string addres = Encrypt(name + "\n" + street + " " + housenumber.ToString() + extension + "\n" + postcode + ", " + city, code);
             IdentityResult result = IdentityResult.Failed();
-            using (new_testEntities3 db = new new_testEntities3())
+            using (new_testEntities db = new new_testEntities())
             {
                 bool check = true;
                 foreach (user u in db.user)
@@ -121,13 +121,13 @@ namespace webshop2.Controllers
         [HttpGet]
         public ActionResult Login(LoginViewModel model)
         {
-            using (new_testEntities3 db = new new_testEntities3())
+            using (new_testEntities db = new new_testEntities())
             {
-                foreach (user u in db.user)
+                foreach (user user in db.user)
                 {
-                    if (u.Email == model.Email)
+                    if (user.Email == model.Email)
                     {
-                        if (Decrypt(u.password, u.code) == model.Password)
+                        if (Decrypt(user.password, user.code) == model.Password)
                         {
                             //correct login
 

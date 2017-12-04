@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class motherboard
     {
-        public int ProductId { get; set; }
+        public int ID { get; set; }
         public string Brand { get; set; }
         public string FormatMotherboard { get; set; }
         public Nullable<int> Socket { get; set; }

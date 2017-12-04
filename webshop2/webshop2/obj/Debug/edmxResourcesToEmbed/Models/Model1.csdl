@@ -2,9 +2,9 @@
 <Schema Namespace="new_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="case">
     <Key>
-      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="ComputerHousing" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="FormatMotherboard" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -37,17 +37,17 @@
   </EntityType>
   <EntityType Name="chat">
     <Key>
-      <PropertyRef Name="KeyId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="content" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="ChatStopped" Type="SByte" />
   </EntityType>
   <EntityType Name="cpucooler">
     <Key>
-      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="FanConnections" Type="Int32" />
     <Property Name="CoolingMethod" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -65,9 +65,9 @@
   </EntityType>
   <EntityType Name="gpu">
     <Key>
-      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="BusType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="FreeLocksRequired" Type="Int32" />
@@ -101,9 +101,9 @@
   </EntityType>
   <EntityType Name="internalharddisk">
     <Key>
-      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="StorageType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="HDDSpeed" Type="Int32" />
@@ -114,9 +114,9 @@
   </EntityType>
   <EntityType Name="motherboard">
     <Key>
-      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="FormatMotherboard" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Socket" Type="Int32" />
@@ -163,9 +163,9 @@
   </EntityType>
   <EntityType Name="powersupply">
     <Key>
-      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="VersionFormFactor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Modular" Type="SByte" />
@@ -193,20 +193,11 @@
     <Property Name="Depth" Type="Single" />
     <Property Name="Height" Type="Single" />
   </EntityType>
-  <EntityType Name="product">
-    <Key>
-      <PropertyRef Name="ProductId" />
-    </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="productname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="price" Type="Decimal" />
-    <Property Name="count" Type="Int32" />
-  </EntityType>
   <EntityType Name="ram">
     <Key>
-      <PropertyRef Name="RamId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="RamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="CompositionOfMemory" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="MemoryType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -216,13 +207,15 @@
     <Property Name="MemoryModuleConnection" Type="Int32" />
     <Property Name="MemorySuitableFor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="ImagePath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-    <Property Name="teststring" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" />
+    <NavigationProperty Name="wishlist" Relationship="Self.FK_ram_id" FromRole="ram" ToRole="wishlist" />
   </EntityType>
   <EntityType Name="ssd">
     <Key>
-      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Connection" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="StorageCapacity" Type="Int32" />
@@ -241,9 +234,9 @@
   </EntityType>
   <EntityType Name="supplier">
     <Key>
-      <PropertyRef Name="SupplierId" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="SupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="City" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Street" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -254,9 +247,9 @@
   </EntityType>
   <EntityType Name="user">
     <Key>
-      <PropertyRef Name="userid" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="adress" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="dateofbirth" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -264,7 +257,8 @@
     <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="phonenumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="code" Type="Int32" />
+    <Property Name="code" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="wishlist" Relationship="Self.FK_user_id" FromRole="user" ToRole="wishlist" />
   </EntityType>
   <EntityType Name="wishlist">
     <Key>
@@ -274,8 +268,36 @@
     <Property Name="ProductId" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ram" Relationship="Self.FK_ram_id" FromRole="wishlist" ToRole="ram" />
+    <NavigationProperty Name="user" Relationship="Self.FK_user_id" FromRole="wishlist" ToRole="user" />
   </EntityType>
-  <EntityContainer Name="new_testEntities3" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK_ram_id">
+    <End Role="ram" Type="Self.ram" Multiplicity="1" />
+    <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ram">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="wishlist">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_id">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="wishlist">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="new_testEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="case" EntityType="Self.case" />
     <EntitySet Name="chat" EntityType="Self.chat" />
     <EntitySet Name="cpucooler" EntityType="Self.cpucooler" />
@@ -283,11 +305,18 @@
     <EntitySet Name="internalharddisk" EntityType="Self.internalharddisk" />
     <EntitySet Name="motherboard" EntityType="Self.motherboard" />
     <EntitySet Name="powersupply" EntityType="Self.powersupply" />
-    <EntitySet Name="product" EntityType="Self.product" />
     <EntitySet Name="ram" EntityType="Self.ram" />
     <EntitySet Name="ssd" EntityType="Self.ssd" />
     <EntitySet Name="supplier" EntityType="Self.supplier" />
     <EntitySet Name="user" EntityType="Self.user" />
     <EntitySet Name="wishlist" EntityType="Self.wishlist" />
+    <AssociationSet Name="FK_ram_id" Association="Self.FK_ram_id">
+      <End Role="ram" EntitySet="ram" />
+      <End Role="wishlist" EntitySet="wishlist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_id" Association="Self.FK_user_id">
+      <End Role="user" EntitySet="user" />
+      <End Role="wishlist" EntitySet="wishlist" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

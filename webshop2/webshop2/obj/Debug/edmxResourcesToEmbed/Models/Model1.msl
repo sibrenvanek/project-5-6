@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="new_testModelStoreContainer" CdmEntityContainer="new_testEntities3">
+  <EntityContainerMapping StorageEntityContainer="new_testModelStoreContainer" CdmEntityContainer="new_testEntities">
     <EntitySetMapping Name="case">
       <EntityTypeMapping TypeName="new_testModel.case">
         <MappingFragment StoreEntitySet="case">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="ComputerHousing" ColumnName="ComputerHousing" />
           <ScalarProperty Name="FormatMotherboard" ColumnName="FormatMotherboard" />
@@ -40,7 +40,7 @@
     <EntitySetMapping Name="chat">
       <EntityTypeMapping TypeName="new_testModel.chat">
         <MappingFragment StoreEntitySet="chat">
-          <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="content" ColumnName="content" />
           <ScalarProperty Name="ChatStopped" ColumnName="ChatStopped" />
         </MappingFragment>
@@ -49,7 +49,7 @@
     <EntitySetMapping Name="cpucooler">
       <EntityTypeMapping TypeName="new_testModel.cpucooler">
         <MappingFragment StoreEntitySet="cpucooler">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="FanConnections" ColumnName="FanConnections" />
           <ScalarProperty Name="CoolingMethod" ColumnName="CoolingMethod" />
@@ -70,7 +70,7 @@
     <EntitySetMapping Name="gpu">
       <EntityTypeMapping TypeName="new_testModel.gpu">
         <MappingFragment StoreEntitySet="gpu">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="BusType" ColumnName="BusType" />
           <ScalarProperty Name="FreeLocksRequired" ColumnName="FreeLocksRequired" />
@@ -107,7 +107,7 @@
     <EntitySetMapping Name="internalharddisk">
       <EntityTypeMapping TypeName="new_testModel.internalharddisk">
         <MappingFragment StoreEntitySet="internalharddisk">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="StorageType" ColumnName="StorageType" />
           <ScalarProperty Name="HDDSpeed" ColumnName="HDDSpeed" />
@@ -121,7 +121,7 @@
     <EntitySetMapping Name="motherboard">
       <EntityTypeMapping TypeName="new_testModel.motherboard">
         <MappingFragment StoreEntitySet="motherboard">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="FormatMotherboard" ColumnName="FormatMotherboard" />
           <ScalarProperty Name="Socket" ColumnName="Socket" />
@@ -171,7 +171,7 @@
     <EntitySetMapping Name="powersupply">
       <EntityTypeMapping TypeName="new_testModel.powersupply">
         <MappingFragment StoreEntitySet="powersupply">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="VersionFormFactor" ColumnName="VersionFormFactor" />
           <ScalarProperty Name="Modular" ColumnName="Modular" />
@@ -201,20 +201,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="product">
-      <EntityTypeMapping TypeName="new_testModel.product">
-        <MappingFragment StoreEntitySet="product">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="productname" ColumnName="productname" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="count" ColumnName="count" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ram">
       <EntityTypeMapping TypeName="new_testModel.ram">
         <MappingFragment StoreEntitySet="ram">
-          <ScalarProperty Name="RamId" ColumnName="RamId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="CompositionOfMemory" ColumnName="CompositionOfMemory" />
           <ScalarProperty Name="MemoryType" ColumnName="MemoryType" />
@@ -224,14 +214,15 @@
           <ScalarProperty Name="MemoryModuleConnection" ColumnName="MemoryModuleConnection" />
           <ScalarProperty Name="MemorySuitableFor" ColumnName="MemorySuitableFor" />
           <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-          <ScalarProperty Name="teststring" ColumnName="teststring" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ssd">
       <EntityTypeMapping TypeName="new_testModel.ssd">
         <MappingFragment StoreEntitySet="ssd">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="Connection" ColumnName="Connection" />
           <ScalarProperty Name="StorageCapacity" ColumnName="StorageCapacity" />
@@ -253,7 +244,7 @@
     <EntitySetMapping Name="supplier">
       <EntityTypeMapping TypeName="new_testModel.supplier">
         <MappingFragment StoreEntitySet="supplier">
-          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Street" ColumnName="Street" />
@@ -267,7 +258,7 @@
     <EntitySetMapping Name="user">
       <EntityTypeMapping TypeName="new_testModel.user">
         <MappingFragment StoreEntitySet="user">
-          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="adress" ColumnName="adress" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
@@ -285,6 +276,8 @@
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

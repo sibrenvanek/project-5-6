@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class gpu
     {
-        public int ProductId { get; set; }
+        public int ID { get; set; }
         public string Brand { get; set; }
         public string BusType { get; set; }
         public Nullable<int> FreeLocksRequired { get; set; }
