@@ -1,8 +1,5 @@
 ﻿@model webshop2.Models.ram
 
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 
@@ -13,18 +10,15 @@
 </head>
 <body>
     <div>
-        <h4>ram</h4>
+        <h4>@Html.DisplayFor(model => model.Brand)</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                <img src="@Url.Content(Model.ImagePath)"width="250" height="250"/>
-            </dt>
-            <dt>
-                @Html.DisplayNameFor(model => model.Brand)
+                Image
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Brand)
+                <img src="@Url.Content(Model.ImagePath)" width="350" height="200" />
             </dd>
     
             <dt>
@@ -83,13 +77,6 @@
                 @Html.DisplayFor(model => model.MemorySuitableFor)
             </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.ImagePath)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.ImagePath)
-            </dd>
     
             
     
