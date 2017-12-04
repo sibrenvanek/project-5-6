@@ -226,8 +226,8 @@ namespace webshop2.Controllers
                     }
                     if (check)
                     {
-                        //db.user.Add(user);
-                        //db.SaveChanges();
+                        db.user.Add(user);
+                        db.SaveChanges();
                         result = IdentityResult.Success;
                     }
                     else
@@ -235,11 +235,10 @@ namespace webshop2.Controllers
                         result = IdentityResult.Failed("Email already in use!");
                     }
                 }
-                var User = new ApplicationUser { UserName = username, Email = email };
-                await User.GenerateUserIdentityAsync(UserManager);
-                if (result.Succeeded)
+                var result2 = await UserManager.CreateIdentityAsync(user, "basic authentication");
+                if (result.Succeeded/* && result2.Succeeded*/)
                 {
-                    await SignInManager.SignInAsync(User, isPersistent: false, rememberBrowser: false);
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
 
                 return RedirectToAction("Index", "Home");
