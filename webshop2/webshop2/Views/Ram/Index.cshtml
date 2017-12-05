@@ -36,9 +36,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.MemorySuitableFor)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.teststring)
-            </th>
+            
             <th></th>
         </tr>
     
@@ -46,7 +44,7 @@
         <tr>
             <td>
                 
-                <a href="@Url.Action("View/" + Convert.ToString(item.RamId), "Ram")" class="navbar-brand">
+                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
                     <img src="@Url.Content(item.ImagePath)" width="200" height="150" />
                 </a>
             </td>
@@ -68,13 +66,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MemorySuitableFor)
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.teststring)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.RamId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.RamId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.RamId })
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
             </td>
         </tr>
     }

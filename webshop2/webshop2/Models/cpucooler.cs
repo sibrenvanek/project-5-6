@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class cpucooler
     {
-        public int ProductId { get; set; }
+        public int ID { get; set; }
         public string Brand { get; set; }
         public Nullable<int> FanConnections { get; set; }
         public string CoolingMethod { get; set; }

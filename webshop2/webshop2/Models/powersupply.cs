@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class powersupply
     {
-        public int ProductId { get; set; }
+        public int ID { get; set; }
         public string Brand { get; set; }
         public string VersionFormFactor { get; set; }
         public Nullable<sbyte> Modular { get; set; }

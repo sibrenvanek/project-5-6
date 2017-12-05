@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class internalharddisk
     {
-        public int ProductId { get; set; }
+        public int ID { get; set; }
         public string Brand { get; set; }
         public string StorageType { get; set; }
         public Nullable<int> HDDSpeed { get; set; }

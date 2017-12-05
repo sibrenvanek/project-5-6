@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class chat
     {
-        public int KeyId { get; set; }
+        public int ID { get; set; }
         public string content { get; set; }
         public Nullable<sbyte> ChatStopped { get; set; }
     }
