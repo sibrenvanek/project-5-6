@@ -12,8 +12,12 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <a href="@Url.Action("Index", "Home")" class="navbar-brand">
         <img src="~/images/logo.png" title="Logo" alt="" width="100" height="100" />
-        </a>          
-            
+        </a>  
+        <div class=" form-group" align="center" padding-right="125" padding-top="10">
+            <form name="Search Bar" action="~/Views/Ram/View.cshtml" method="post">
+                <input type="text" placeholder="search bar" width="250" />
+            </form>
+        </div>
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
