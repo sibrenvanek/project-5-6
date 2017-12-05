@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class @case
     {
-        public int ID { get; set; }
+        public int ProductId { get; set; }
         public string Brand { get; set; }
         public string ComputerHousing { get; set; }
         public string FormatMotherboard { get; set; }

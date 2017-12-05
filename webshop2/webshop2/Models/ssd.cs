@@ -14,7 +14,7 @@ namespace webshop2.Models
     
     public partial class ssd
     {
-        public int ID { get; set; }
+        public int ProductId { get; set; }
         public string Brand { get; set; }
         public string Connection { get; set; }
         public Nullable<int> StorageCapacity { get; set; }

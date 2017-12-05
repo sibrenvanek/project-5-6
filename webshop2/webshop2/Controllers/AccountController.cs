@@ -79,7 +79,7 @@ namespace webshop2.Controllers
             if (check)
             {
                 string username = null;
-                using (new_testEntities db = new new_testEntities())
+                using (new_testEntities3 db = new new_testEntities3())
                 {
                     foreach (user u in db.user)
                     {
@@ -113,7 +113,7 @@ namespace webshop2.Controllers
         }
         public bool PasswordSignInDB(string email, string password)
         {
-            using(new_testEntities db=new new_testEntities())
+            using(new_testEntities3 db=new new_testEntities3())
             {
                 foreach(user u in db.user)
                 {
@@ -214,7 +214,7 @@ namespace webshop2.Controllers
 
                 var user = new user { username = username, adress = addres, Email = email, dateofbirth = dateofbirth,password=password,name=name,phonenumber=phonenumber, code=code };
                 IdentityResult result = IdentityResult.Failed();
-                using(new_testEntities db = new new_testEntities())
+                using(new_testEntities3 db = new new_testEntities3())
                 {
                     bool check = true;
                     foreach(user u in db.user)
@@ -235,11 +235,11 @@ namespace webshop2.Controllers
                         result = IdentityResult.Failed("Email already in use!");
                     }
                 }
-                //var result2 = await UserManager.CreateIdentityAsync(user, "basic authentication");
-                //if (result.Succeeded/* && result2.Succeeded*/)
-                //{
-                //    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                //}
+                var result2 = await UserManager.CreateIdentityAsync(user, "basic authentication");
+                if (result.Succeeded/* && result2.Succeeded*/)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }
 
                 return RedirectToAction("Index", "Home");
                 /*

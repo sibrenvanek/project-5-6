@@ -14,13 +14,7 @@ namespace webshop2.Models
     
     public partial class ram
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ram()
-        {
-            this.wishlist = new HashSet<wishlist>();
-        }
-    
-        public int ID { get; set; }
+        public int RamId { get; set; }
         public string Brand { get; set; }
         public string CompositionOfMemory { get; set; }
         public string MemoryType { get; set; }
@@ -30,10 +24,6 @@ namespace webshop2.Models
         public Nullable<int> MemoryModuleConnection { get; set; }
         public string MemorySuitableFor { get; set; }
         public string ImagePath { get; set; }
-        public string Name { get; set; }
-        public Nullable<decimal> Price { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wishlist> wishlist { get; set; }
+        public string teststring { get; set; }
     }
 }

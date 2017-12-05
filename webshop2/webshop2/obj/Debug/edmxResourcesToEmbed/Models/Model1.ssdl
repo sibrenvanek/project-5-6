@@ -2,9 +2,9 @@
 <Schema Namespace="new_testModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="case">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
     <Property Name="ComputerHousing" Type="varchar" MaxLength="45" />
     <Property Name="FormatMotherboard" Type="varchar" MaxLength="45" />
@@ -37,17 +37,17 @@
   </EntityType>
   <EntityType Name="chat">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="KeyId" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="content" Type="varchar" MaxLength="45" />
     <Property Name="ChatStopped" Type="tinyint" />
   </EntityType>
   <EntityType Name="cpucooler">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
     <Property Name="FanConnections" Type="int" />
     <Property Name="CoolingMethod" Type="varchar" MaxLength="45" />
@@ -65,9 +65,9 @@
   </EntityType>
   <EntityType Name="gpu">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
     <Property Name="BusType" Type="varchar" MaxLength="45" />
     <Property Name="FreeLocksRequired" Type="int" />
@@ -101,9 +101,9 @@
   </EntityType>
   <EntityType Name="internalharddisk">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
     <Property Name="StorageType" Type="varchar" MaxLength="45" />
     <Property Name="HDDSpeed" Type="int" />
@@ -114,9 +114,9 @@
   </EntityType>
   <EntityType Name="motherboard">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
     <Property Name="FormatMotherboard" Type="varchar" MaxLength="45" />
     <Property Name="Socket" Type="int" />
@@ -163,9 +163,9 @@
   </EntityType>
   <EntityType Name="powersupply">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
     <Property Name="VersionFormFactor" Type="varchar" MaxLength="45" />
     <Property Name="Modular" Type="tinyint" />
@@ -193,11 +193,20 @@
     <Property Name="Depth" Type="float" />
     <Property Name="Height" Type="float" />
   </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productname" Type="varchar" MaxLength="45" />
+    <Property Name="price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="count" Type="int" />
+  </EntityType>
   <EntityType Name="ram">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="RamId" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
     <Property Name="CompositionOfMemory" Type="varchar" MaxLength="45" />
     <Property Name="MemoryType" Type="varchar" MaxLength="45" />
@@ -207,14 +216,13 @@
     <Property Name="MemoryModuleConnection" Type="int" />
     <Property Name="MemorySuitableFor" Type="varchar" MaxLength="45" />
     <Property Name="ImagePath" Type="longtext" />
-    <Property Name="Name" Type="varchar" MaxLength="45" />
-    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="teststring" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="ssd">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
     <Property Name="Connection" Type="varchar" MaxLength="45" />
     <Property Name="StorageCapacity" Type="int" />
@@ -233,9 +241,9 @@
   </EntityType>
   <EntityType Name="supplier">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="SupplierId" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="45" />
     <Property Name="City" Type="varchar" MaxLength="45" />
     <Property Name="Street" Type="varchar" MaxLength="45" />
@@ -246,9 +254,9 @@
   </EntityType>
   <EntityType Name="user">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="userid" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="adress" Type="varchar" MaxLength="45" />
     <Property Name="Email" Type="varchar" MaxLength="45" />
     <Property Name="dateofbirth" Type="varchar" MaxLength="45" />
@@ -256,7 +264,7 @@
     <Property Name="username" Type="varchar" MaxLength="45" />
     <Property Name="name" Type="varchar" MaxLength="45" />
     <Property Name="phonenumber" Type="varchar" MaxLength="45" />
-    <Property Name="code" Type="int" Nullable="false" />
+    <Property Name="code" Type="int" />
   </EntityType>
   <EntityType Name="wishlist">
     <Key>
@@ -266,33 +274,7 @@
     <Property Name="ProductId" Type="int" Nullable="false" />
     <Property Name="Quantity" Type="int" />
     <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
-    <Property Name="ProductName" Type="varchar" MaxLength="45" />
   </EntityType>
-  <Association Name="FK_ram_id">
-    <End Role="ram" Type="Self.ram" Multiplicity="1" />
-    <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ram">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="wishlist">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_user_id">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="wishlist">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="new_testModelStoreContainer">
     <EntitySet Name="case" EntityType="Self.case" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="chat" EntityType="Self.chat" Schema="new_test" store:Type="Tables" />
@@ -301,18 +283,11 @@
     <EntitySet Name="internalharddisk" EntityType="Self.internalharddisk" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="motherboard" EntityType="Self.motherboard" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="powersupply" EntityType="Self.powersupply" Schema="new_test" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="ram" EntityType="Self.ram" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="ssd" EntityType="Self.ssd" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="supplier" EntityType="Self.supplier" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="user" EntityType="Self.user" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="wishlist" EntityType="Self.wishlist" Schema="new_test" store:Type="Tables" />
-    <AssociationSet Name="FK_ram_id" Association="Self.FK_ram_id">
-      <End Role="ram" EntitySet="ram" />
-      <End Role="wishlist" EntitySet="wishlist" />
-    </AssociationSet>
-    <AssociationSet Name="FK_user_id" Association="Self.FK_user_id">
-      <End Role="user" EntitySet="user" />
-      <End Role="wishlist" EntitySet="wishlist" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

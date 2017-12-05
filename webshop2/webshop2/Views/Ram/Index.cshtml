@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<webshop2.Models.ram>
 
-@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 
@@ -18,6 +16,9 @@
     <table class="table">
         <tr>            
             <th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Brand)
             </th>
             <th>
@@ -25,12 +26,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.MemoryType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Clockspeed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CASlatency)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Voltage)
@@ -42,9 +37,6 @@
                 @Html.DisplayNameFor(model => model.MemorySuitableFor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImagePath)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.teststring)
             </th>
             <th></th>
@@ -52,6 +44,12 @@
     
     @foreach (var item in Model) {
         <tr>
+            <td>
+                
+                <a href="@Url.Action("View/" + Convert.ToString(item.RamId), "Ram")" class="navbar-brand">
+                    <img src="@Url.Content(item.ImagePath)" width="200" height="150" />
+                </a>
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Brand)
             </td>
@@ -62,12 +60,6 @@
                 @Html.DisplayFor(modelItem => item.MemoryType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Clockspeed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CASlatency)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Voltage)
             </td>
             <td>
@@ -75,9 +67,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MemorySuitableFor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImagePath)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.teststring)

@@ -17,10 +17,5 @@ namespace webshop2.Models
         public int ProductId { get; set; }
         public Nullable<int> Quantity { get; set; }
         public int UserId { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public string ProductName { get; set; }
-    
-        public virtual ram ram { get; set; }
-        public virtual user user { get; set; }
     }
 }
