@@ -755,3 +755,4 @@ C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie (3)\webshop2\webshop2\bin\Micr
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie (3)\webshop2\webshop2\obj\Debug\webshop2.csproj.CoreCompileInputs.cache
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie (3)\webshop2\webshop2\obj\Debug\webshop2.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie (3)\webshop2\webshop2\obj\Debug\webshop2.pdb
+C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie (3)\webshop2\webshop2\obj\Debug\webshop2.csprojResolveAssemblyReference.cache
