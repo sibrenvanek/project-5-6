@@ -10,31 +10,31 @@
     <title>Index</title>
 </head>
 <body>
+    @if (Request.IsAuthenticated)
+    {
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
+    }
     <table class="table">
         <tr>            
             <th>
-                @Html.DisplayNameFor(model => model.ImagePath)
+                Image
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Brand)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CompositionOfMemory)
+                Composition Of Memory
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MemoryType)
+                Memory Type
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Voltage)
+                Memory Suitable For
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MemoryModuleConnection)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MemorySuitableFor)
+                @Html.DisplayNameFor(model => model.Price)
             </th>
             
             <th></th>
@@ -45,33 +45,37 @@
             <td>
                 
                 <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
-                    <img src="@Url.Content(item.ImagePath)" width="200" height="150" />
+                    <img src="@Url.Content(item.ImagePath)" width="125" height="75" />
                 </a>
             </td>
             <td>
+                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
                 @Html.DisplayFor(modelItem => item.Brand)
             </td>
             <td>
+                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
                 @Html.DisplayFor(modelItem => item.CompositionOfMemory)
             </td>
             <td>
+                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
                 @Html.DisplayFor(modelItem => item.MemoryType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Voltage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MemoryModuleConnection)
-            </td>
-            <td>
+                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
                 @Html.DisplayFor(modelItem => item.MemorySuitableFor)
             </td>
-            
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                €@Html.DisplayFor(modelItem => item.Price)
             </td>
+            
+            @if (Request.IsAuthenticated) { 
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                </td>
+            }
         </tr>
     }
     
