@@ -19,9 +19,9 @@ namespace webshop2.Controllers
         }
         // GET: Image
         [HttpGet]
-        public ActionResult View(int id)
+        public ActionResult View(int? id)
         {
-            ram ramimage = new ram();
+            ram ram = new ram();
 
             using (new_testEntities db = new new_testEntities())
             {
@@ -40,9 +40,22 @@ namespace webshop2.Controllers
                 
                 //db.SaveChanges();
 
-                ramimage = db.ram.Where(x => x.ID == id).FirstOrDefault();
+                ram = db.ram.Where(x => x.ID == id).FirstOrDefault();
             }
-                return View(ramimage);
+                return View(ram);
+        }
+        [HttpGet]
+        public ActionResult Add_To_Wishlist(int id)
+        {
+            Console.WriteLine("Add to wishlist is succesfully called");
+            using (new_testEntities db = new new_testEntities())
+            {
+                user user = db.user.FirstOrDefault(x => x.ID == id);
+                ram ram = db.ram.FirstOrDefault(x => x.ID == id);
+                db.wishlist.Add(new wishlist { ProductId = ram.ID, UserId = user.ID, Quantity = 0, ProductName = "string", Price = (decimal)0.0 });
+                db.SaveChanges();
+            }
+            return View();
         }
     }
 }
