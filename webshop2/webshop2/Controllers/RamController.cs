@@ -45,17 +45,31 @@ namespace webshop2.Controllers
                 return View(ram);
         }
         [HttpGet]
-        public ActionResult Add_To_Wishlist(int id)
+        public void Add_To_Wishlist(int id)
         {
-            Console.WriteLine("Add to wishlist is succesfully called");
+            //Console.WriteLine("Add to wishlist is succesfully called");
             using (new_testEntities db = new new_testEntities())
             {
+                
                 user user = db.user.FirstOrDefault(x => x.ID == id);
                 ram ram = db.ram.FirstOrDefault(x => x.ID == id);
-                db.wishlist.Add(new wishlist { ProductId = ram.ID, UserId = user.ID, Quantity = 0, ProductName = "string", Price = (decimal)0.0 });
-                db.SaveChanges();
+                wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id);
+
+                if (Wishlist == null)
+                {
+                    
+                    db.wishlist.Add(new wishlist { ProductId = ram.ID, UserId = user.ID, Quantity = 1, ProductName = "string", Price = (decimal)0.0 });
+                    db.SaveChanges();
+                }
+                else
+                {
+                    Wishlist.Quantity +=1;
+                    db.SaveChanges();
+                }
+
+
             }
-            return View();
+            
         }
     }
 }
