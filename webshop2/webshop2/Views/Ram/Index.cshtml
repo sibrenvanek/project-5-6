@@ -16,6 +16,23 @@
         @Html.ActionLink("Create New", "Create")
     </p>
     }
+    <style>
+        .left {
+            float: left;
+            width: 100px;
+        }
+        .table {
+            float: right;
+            width: 950px;
+        }
+    </style>
+    <div class="left">
+        <form class="form-control-static" method="post">
+            Prijs: van @Html.TextBoxFor(model => model.ToArray()[0].min) tot @Html.TextBoxFor(model => model.ToArray()[0].max)
+            @Html.Action("Index","RamController", new {model = Model })
+            <input type="button" value="update list" />
+        </form>
+    </div>
     <table class="table">
         <tr>            
             <th>

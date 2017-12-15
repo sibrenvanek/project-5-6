@@ -35,5 +35,7 @@ namespace webshop2.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wishlist> wishlist { get; set; }
+        public Nullable<int> min { get; set; }
+        public Nullable<int> max { get; set; }
     }
 }
