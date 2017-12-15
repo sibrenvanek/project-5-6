@@ -109,13 +109,12 @@
         <MappingFragment StoreEntitySet="internalharddisk">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="StorageType" ColumnName="StorageType" />
           <ScalarProperty Name="HDDSpeed" ColumnName="HDDSpeed" />
           <ScalarProperty Name="Cache" ColumnName="Cache" />
           <ScalarProperty Name="HDDFormat" ColumnName="HDDFormat" />
           <ScalarProperty Name="Height" ColumnName="Height" />
           <ScalarProperty Name="InternalHDDDiskcol" ColumnName="InternalHDDDiskcol" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="StorageCapacity" ColumnName="StorageCapacity" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -217,7 +216,6 @@
           <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Ramsize" ColumnName="Ramsize" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

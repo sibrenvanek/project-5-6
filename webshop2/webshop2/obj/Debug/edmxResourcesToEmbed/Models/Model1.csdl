@@ -105,13 +105,12 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="StorageType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="HDDSpeed" Type="Int32" />
     <Property Name="Cache" Type="Int32" />
     <Property Name="HDDFormat" Type="Single" />
     <Property Name="Height" Type="Single" />
     <Property Name="InternalHDDDiskcol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="StorageCapacity" Type="Int32" />
   </EntityType>
   <EntityType Name="motherboard">
     <Key>
@@ -210,7 +209,6 @@
     <Property Name="ImagePath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
     <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Price" Type="Decimal" />
-    <Property Name="Ramsize" Type="Int32" />
     <NavigationProperty Name="wishlist" Relationship="Self.FK_ram_id" FromRole="ram" ToRole="wishlist" />
   </EntityType>
   <EntityType Name="ssd">

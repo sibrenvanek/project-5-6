@@ -16,12 +16,11 @@ namespace webshop2.Models
     {
         public int ID { get; set; }
         public string Brand { get; set; }
+        public string StorageType { get; set; }
         public Nullable<int> HDDSpeed { get; set; }
         public Nullable<int> Cache { get; set; }
         public Nullable<float> HDDFormat { get; set; }
         public Nullable<float> Height { get; set; }
         public string InternalHDDDiskcol { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> StorageCapacity { get; set; }
     }
 }

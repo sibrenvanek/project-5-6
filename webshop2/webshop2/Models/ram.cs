@@ -32,9 +32,10 @@ namespace webshop2.Models
         public string ImagePath { get; set; }
         public string Name { get; set; }
         public Nullable<decimal> Price { get; set; }
-        public Nullable<int> Ramsize { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wishlist> wishlist { get; set; }
+        public Nullable<int> min { get; set; }
+        public Nullable<int> max { get; set; }
     }
 }
