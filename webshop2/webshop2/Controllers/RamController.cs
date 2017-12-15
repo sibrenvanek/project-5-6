@@ -12,19 +12,69 @@ namespace webshop2.Controllers
     {
         public ActionResult Index()
         {
-            using (new_testEntities db = new new_testEntities())
+            if (Request.HttpMethod == "POST")
             {
-                return FilterRam(0, 100);
-                //return View(db.ram.ToList());
+                var keys = Request.Form.AllKeys;
+
+                var min = Request.Form.Get(keys[0]);
+                var max = Request.Form.Get(keys[1]);
+
+                if (min == "")
+                {
+                    if(max == "")
+                    {
+                        return FilterRam(null, null);
+                    }
+                    else
+                    {
+                        return FilterRam(null, Convert.ToInt32(max));
+                    }
+                }
+                else
+                {
+                    if (max == "")
+                    {
+                        return FilterRam(Convert.ToInt32(min), null);
+                    }
+                    else
+                    {
+                        return FilterRam(Convert.ToInt32(min), Convert.ToInt32(max));
+                    }
+                }
             }
-                
+            else
+            {
+                return FilterRam(null, null);
+            }
+
         }
         [WebMethod]
-        public ActionResult FilterRam(int min, int max)
+        public ActionResult FilterRam(int? min, int? max)
         {
             using(new_testEntities db = new new_testEntities())
             {
-                return View(db.ram.Where(r => r.Price >= min && r.Price <= max).ToList());
+                if(min == null)
+                {
+                    if (max == null)
+                    {
+                        return View(db.ram.ToList());
+                    }
+                    else
+                    {
+                        return View(db.ram.Where(r => r.Price <= max).ToList());
+                    }
+                }
+                else
+                {
+                    if (max == null)
+                    {
+                        return View(db.ram.Where(r => r.Price >= min).ToList());
+                    }
+                    else
+                    {
+                        return View(db.ram.Where(r => r.Price >= min && r.Price <= max).ToList());
+                    }
+                }
             }
         }
 
