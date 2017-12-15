@@ -110,12 +110,13 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Brand" Type="varchar" MaxLength="45" />
-          <Property Name="StorageType" Type="varchar" MaxLength="45" />
           <Property Name="HDDSpeed" Type="int" />
           <Property Name="Cache" Type="int" />
           <Property Name="HDDFormat" Type="float" />
           <Property Name="Height" Type="float" />
           <Property Name="InternalHDDDiskcol" Type="varchar" MaxLength="45" />
+          <Property Name="Name" Type="varchar" MaxLength="45" />
+          <Property Name="StorageCapacity" Type="int" />
         </EntityType>
         <EntityType Name="motherboard">
           <Key>
@@ -214,6 +215,7 @@
           <Property Name="ImagePath" Type="longtext" />
           <Property Name="Name" Type="varchar" MaxLength="45" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Ramsize" Type="int" />
         </EntityType>
         <EntityType Name="ssd">
           <Key>
@@ -430,12 +432,13 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="StorageType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="HDDSpeed" Type="Int32" />
           <Property Name="Cache" Type="Int32" />
           <Property Name="HDDFormat" Type="Single" />
           <Property Name="Height" Type="Single" />
           <Property Name="InternalHDDDiskcol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StorageCapacity" Type="Int32" />
         </EntityType>
         <EntityType Name="motherboard">
           <Key>
@@ -534,6 +537,7 @@
           <Property Name="ImagePath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Decimal" />
+          <Property Name="Ramsize" Type="Int32" />
           <NavigationProperty Name="wishlist" Relationship="Self.FK_ram_id" FromRole="ram" ToRole="wishlist" />
         </EntityType>
         <EntityType Name="ssd">
@@ -758,12 +762,13 @@
               <MappingFragment StoreEntitySet="internalharddisk">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Brand" ColumnName="Brand" />
-                <ScalarProperty Name="StorageType" ColumnName="StorageType" />
                 <ScalarProperty Name="HDDSpeed" ColumnName="HDDSpeed" />
                 <ScalarProperty Name="Cache" ColumnName="Cache" />
                 <ScalarProperty Name="HDDFormat" ColumnName="HDDFormat" />
                 <ScalarProperty Name="Height" ColumnName="Height" />
                 <ScalarProperty Name="InternalHDDDiskcol" ColumnName="InternalHDDDiskcol" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StorageCapacity" ColumnName="StorageCapacity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -865,6 +870,7 @@
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Ramsize" ColumnName="Ramsize" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
