@@ -13,15 +13,11 @@ namespace webshop2.Controllers
         [HttpGet]
         public ActionResult Index() //laten zien van de wishlist
         {
-            
+            List<wishlist> list_wishlist = new List<wishlist>();
             using (new_testEntities db = new new_testEntities())
             {
-                user usertest1 = db.user.FirstOrDefault(x => x.ID == 1);
-                ram ramtest1 = db.ram.FirstOrDefault(x => x.ID == 1);
-                db.wishlist.Add(new wishlist {ProductId=ramtest1.ID,UserId=usertest1.ID, Quantity = 0, ProductName = "string", Price = (decimal)0.0 });
-                //db.SaveChanges();
-                //return View(db.wishlist.ToList());
-                return View(db.wishlist.ToList());
+                list_wishlist = db.wishlist.ToList();
+                return View(list_wishlist);
             }
         }
 
@@ -30,9 +26,7 @@ namespace webshop2.Controllers
         {
             using (new_testEntities db = new new_testEntities())
             {
-                db.wishlist.Add(new wishlist { Quantity = 0, ProductName = "string", Price = (decimal)0.0 });
-                db.SaveChanges();
-                //return View(db.wishlist.ToList());
+                
                 return View();
             }
             

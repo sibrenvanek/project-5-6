@@ -1,5 +1,4 @@
-﻿@*@model webshop2.Models.wishlist*@
-@model IEnumerable<webshop2.Models.wishlist>
+﻿@model IEnumerable<webshop2.Models.wishlist>
 
 
 
@@ -11,32 +10,60 @@
     <title>Index</title>
 </head>
 <body>
-    <div>
-        <h4>wishlist</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            
-            <dt>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </dt>
-            
-            <dt>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </dt>
-            <dt>
-                @Html.DisplayNameFor(model => model.UserId)
-            </dt>
-            <dt>
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
-            <dt>
-                @Html.DisplayNameFor(model => model.ProductId)
-            </dt>
-        </dl>
-    </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Create New", "Create")
     </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagepath)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagepath)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+    
+    </table>
 </body>
 </html>
