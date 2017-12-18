@@ -90,7 +90,7 @@ namespace webshop2.Controllers
             {
                 //db.product.Add(new product
                 //{
-                //    ID = 1,
+                //    ID = id,
                 //    price = 80,
                 //    imagepath = "~/images/ram/ram1.jpg",
                 //    stock = 100,
