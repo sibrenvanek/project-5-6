@@ -88,41 +88,58 @@ namespace webshop2.Controllers
             ID = id;
             using (new_testEntities db = new new_testEntities())
             {
+                //db.product.Add(new product
+                //{
+                //    ID = 1,
+                //    price = 80,
+                //    imagepath = "~/images/ram/ram1.jpg",
+                //    stock = 100,
+                //    Brand = "Kingston",
+                //    Supplier = "testsupplier"
+                //});
+                //db.SaveChanges();
+                //product product = db.product.FirstOrDefault(x => x.ID == id);
                 //db.ram.Add(new ram
                 //{
-                //    Brand = "testbrand",
-                //    CompositionOfMemory = "wut",
-                //    MemoryType = "testtype",
-                //    Clockspeed = 1,
-                //    CASlatency = 1,
-                //    Voltage = 1,
-                //    MemoryModuleConnection = 50,
-                //    MemorySuitableFor = "datatest",
-                //    ImagePath = "C:/Users/Erik/Desktop/Prj5-6/project-5-6 - Copy/webshop2/webshop2/Contentram1.jpg"
+                //    ID = product.ID,
+                //    Brand = "Kingston",
+                //    CompositionOfMemory = "1x",
+                //    MemoryType = "DDR3",
+                //    Clockspeed = 2133,
+                //    CASlatency = 15,
+                //    Voltage = (float)1.2 ,
+                //    MemoryModuleConnection = 1,
+                //    MemorySuitableFor = "Desktop",
+                //    ImagePath = "~/images/ram/ram1.jpg",
+                //    Name = "Kingston123",
+                //    Price = 80,
+                //    Ramsize = 8
                 //});
-                
+
                 //db.SaveChanges();
 
                 ram = db.ram.Where(x => x.ID == ID).FirstOrDefault();
             }
                 return View(ram);
         }
-        [HttpGet]
+        //[HttpGet]
         public ActionResult Add_To_Wishlist(int id)
         {
             //Console.WriteLine("Add to wishlist is succesfully called");
             ID = id;
+            
+
             using (new_testEntities db = new new_testEntities())
             {
 
                 user user = db.user.FirstOrDefault(x => x.ID == id);
-                ram ram = db.ram.FirstOrDefault(x => x.ID == id);
+                product product = db.product.FirstOrDefault(x => x.ID == id);
                 wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id);
 
                 if (Wishlist == null)
                 {
 
-                    db.wishlist.Add(new wishlist { ProductId = ram.ID, UserId = user.ID, Quantity = 1, ProductName = "string", Price = (decimal)0.0 });
+                    db.wishlist.Add(new wishlist { ProductId = product.ID, UserId = user.ID, Quantity = 1, ProductName = "string", Price = (decimal)0.0 , Imagepath = product.imagepath });
                     db.SaveChanges();
                 }
                 else
