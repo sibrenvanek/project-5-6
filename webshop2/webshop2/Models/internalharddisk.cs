@@ -23,5 +23,7 @@ namespace webshop2.Models
         public string InternalHDDDiskcol { get; set; }
         public string Name { get; set; }
         public Nullable<int> StorageCapacity { get; set; }
+    
+        public virtual product product { get; set; }
     }
 }

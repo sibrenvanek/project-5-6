@@ -14,12 +14,6 @@ namespace webshop2.Models
     
     public partial class user
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public user()
-        {
-            this.wishlist = new HashSet<wishlist>();
-        }
-    
         public int ID { get; set; }
         public string adress { get; set; }
         public string Email { get; set; }
@@ -29,8 +23,5 @@ namespace webshop2.Models
         public string name { get; set; }
         public string phonenumber { get; set; }
         public int code { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wishlist> wishlist { get; set; }
     }
 }

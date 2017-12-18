@@ -32,6 +32,7 @@ namespace webshop2.Models
         public virtual DbSet<internalharddisk> internalharddisk { get; set; }
         public virtual DbSet<motherboard> motherboard { get; set; }
         public virtual DbSet<powersupply> powersupply { get; set; }
+        public virtual DbSet<product> product { get; set; }
         public virtual DbSet<ram> ram { get; set; }
         public virtual DbSet<ssd> ssd { get; set; }
         public virtual DbSet<supplier> supplier { get; set; }

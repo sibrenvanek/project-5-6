@@ -52,7 +52,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Brand" Type="varchar" MaxLength="45" />
           <Property Name="FanConnections" Type="int" />
           <Property Name="CoolingMethod" Type="varchar" MaxLength="45" />
@@ -72,7 +72,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Brand" Type="varchar" MaxLength="45" />
           <Property Name="BusType" Type="varchar" MaxLength="45" />
           <Property Name="FreeLocksRequired" Type="int" />
@@ -108,7 +108,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Brand" Type="varchar" MaxLength="45" />
           <Property Name="HDDSpeed" Type="int" />
           <Property Name="Cache" Type="int" />
@@ -122,7 +122,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Brand" Type="varchar" MaxLength="45" />
           <Property Name="FormatMotherboard" Type="varchar" MaxLength="45" />
           <Property Name="Socket" Type="int" />
@@ -171,7 +171,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Brand" Type="varchar" MaxLength="45" />
           <Property Name="VersionFormFactor" Type="varchar" MaxLength="45" />
           <Property Name="Modular" Type="tinyint" />
@@ -199,11 +199,22 @@
           <Property Name="Depth" Type="float" />
           <Property Name="Height" Type="float" />
         </EntityType>
-        <EntityType Name="ram">
+        <EntityType Name="product">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="imagepath" Type="longtext" />
+          <Property Name="stock" Type="int" />
+          <Property Name="Brand" Type="varchar" MaxLength="45" />
+          <Property Name="Supplier" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="ram">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Brand" Type="varchar" MaxLength="45" />
           <Property Name="CompositionOfMemory" Type="varchar" MaxLength="45" />
           <Property Name="MemoryType" Type="varchar" MaxLength="45" />
@@ -221,7 +232,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Brand" Type="varchar" MaxLength="45" />
           <Property Name="Connection" Type="varchar" MaxLength="45" />
           <Property Name="StorageCapacity" Type="int" />
@@ -275,28 +286,113 @@
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
           <Property Name="ProductName" Type="varchar" MaxLength="45" />
+          <Property Name="Imagepath" Type="longtext" />
         </EntityType>
-        <Association Name="FK_ram_id">
-          <End Role="ram" Type="Self.ram" Multiplicity="1" />
+        <Association Name="Product_Case_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="case" Type="Self.case" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="case">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_CPUcooler_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="cpucooler" Type="Self.cpucooler" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="cpucooler">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_GPU_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="gpu" Type="Self.gpu" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="gpu">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Internalharddisk_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="internalharddisk" Type="Self.internalharddisk" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="internalharddisk">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Motherboard_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="motherboard" Type="Self.motherboard" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="motherboard">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Powersupply_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="powersupply" Type="Self.powersupply" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="powersupply">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Ram_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="ram" Type="Self.ram" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ram">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_ssd_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="ssd" Type="Self.ssd" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ssd">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Wishlist_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
           <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ram">
+            <Principal Role="product">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="wishlist">
               <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_user_id">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="wishlist">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -308,17 +404,46 @@
           <EntitySet Name="internalharddisk" EntityType="Self.internalharddisk" Schema="new_test" store:Type="Tables" />
           <EntitySet Name="motherboard" EntityType="Self.motherboard" Schema="new_test" store:Type="Tables" />
           <EntitySet Name="powersupply" EntityType="Self.powersupply" Schema="new_test" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="new_test" store:Type="Tables" />
           <EntitySet Name="ram" EntityType="Self.ram" Schema="new_test" store:Type="Tables" />
           <EntitySet Name="ssd" EntityType="Self.ssd" Schema="new_test" store:Type="Tables" />
           <EntitySet Name="supplier" EntityType="Self.supplier" Schema="new_test" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="new_test" store:Type="Tables" />
           <EntitySet Name="wishlist" EntityType="Self.wishlist" Schema="new_test" store:Type="Tables" />
-          <AssociationSet Name="FK_ram_id" Association="Self.FK_ram_id">
-            <End Role="ram" EntitySet="ram" />
-            <End Role="wishlist" EntitySet="wishlist" />
+          <AssociationSet Name="Product_Case_ID" Association="Self.Product_Case_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="case" EntitySet="case" />
           </AssociationSet>
-          <AssociationSet Name="FK_user_id" Association="Self.FK_user_id">
-            <End Role="user" EntitySet="user" />
+          <AssociationSet Name="Product_CPUcooler_ID" Association="Self.Product_CPUcooler_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="cpucooler" EntitySet="cpucooler" />
+          </AssociationSet>
+          <AssociationSet Name="Product_GPU_ID" Association="Self.Product_GPU_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="gpu" EntitySet="gpu" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Internalharddisk_ID" Association="Self.Product_Internalharddisk_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="internalharddisk" EntitySet="internalharddisk" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Motherboard_ID" Association="Self.Product_Motherboard_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="motherboard" EntitySet="motherboard" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Powersupply_ID" Association="Self.Product_Powersupply_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="powersupply" EntitySet="powersupply" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Ram_ID" Association="Self.Product_Ram_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="ram" EntitySet="ram" />
+          </AssociationSet>
+          <AssociationSet Name="Product_ssd_ID" Association="Self.Product_ssd_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="ssd" EntitySet="ssd" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Wishlist_ID" Association="Self.Product_Wishlist_ID">
+            <End Role="product" EntitySet="product" />
             <End Role="wishlist" EntitySet="wishlist" />
           </AssociationSet>
         </EntityContainer>
@@ -361,6 +486,7 @@
           <Property Name="Height" Type="Int32" />
           <Property Name="Color" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Material" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="product" Relationship="Self.Product_Case_ID" FromRole="case" ToRole="product" />
         </EntityType>
         <EntityType Name="chat">
           <Key>
@@ -374,7 +500,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="FanConnections" Type="Int32" />
           <Property Name="CoolingMethod" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -389,12 +515,13 @@
           <Property Name="Width" Type="Single" />
           <Property Name="Depth" Type="Single" />
           <Property Name="Height" Type="Single" />
+          <NavigationProperty Name="product" Relationship="Self.Product_CPUcooler_ID" FromRole="cpucooler" ToRole="product" />
         </EntityType>
         <EntityType Name="gpu">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="BusType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="FreeLocksRequired" Type="Int32" />
@@ -425,12 +552,13 @@
           <Property Name="Width" Type="Single" />
           <Property Name="Depth" Type="Single" />
           <Property Name="Height" Type="Single" />
+          <NavigationProperty Name="product" Relationship="Self.Product_GPU_ID" FromRole="gpu" ToRole="product" />
         </EntityType>
         <EntityType Name="internalharddisk">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="HDDSpeed" Type="Int32" />
           <Property Name="Cache" Type="Int32" />
@@ -439,12 +567,13 @@
           <Property Name="InternalHDDDiskcol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="StorageCapacity" Type="Int32" />
+          <NavigationProperty Name="product" Relationship="Self.Product_Internalharddisk_ID" FromRole="internalharddisk" ToRole="product" />
         </EntityType>
         <EntityType Name="motherboard">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="FormatMotherboard" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Socket" Type="Int32" />
@@ -488,12 +617,13 @@
           <Property Name="Width" Type="Single" />
           <Property Name="Depth" Type="Single" />
           <Property Name="Height" Type="Single" />
+          <NavigationProperty Name="product" Relationship="Self.Product_Motherboard_ID" FromRole="motherboard" ToRole="product" />
         </EntityType>
         <EntityType Name="powersupply">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="VersionFormFactor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Modular" Type="SByte" />
@@ -520,12 +650,33 @@
           <Property Name="Width" Type="Single" />
           <Property Name="Depth" Type="Single" />
           <Property Name="Height" Type="Single" />
+          <NavigationProperty Name="product" Relationship="Self.Product_Powersupply_ID" FromRole="powersupply" ToRole="product" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="price" Type="Decimal" />
+          <Property Name="imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="stock" Type="Int32" />
+          <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Supplier" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="case" Relationship="Self.Product_Case_ID" FromRole="product" ToRole="case" />
+          <NavigationProperty Name="cpucooler" Relationship="Self.Product_CPUcooler_ID" FromRole="product" ToRole="cpucooler" />
+          <NavigationProperty Name="gpu" Relationship="Self.Product_GPU_ID" FromRole="product" ToRole="gpu" />
+          <NavigationProperty Name="internalharddisk" Relationship="Self.Product_Internalharddisk_ID" FromRole="product" ToRole="internalharddisk" />
+          <NavigationProperty Name="motherboard" Relationship="Self.Product_Motherboard_ID" FromRole="product" ToRole="motherboard" />
+          <NavigationProperty Name="powersupply" Relationship="Self.Product_Powersupply_ID" FromRole="product" ToRole="powersupply" />
+          <NavigationProperty Name="ram" Relationship="Self.Product_Ram_ID" FromRole="product" ToRole="ram" />
+          <NavigationProperty Name="ssd" Relationship="Self.Product_ssd_ID" FromRole="product" ToRole="ssd" />
+          <NavigationProperty Name="wishlist" Relationship="Self.Product_Wishlist_ID" FromRole="product" ToRole="wishlist" />
         </EntityType>
         <EntityType Name="ram">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="CompositionOfMemory" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="MemoryType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -538,13 +689,13 @@
           <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Decimal" />
           <Property Name="Ramsize" Type="Int32" />
-          <NavigationProperty Name="wishlist" Relationship="Self.FK_ram_id" FromRole="ram" ToRole="wishlist" />
+          <NavigationProperty Name="product" Relationship="Self.Product_Ram_ID" FromRole="ram" ToRole="product" />
         </EntityType>
         <EntityType Name="ssd">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Connection" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="StorageCapacity" Type="Int32" />
@@ -560,6 +711,7 @@
           <Property Name="Depth" Type="Single" />
           <Property Name="Height" Type="Single" />
           <Property Name="Color" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="product" Relationship="Self.Product_ssd_ID" FromRole="ssd" ToRole="product" />
         </EntityType>
         <EntityType Name="supplier">
           <Key>
@@ -587,7 +739,6 @@
           <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="phonenumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="code" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="wishlist" Relationship="Self.FK_user_id" FromRole="user" ToRole="wishlist" />
         </EntityType>
         <EntityType Name="wishlist">
           <Key>
@@ -599,30 +750,114 @@
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" />
           <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ram" Relationship="Self.FK_ram_id" FromRole="wishlist" ToRole="ram" />
-          <NavigationProperty Name="user" Relationship="Self.FK_user_id" FromRole="wishlist" ToRole="user" />
+          <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="product" Relationship="Self.Product_Wishlist_ID" FromRole="wishlist" ToRole="product" />
         </EntityType>
-        <Association Name="FK_ram_id">
-          <End Role="ram" Type="Self.ram" Multiplicity="1" />
+        <Association Name="Product_Case_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="case" Type="Self.case" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="case">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_CPUcooler_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="cpucooler" Type="Self.cpucooler" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="cpucooler">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_GPU_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="gpu" Type="Self.gpu" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="gpu">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Internalharddisk_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="internalharddisk" Type="Self.internalharddisk" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="internalharddisk">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Motherboard_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="motherboard" Type="Self.motherboard" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="motherboard">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Powersupply_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="powersupply" Type="Self.powersupply" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="powersupply">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Ram_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="ram" Type="Self.ram" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ram">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_ssd_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="ssd" Type="Self.ssd" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ssd">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Wishlist_ID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
           <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ram">
+            <Principal Role="product">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="wishlist">
               <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_user_id">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="wishlist">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -634,17 +869,46 @@
           <EntitySet Name="internalharddisk" EntityType="Self.internalharddisk" />
           <EntitySet Name="motherboard" EntityType="Self.motherboard" />
           <EntitySet Name="powersupply" EntityType="Self.powersupply" />
+          <EntitySet Name="product" EntityType="Self.product" />
           <EntitySet Name="ram" EntityType="Self.ram" />
           <EntitySet Name="ssd" EntityType="Self.ssd" />
           <EntitySet Name="supplier" EntityType="Self.supplier" />
           <EntitySet Name="user" EntityType="Self.user" />
           <EntitySet Name="wishlist" EntityType="Self.wishlist" />
-          <AssociationSet Name="FK_ram_id" Association="Self.FK_ram_id">
-            <End Role="ram" EntitySet="ram" />
-            <End Role="wishlist" EntitySet="wishlist" />
+          <AssociationSet Name="Product_Case_ID" Association="Self.Product_Case_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="case" EntitySet="case" />
           </AssociationSet>
-          <AssociationSet Name="FK_user_id" Association="Self.FK_user_id">
-            <End Role="user" EntitySet="user" />
+          <AssociationSet Name="Product_CPUcooler_ID" Association="Self.Product_CPUcooler_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="cpucooler" EntitySet="cpucooler" />
+          </AssociationSet>
+          <AssociationSet Name="Product_GPU_ID" Association="Self.Product_GPU_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="gpu" EntitySet="gpu" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Internalharddisk_ID" Association="Self.Product_Internalharddisk_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="internalharddisk" EntitySet="internalharddisk" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Motherboard_ID" Association="Self.Product_Motherboard_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="motherboard" EntitySet="motherboard" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Powersupply_ID" Association="Self.Product_Powersupply_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="powersupply" EntitySet="powersupply" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Ram_ID" Association="Self.Product_Ram_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="ram" EntitySet="ram" />
+          </AssociationSet>
+          <AssociationSet Name="Product_ssd_ID" Association="Self.Product_ssd_ID">
+            <End Role="product" EntitySet="product" />
+            <End Role="ssd" EntitySet="ssd" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Wishlist_ID" Association="Self.Product_Wishlist_ID">
+            <End Role="product" EntitySet="product" />
             <End Role="wishlist" EntitySet="wishlist" />
           </AssociationSet>
         </EntityContainer>
@@ -855,6 +1119,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="product">
+            <EntityTypeMapping TypeName="new_testModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="imagepath" ColumnName="imagepath" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ram">
             <EntityTypeMapping TypeName="new_testModel.ram">
               <MappingFragment StoreEntitySet="ram">
@@ -933,6 +1209,7 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
