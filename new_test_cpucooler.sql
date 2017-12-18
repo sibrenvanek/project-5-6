@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `cpucooler`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cpucooler` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) NOT NULL,
   `Brand` varchar(45) DEFAULT NULL,
   `FanConnections` int(11) DEFAULT NULL,
   `CoolingMethod` varchar(45) DEFAULT NULL,
@@ -38,7 +38,8 @@ CREATE TABLE `cpucooler` (
   `Width` float DEFAULT NULL,
   `Depth` float DEFAULT NULL,
   `Height` float DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `Product_CPUcooler_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -60,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-08 11:06:56
+-- Dump completed on 2017-12-18 14:48:47

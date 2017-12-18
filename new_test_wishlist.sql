@@ -28,11 +28,11 @@ CREATE TABLE `wishlist` (
   `UserId` int(11) NOT NULL,
   `Price` decimal(10,0) DEFAULT NULL,
   `ProductName` varchar(45) DEFAULT NULL,
+  `Imagepath` longtext,
   PRIMARY KEY (`ProductId`,`UserId`),
   KEY `FK_ram_name_idx` (`ProductName`),
-  KEY `FK_user_id_idx` (`UserId`),
-  CONSTRAINT `FK_ram_id` FOREIGN KEY (`ProductId`) REFERENCES `ram` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_user_id` FOREIGN KEY (`UserId`) REFERENCES `user` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `Product_Wishlist_Price_idx` (`Price`),
+  CONSTRAINT `Product_Wishlist_ID` FOREIGN KEY (`ProductId`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,7 +42,7 @@ CREATE TABLE `wishlist` (
 
 LOCK TABLES `wishlist` WRITE;
 /*!40000 ALTER TABLE `wishlist` DISABLE KEYS */;
-INSERT INTO `wishlist` VALUES (1,0,1,0,'string');
+INSERT INTO `wishlist` VALUES (1,2,1,0,'string','~/images/ram/ram1.jpg');
 /*!40000 ALTER TABLE `wishlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-08 11:06:59
+-- Dump completed on 2017-12-18 14:48:51

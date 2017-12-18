@@ -16,34 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user`
+-- Table structure for table `product`
 --
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
+CREATE TABLE `product` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `adress` varchar(45) DEFAULT NULL,
-  `Email` varchar(45) DEFAULT NULL,
-  `dateofbirth` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `username` varchar(45) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `phonenumber` varchar(45) DEFAULT NULL,
-  `code` int(11) NOT NULL,
+  `price` decimal(10,0) DEFAULT NULL,
+  `imagepath` longtext,
+  `stock` int(11) DEFAULT NULL,
+  `Brand` varchar(45) DEFAULT NULL,
+  `Supplier` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `product`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,',F,(3E((?3(','s@s.nl','10-11-1091','((((((','d','w3w',NULL,19),(2,'@Z@VRl~RVRxlR','q@q.nl','10-10-1010','RRR___','d','RlR',NULL,76),(3,'TlT_]u*]_]#u]','f@f.nl','11-12-1991',']]]]]]','f',']u]',NULL,85),(4,'E\\DWVm!VWVXymV','g@g.nl','19-10-9119','VVVVVV','s','VmU',NULL,77);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+LOCK TABLES `product` WRITE;
+/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES (1,80,'~/images/ram/ram1.jpg',100,'Kingston','testsupplier');
+/*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-18 14:48:49
+-- Dump completed on 2017-12-18 14:48:46
