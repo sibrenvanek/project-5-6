@@ -106,12 +106,7 @@
     
         </dl>
     </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            @*<input type="button" value="Create" class="btn btn-default" />*@
-            <input type="button" value="Add to wishlist" onclick="@Html.Action("Add_to_wishlist",new { id = Model.ID })" />
-        </div>
-    </div>
+    @Html.ActionLink("Add to wishlist", "Add_To_wishlist/" + Model.ID, "Ram")
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
         @Html.ActionLink("Back to List", "Index")

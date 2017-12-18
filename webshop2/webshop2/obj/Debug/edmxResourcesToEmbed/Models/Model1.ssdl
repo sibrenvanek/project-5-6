@@ -105,12 +105,13 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
-    <Property Name="StorageType" Type="varchar" MaxLength="45" />
     <Property Name="HDDSpeed" Type="int" />
     <Property Name="Cache" Type="int" />
     <Property Name="HDDFormat" Type="float" />
     <Property Name="Height" Type="float" />
     <Property Name="InternalHDDDiskcol" Type="varchar" MaxLength="45" />
+    <Property Name="Name" Type="varchar" MaxLength="45" />
+    <Property Name="StorageCapacity" Type="int" />
   </EntityType>
   <EntityType Name="motherboard">
     <Key>
@@ -209,6 +210,7 @@
     <Property Name="ImagePath" Type="longtext" />
     <Property Name="Name" Type="varchar" MaxLength="45" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Ramsize" Type="int" />
   </EntityType>
   <EntityType Name="ssd">
     <Key>

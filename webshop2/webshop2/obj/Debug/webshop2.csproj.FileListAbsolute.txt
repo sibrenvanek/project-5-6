@@ -142,7 +142,6 @@ C:\Users\erikv\Desktop\PRJ 56\project-5-6\webshop2\webshop2\bin\Microsoft.AI.Dep
 C:\Users\erikv\Desktop\PRJ 56\project-5-6\webshop2\webshop2\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6\webshop2\webshop2\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\erikv\Desktop\PRJ 56\project-5-6\webshop2\webshop2\bin\Microsoft.AI.Web.xml
-C:\Users\erikv\Desktop\PRJ 56\project-5-6\webshop2\webshop2\obj\Debug\webshop2.csprojResolveAssemblyReference.cache
 C:\Users\erikv\Desktop\PRJ 56\project-5-6\webshop2\webshop2\obj\Debug\webshop2.dll
 C:\Users\erikv\Desktop\PRJ 56\project-5-6\webshop2\webshop2\obj\Debug\webshop2.pdb
 C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie\webshop2\webshop2\bin\ApplicationInsights.config

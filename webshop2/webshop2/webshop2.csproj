@@ -350,6 +350,7 @@
     <Content Include="Views\NewAccount\Login.cshtml" />
     <Content Include="Views\Ram\Index.cshtml" />
     <Content Include="Views\Ram\View.cshtml" />
+    <Content Include="Views\Ram\Add_To_Wishlist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
