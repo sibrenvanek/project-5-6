@@ -12,15 +12,16 @@
 <body>
     @if (Request.IsAuthenticated)
     {
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
     }
     <style>
         .left {
             float: left;
             width: 100px;
         }
+
         .table {
             float: right;
             width: 950px;
@@ -31,75 +32,87 @@
             PageMethods.FilterRam(min, max);
         }
     </script>
-    <div class="left">
-        <form class="form-control-static" method="post">
-            Prijs: van @Html.TextBoxFor(model => model.ToArray()[0].min) tot @Html.TextBoxFor(model => model.ToArray()[0].max)
-            <button href="javascript:;" onclick="filter(model.min, model.max);" runat="server">UPDATE LIST</button>
-        </form>
-    </div>
-    <table class="table">
-        <tr>            
-            <th>
-                Image
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brand)
-            </th>
-            <th>
-                Composition Of Memory
-            </th>
-            <th>
-                Memory Type
-            </th>
-            <th>
-                Memory Suitable For
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                
-                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
-                    <img src="@Url.Content(item.ImagePath)" width="125" height="75" />
-                </a>
-            </td>
-            <td>
-                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
-                @Html.DisplayFor(modelItem => item.CompositionOfMemory)
-            </td>
-            <td>
-                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
-                @Html.DisplayFor(modelItem => item.MemoryType)
-            </td>
-            <td>
-                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
-                @Html.DisplayFor(modelItem => item.MemorySuitableFor)
-            </td>
-            <td>
-                <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
-                €@Html.DisplayFor(modelItem => item.Price)
-            </td>
-            
-            @if (Request.IsAuthenticated) { 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-                </td>
+    @if (!(Model.Count() == 0))
+    {
+        <div class="left">
+            <form class="form-control-static" method="post">
+                Prijs: van @Html.TextBoxFor(model => model.ToArray()[0].min) tot @Html.TextBoxFor(model => model.ToArray()[0].max)
+                <button href="javascript:;" onclick="filter(model.min, model.max);" runat="server">UPDATE LIST</button>
+            </form>
+        </div>
+        <table class="table">
+            <tr>
+                <th>
+                    Image
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Brand)
+                </th>
+                <th>
+                    Composition Of Memory
+                </th>
+                <th>
+                    Memory Type
+                </th>
+                <th>
+                    Memory Suitable For
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            <img src="@Url.Content(item.ImagePath)" width="125" height="75" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.Brand)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.CompositionOfMemory)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.MemoryType)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.MemorySuitableFor)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            €@Html.DisplayFor(modelItem => item.Price)
+                    </td>
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </td>
+                    }
+                </tr>
             }
-        </tr>
+
+        </table>
     }
-    
-    </table>
+    else
+    {
+        <h2>We couldn't find that page.</h2>
+        <form action="~/Ram/Index" method="get">
+            <input type="submit" value="reload" />
+        </form>
+    }
 </body>
 </html>
