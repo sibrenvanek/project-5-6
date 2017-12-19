@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `gpu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gpu` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Brand` varchar(45) DEFAULT NULL,
   `BusType` varchar(45) DEFAULT NULL,
   `FreeLocksRequired` int(11) DEFAULT NULL,
@@ -54,8 +54,7 @@ CREATE TABLE `gpu` (
   `Width` float DEFAULT NULL,
   `Depth` float DEFAULT NULL,
   `Height` float DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  CONSTRAINT `Product_GPU_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -77,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-18 14:48:50
+-- Dump completed on 2017-12-08 11:06:58

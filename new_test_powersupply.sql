@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `powersupply`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `powersupply` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Brand` varchar(45) DEFAULT NULL,
   `VersionFormFactor` varchar(45) DEFAULT NULL,
   `Modular` tinyint(4) DEFAULT NULL,
@@ -50,8 +50,7 @@ CREATE TABLE `powersupply` (
   `Width` float DEFAULT NULL,
   `Depth` float DEFAULT NULL,
   `Height` float DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  CONSTRAINT `Product_Powersupply_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -73,4 +72,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-18 14:48:48
+-- Dump completed on 2017-12-08 11:06:57

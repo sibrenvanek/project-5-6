@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `ram`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ram` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Brand` varchar(45) DEFAULT NULL,
   `CompositionOfMemory` varchar(45) DEFAULT NULL,
   `MemoryType` varchar(45) DEFAULT NULL,
@@ -35,10 +35,8 @@ CREATE TABLE `ram` (
   `ImagePath` longtext,
   `Name` varchar(45) DEFAULT NULL,
   `Price` decimal(10,0) DEFAULT NULL,
-  `Ramsize` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  CONSTRAINT `Product_Ram_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +45,7 @@ CREATE TABLE `ram` (
 
 LOCK TABLES `ram` WRITE;
 /*!40000 ALTER TABLE `ram` DISABLE KEYS */;
-INSERT INTO `ram` VALUES (1,'Kingston','1x','DDR3',2133,15,1.2,1,'Desktop','~/images/ram/ram1.jpg','Kingston123',80,8);
+INSERT INTO `ram` VALUES (1,'Kingston','1 x','DDR3',2133,15,1.2,1,'Desktop','~/images/ram/ram1.jpg','Kingston123',150),(2,'Crucial Standard','2 x','DDR4',2133,15,1.2,1,'Laptop','~/images/ram/ram2.png','CU321',80);
 /*!40000 ALTER TABLE `ram` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-18 14:48:48
+-- Dump completed on 2017-12-08 11:06:56
