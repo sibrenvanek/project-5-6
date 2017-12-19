@@ -1,6 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="new_testModelStoreContainer" CdmEntityContainer="new_testEntities">
+    <EntitySetMapping Name="aspnetroles">
+      <EntityTypeMapping TypeName="new_testModel.aspnetroles">
+        <MappingFragment StoreEntitySet="aspnetroles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnetuserclaims">
+      <EntityTypeMapping TypeName="new_testModel.aspnetuserclaims">
+        <MappingFragment StoreEntitySet="aspnetuserclaims">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Claimtype" ColumnName="Claimtype" />
+          <ScalarProperty Name="Claimvalue" ColumnName="Claimvalue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnetuserlogins">
+      <EntityTypeMapping TypeName="new_testModel.aspnetuserlogins">
+        <MappingFragment StoreEntitySet="aspnetuserlogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnetusers">
+      <EntityTypeMapping TypeName="new_testModel.aspnetusers">
+        <MappingFragment StoreEntitySet="aspnetusers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="case">
       <EntityTypeMapping TypeName="new_testModel.case">
         <MappingFragment StoreEntitySet="case">
@@ -269,21 +314,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="user">
-      <EntityTypeMapping TypeName="new_testModel.user">
-        <MappingFragment StoreEntitySet="user">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="adress" ColumnName="adress" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
-          <ScalarProperty Name="code" ColumnName="code" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="wishlist">
       <EntityTypeMapping TypeName="new_testModel.wishlist">
         <MappingFragment StoreEntitySet="wishlist">
@@ -296,5 +326,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="aspnetuserroles" TypeName="new_testModel.aspnetuserroles" StoreEntitySet="aspnetuserroles">
+      <EndProperty Name="aspnetroles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="aspnetusers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

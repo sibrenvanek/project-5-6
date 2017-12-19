@@ -4,7 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5584e6c5254b47a4b9723fafb99df096" Name="Diagram1">
+      <Diagram DiagramId="50c35e4e0ff94567a3d7497e46ef7749" Name="Diagram1">
+        <EntityTypeShape EntityType="new_testModel.aspnetroles" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.aspnetuserclaims" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.aspnetuserlogins" Width="1.5" PointX="10.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.aspnetusers" Width="1.5" PointX="8" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.case" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.chat" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.cpucooler" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
@@ -15,9 +19,10 @@
         <EntityTypeShape EntityType="new_testModel.product" Width="1.5" PointX="0.75" PointY="28.375" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.ram" Width="1.5" PointX="3" PointY="45.25" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.ssd" Width="1.5" PointX="3" PointY="49.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.supplier" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.user" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.supplier" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.wishlist" Width="1.5" PointX="3" PointY="54.75" IsExpanded="true" />
+        <AssociationConnector Association="new_testModel.aspnetusers_aspnetclaims_id" ManuallyRouted="false" />
+        <AssociationConnector Association="new_testModel.aspnetusers_aspnetuserlogins_id" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.Product_Case_ID" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.Product_CPUcooler_ID" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.Product_GPU_ID" ManuallyRouted="false" />
@@ -27,6 +32,7 @@
         <AssociationConnector Association="new_testModel.Product_Ram_ID" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.Product_ssd_ID" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.Product_Wishlist_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="new_testModel.aspnetuserroles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

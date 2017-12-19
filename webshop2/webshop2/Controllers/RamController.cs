@@ -132,14 +132,14 @@ namespace webshop2.Controllers
             using (new_testEntities db = new new_testEntities())
             {
 
-                user user = db.user.FirstOrDefault(x => x.ID == id);
+                //user user = db.user.FirstOrDefault(x => x.ID == id);
                 product product = db.product.FirstOrDefault(x => x.ID == id);
                 wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id);
 
                 if (Wishlist == null)
                 {
 
-                    db.wishlist.Add(new wishlist { ProductId = product.ID, UserId = user.ID, Quantity = 1, ProductName = "string", Price = (decimal)0.0 , Imagepath = product.imagepath });
+                    db.wishlist.Add(new wishlist { ProductId = product.ID, /*UserId = user.ID,*/ Quantity = 1, ProductName = "string", Price = (decimal)0.0 , Imagepath = product.imagepath });
                     db.SaveChanges();
                 }
                 else

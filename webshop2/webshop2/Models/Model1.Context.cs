@@ -25,6 +25,10 @@ namespace webshop2.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<aspnetroles> aspnetroles { get; set; }
+        public virtual DbSet<aspnetuserclaims> aspnetuserclaims { get; set; }
+        public virtual DbSet<aspnetuserlogins> aspnetuserlogins { get; set; }
+        public virtual DbSet<aspnetusers> aspnetusers { get; set; }
         public virtual DbSet<@case> @case { get; set; }
         public virtual DbSet<chat> chat { get; set; }
         public virtual DbSet<cpucooler> cpucooler { get; set; }
@@ -36,7 +40,6 @@ namespace webshop2.Models
         public virtual DbSet<ram> ram { get; set; }
         public virtual DbSet<ssd> ssd { get; set; }
         public virtual DbSet<supplier> supplier { get; set; }
-        public virtual DbSet<user> user { get; set; }
         public virtual DbSet<wishlist> wishlist { get; set; }
     }
 }

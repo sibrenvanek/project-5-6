@@ -44,21 +44,21 @@ namespace webshop2.Controllers
         /// <param name="s">string to decrypt</param>
         /// <param name="code">code to decrypt the string with</param>
         /// <returns>decrypted string</returns>
-        public static string Decrypt(string s, int code)
-        {
-            string decryptedS = "";
-            foreach (char c in s)
-            {
-                int C = Convert.ToInt32(c);
-                C -= code;
-                while (C < 32)
-                {
-                    C += 94;
-                }
-                decryptedS += Convert.ToChar(C);
-            }
-            return decryptedS;
-        }
+        //public static string Decrypt(string s) //removed code
+        //{
+        //    string decryptedS = "";
+        //    foreach (char c in s)
+        //    {
+        //        int C = Convert.ToInt32(c);
+        //        C -= code;
+        //        while (C < 32)
+        //        {
+        //            C += 94;
+        //        }
+        //        decryptedS += Convert.ToChar(C);
+        //    }
+        //    return decryptedS;
+        //}
 
 
         // GET: NewAccount/Create
@@ -92,7 +92,7 @@ namespace webshop2.Controllers
             using (new_testEntities db = new new_testEntities())
             {
                 bool check = true;
-                foreach (user u in db.user)
+                foreach (aspnetusers u in db.aspnetusers)
                 {
                     if (u.Email == email)
                     {
@@ -101,7 +101,7 @@ namespace webshop2.Controllers
                 }
                 if (check)
                 {
-                    db.user.Add(new user { code = code, username = username, name = name, dateofbirth = dateofbirth, Email = email, password = password, adress = addres, phonenumber = phonenumber });
+                    db.aspnetusers.Add(new aspnetusers {  UserName = username,   Email = email, PasswordHash = password, PhoneNumber = phonenumber });
 
                     db.SaveChanges();
                     result = IdentityResult.Success;
@@ -112,7 +112,7 @@ namespace webshop2.Controllers
                 }
                 db.SaveChanges();
             }
-                return View();
+            return View();
         }
 
         
@@ -123,15 +123,15 @@ namespace webshop2.Controllers
         {
             using (new_testEntities db = new new_testEntities())
             {
-                foreach (user user in db.user)
+                foreach (aspnetusers user in db.aspnetusers)
                 {
                     if (user.Email == model.Email)
                     {
-                        if (Decrypt(user.password, user.code) == model.Password)
-                        {
-                            //correct login
+                        //if (Decrypt(user.PasswordHash) == model.Password) //removed user.code
+                        //{
+                        //    //correct login
 
-                        }
+                        //}
                     }
                 }
             }

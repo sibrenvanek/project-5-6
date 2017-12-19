@@ -1,5 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="new_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="aspnetroles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetuserroles" FromRole="aspnetroles" ToRole="aspnetusers" />
+  </EntityType>
+  <EntityType Name="aspnetuserclaims">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="Claimtype" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Claimvalue" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetusers_aspnetclaims_id" FromRole="aspnetuserclaims" ToRole="aspnetusers" />
+  </EntityType>
+  <EntityType Name="aspnetuserlogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetusers_aspnetuserlogins_id" FromRole="aspnetuserlogins" ToRole="aspnetusers" />
+  </EntityType>
+  <EntityType Name="aspnetusers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="EmailConfirmed" Type="SByte" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="aspnetuserclaims" Relationship="Self.aspnetusers_aspnetclaims_id" FromRole="aspnetusers" ToRole="aspnetuserclaims" />
+    <NavigationProperty Name="aspnetuserlogins" Relationship="Self.aspnetusers_aspnetuserlogins_id" FromRole="aspnetusers" ToRole="aspnetuserlogins" />
+    <NavigationProperty Name="aspnetroles" Relationship="Self.aspnetuserroles" FromRole="aspnetusers" ToRole="aspnetroles" />
+  </EntityType>
   <EntityType Name="case">
     <Key>
       <PropertyRef Name="ID" />
@@ -274,20 +321,6 @@
     <Property Name="ShippingTime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="user">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="adress" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="dateofbirth" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="phonenumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="code" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="wishlist">
     <Key>
       <PropertyRef Name="ProductId" />
@@ -301,6 +334,30 @@
     <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_Wishlist_ID" FromRole="wishlist" ToRole="product" />
   </EntityType>
+  <Association Name="aspnetusers_aspnetclaims_id">
+    <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="0..1" />
+    <End Role="aspnetuserclaims" Type="Self.aspnetuserclaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnetusers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnetuserclaims">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="aspnetusers_aspnetuserlogins_id">
+    <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="1" />
+    <End Role="aspnetuserlogins" Type="Self.aspnetuserlogins" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnetusers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnetuserlogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Product_Case_ID">
     <End Role="product" Type="Self.product" Multiplicity="1" />
     <End Role="case" Type="Self.case" Multiplicity="0..1" />
@@ -409,7 +466,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="aspnetuserroles">
+    <End Role="aspnetroles" Type="Self.aspnetroles" Multiplicity="*" />
+    <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="*" />
+  </Association>
   <EntityContainer Name="new_testEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="aspnetroles" EntityType="Self.aspnetroles" />
+    <EntitySet Name="aspnetuserclaims" EntityType="Self.aspnetuserclaims" />
+    <EntitySet Name="aspnetuserlogins" EntityType="Self.aspnetuserlogins" />
+    <EntitySet Name="aspnetusers" EntityType="Self.aspnetusers" />
     <EntitySet Name="case" EntityType="Self.case" />
     <EntitySet Name="chat" EntityType="Self.chat" />
     <EntitySet Name="cpucooler" EntityType="Self.cpucooler" />
@@ -421,8 +486,15 @@
     <EntitySet Name="ram" EntityType="Self.ram" />
     <EntitySet Name="ssd" EntityType="Self.ssd" />
     <EntitySet Name="supplier" EntityType="Self.supplier" />
-    <EntitySet Name="user" EntityType="Self.user" />
     <EntitySet Name="wishlist" EntityType="Self.wishlist" />
+    <AssociationSet Name="aspnetusers_aspnetclaims_id" Association="Self.aspnetusers_aspnetclaims_id">
+      <End Role="aspnetusers" EntitySet="aspnetusers" />
+      <End Role="aspnetuserclaims" EntitySet="aspnetuserclaims" />
+    </AssociationSet>
+    <AssociationSet Name="aspnetusers_aspnetuserlogins_id" Association="Self.aspnetusers_aspnetuserlogins_id">
+      <End Role="aspnetusers" EntitySet="aspnetusers" />
+      <End Role="aspnetuserlogins" EntitySet="aspnetuserlogins" />
+    </AssociationSet>
     <AssociationSet Name="Product_Case_ID" Association="Self.Product_Case_ID">
       <End Role="product" EntitySet="product" />
       <End Role="case" EntitySet="case" />
@@ -458,6 +530,10 @@
     <AssociationSet Name="Product_Wishlist_ID" Association="Self.Product_Wishlist_ID">
       <End Role="product" EntitySet="product" />
       <End Role="wishlist" EntitySet="wishlist" />
+    </AssociationSet>
+    <AssociationSet Name="aspnetuserroles" Association="Self.aspnetuserroles">
+      <End Role="aspnetroles" EntitySet="aspnetroles" />
+      <End Role="aspnetusers" EntitySet="aspnetusers" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

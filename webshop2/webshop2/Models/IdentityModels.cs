@@ -20,7 +20,7 @@ namespace webshop2.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("name=new_testEntities", throwIfV1Schema: false)
         {
         }
 

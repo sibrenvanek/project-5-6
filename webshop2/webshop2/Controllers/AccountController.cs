@@ -81,13 +81,13 @@ namespace webshop2.Controllers
                 string username = null;
                 using (new_testEntities db = new new_testEntities())
                 {
-                    foreach (user u in db.user)
+                    foreach (aspnetusers u in db.aspnetusers)
                     {
                         if (u.Email == model.Email)
                         {
-                            if (Decrypt(u.password, 20) == model.Password)
+                            if (Decrypt(u.PasswordHash, 20) == model.Password)
                             {
-                                username = u.username;
+                                username = u.UserName;
                                 break;
                             }
                         }
@@ -115,11 +115,11 @@ namespace webshop2.Controllers
         {
             using(new_testEntities db=new new_testEntities())
             {
-                foreach(user u in db.user)
+                foreach(aspnetusers u in db.aspnetusers)
                 {
                     if (u.Email == email)
                     {
-                        if (Decrypt(u.password, 20)==password)
+                        if (Decrypt(u.PasswordHash, 20)==password)
                         {
                             return true;
                         }
@@ -212,29 +212,29 @@ namespace webshop2.Controllers
                 }
                 string addres = Encrypt(name + "\n" + street + " " + housenumber.ToString() + extension + "\n" + postcode + ", " + city, code);
 
-                var user = new user { username = username, adress = addres, Email = email, dateofbirth = dateofbirth,password=password,name=name,phonenumber=phonenumber, code=code };
-                IdentityResult result = IdentityResult.Failed();
-                using(new_testEntities db = new new_testEntities())
-                {
-                    bool check = true;
-                    foreach(user u in db.user)
-                    {
-                        if (u.Email == user.Email)
-                        {
-                            check = false;
-                        }
-                    }
-                    if (check)
-                    {
-                        db.user.Add(user);
-                        db.SaveChanges();
-                        result = IdentityResult.Success;
-                    }
-                    else
-                    {
-                        result = IdentityResult.Failed("Email already in use!");
-                    }
-                }
+                //var user = new aspnetusers { username = username, adress = addres, Email = email, dateofbirth = dateofbirth,password=password,name=name,phonenumber=phonenumber, code=code };
+                //IdentityResult result = IdentityResult.Failed();
+                //using(new_testEntities db = new new_testEntities())
+                //{
+                //    bool check = true;
+                //    foreach(aspnetusers u in db.aspnetusers)
+                //    {
+                //        if (u.Email == user.Email)
+                //        {
+                //            check = false;
+                //        }
+                //    }
+                //    if (check)
+                //    {
+                //        db.aspnetusers.Add(user);
+                //        db.SaveChanges();
+                //        result = IdentityResult.Success;
+                //    }
+                //    else
+                //    {
+                //        result = IdentityResult.Failed("Email already in use!");
+                //    }
+                //}
                 //var result2 = await UserManager.CreateIdentityAsync(user, "basic authentication");
                 //if (result.Succeeded/* && result2.Succeeded*/)
                 //{
