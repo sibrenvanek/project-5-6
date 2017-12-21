@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: new_test
+-- Host: 145.24.198.79    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -30,7 +30,7 @@ CREATE TABLE `product` (
   `Brand` varchar(45) DEFAULT NULL,
   `Supplier` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,80,'~/images/ram/ram1.jpg',100,'Kingston','testsupplier');
+INSERT INTO `product` VALUES (1,80,'~/images/ram/ram1.jpg',100,'Kingston','testsupplier'),(2,80,'~/images/ram/ram1.jpg',100,'Kingston','testsupplier');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-18 14:48:46
+-- Dump completed on 2017-12-21 13:58:21

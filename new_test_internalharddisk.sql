@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: new_test
+-- Host: 145.24.198.79    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `internalharddisk`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `internalharddisk` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) NOT NULL,
   `Brand` varchar(45) DEFAULT NULL,
   `HDDSpeed` int(11) DEFAULT NULL,
   `Cache` int(11) DEFAULT NULL,
@@ -32,8 +32,9 @@ CREATE TABLE `internalharddisk` (
   `InternalHDDDiskcol` varchar(45) DEFAULT NULL,
   `Name` varchar(45) DEFAULT NULL,
   `StorageCapacity` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `Product_Internalharddisk_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +43,6 @@ CREATE TABLE `internalharddisk` (
 
 LOCK TABLES `internalharddisk` WRITE;
 /*!40000 ALTER TABLE `internalharddisk` DISABLE KEYS */;
-INSERT INTO `internalharddisk` VALUES (1,'Seagate',4500,128,61.5,1.2,'Enhanced','Seagate 9000XD',6000),(2,'Toshiba',5000,64,18.7,32.5,'Intuitive','Toshiba 4000',500),(3,'WD',5500,64,8.9,63.4,'Operative','WD Purple-123',1250);
 /*!40000 ALTER TABLE `internalharddisk` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-08 11:06:57
+-- Dump completed on 2017-12-21 13:58:33

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: new_test
+-- Host: 145.24.198.79    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `ssd`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ssd` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) NOT NULL,
   `Brand` varchar(45) DEFAULT NULL,
   `Connection` varchar(45) DEFAULT NULL,
   `StorageCapacity` int(11) DEFAULT NULL,
@@ -39,7 +39,8 @@ CREATE TABLE `ssd` (
   `Depth` float DEFAULT NULL,
   `Height` float DEFAULT NULL,
   `Color` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `Product_ssd_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=cp850;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -61,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-08 11:06:59
+-- Dump completed on 2017-12-21 13:58:42
