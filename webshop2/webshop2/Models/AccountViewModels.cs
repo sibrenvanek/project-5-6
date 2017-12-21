@@ -79,54 +79,6 @@ namespace webshop2.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "Username")]
-        public string Username { get; set; }
-
-        [Required]
-        [DataType(DataType.PostalCode)]
-        [Display(Name = "PostCode")]
-        public string Postcode { get; set; }
-
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "Housenumber")]
-        public string Housenumber { get; set; }
-
-        [DataType(DataType.Text)]
-        [Display(Name = "Extension")]
-        public string Extension { get; set; }
-
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "Street")]
-        public string Street { get; set; }
-
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "City")]
-        public string City { get; set; }
-
-        [DataType(DataType.PhoneNumber)]
-        [Display(Name = "PhoneNumber")]
-        public string Phonenumber { get; set; }
-
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "First Name")]
-        public string Firstname { get; set; }
-
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "Last Name")]
-        public string Lastname { get; set; }
-
-        [Required]
-        [DataType(DataType.Date)]
-        [Display(Name = "Date of Birth(DD-MM-YYYY)")]
-        public string DateOfBirth { get; set; }
     }
 
     public class ResetPasswordViewModel

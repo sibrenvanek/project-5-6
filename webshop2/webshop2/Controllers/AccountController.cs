@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using webshop2.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace webshop2.Controllers
 {
@@ -72,35 +73,14 @@ namespace webshop2.Controllers
             {
                 return View(model);
             }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            bool check = PasswordSignInDB(model.Email, model.Password);
-            SignInStatus result = SignInStatus.Failure;
-            if (check)
-            {
-                string username = null;
-                using (new_testEntities db = new new_testEntities())
-                {
-                    foreach (aspnetusers u in db.aspnetusers)
-                    {
-                        if (u.Email == model.Email)
-                        {
-                            if (Decrypt(u.PasswordHash, 20) == model.Password)
-                            {
-                                username = u.UserName;
-                                break;
-                            }
-                        }
-                    }
-                }
-                var user = await UserManager.FindByEmailAsync(model.Email);
-                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                result = SignInStatus.Success;
-            }
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal("../Home/Index");
+                    return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -110,23 +90,6 @@ namespace webshop2.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
-        }
-        public bool PasswordSignInDB(string email, string password)
-        {
-            using(new_testEntities db=new new_testEntities())
-            {
-                foreach(aspnetusers u in db.aspnetusers)
-                {
-                    if (u.Email == email)
-                    {
-                        if (Decrypt(u.PasswordHash, 20)==password)
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
         }
 
         //
@@ -187,68 +150,14 @@ namespace webshop2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) 
             {
-                int code = new Random().Next(0, 100);
-                string username = model.Username;
-                string name = Encrypt(model.Firstname + " " + model.Lastname, code);
-                string dateofbirth = model.DateOfBirth;
-                DateTime dateOfBirth = Convert.ToDateTime(dateofbirth);//new DateTime(Convert.ToInt32(dateofbirth[6] + dateofbirth[7] + dateofbirth[8] + dateofbirth[9]), Convert.ToInt32(dateofbirth[3] + dateofbirth[4]), Convert.ToInt32(dateofbirth[0] + dateofbirth[1]));
-                string email = model.Email;
-                string password = Encrypt(model.Password, code);
-                string postcode = model.Postcode;
-                int housenumber = Convert.ToInt32(model.Housenumber);
-                string extension = model.Extension;
-                if (extension == null)
-                {
-                    extension = "";
-                }
-                string street = model.Street;
-                string city = model.City;
-                string phonenumber = model.Phonenumber;
-                if (phonenumber != null)
-                {
-                    phonenumber = Encrypt(phonenumber, code);
-                }
-                string addres = Encrypt(name + "\n" + street + " " + housenumber.ToString() + extension + "\n" + postcode + ", " + city, code);
-
-                //var user = new aspnetusers { username = username, adress = addres, Email = email, dateofbirth = dateofbirth,password=password,name=name,phonenumber=phonenumber, code=code };
-                //IdentityResult result = IdentityResult.Failed();
-                //using(new_testEntities db = new new_testEntities())
-                //{
-                //    bool check = true;
-                //    foreach(aspnetusers u in db.aspnetusers)
-                //    {
-                //        if (u.Email == user.Email)
-                //        {
-                //            check = false;
-                //        }
-                //    }
-                //    if (check)
-                //    {
-                //        db.aspnetusers.Add(user);
-                //        db.SaveChanges();
-                //        result = IdentityResult.Success;
-                //    }
-                //    else
-                //    {
-                //        result = IdentityResult.Failed("Email already in use!");
-                //    }
-                //}
-                //var result2 = await UserManager.CreateIdentityAsync(user, "basic authentication");
-                //if (result.Succeeded/* && result2.Succeeded*/)
-                //{
-                //    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                //}
-
-                return RedirectToAction("Index", "Home");
-                /*
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new aspnetusers { UserName = model.Email, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -257,7 +166,7 @@ namespace webshop2.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                AddErrors(result);*/
+                AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form

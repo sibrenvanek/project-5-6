@@ -29,5 +29,9 @@ namespace webshop2.Models
         public Nullable<int> Ramsize { get; set; }
     
         public virtual product product { get; set; }
+
+
+        public Nullable<int> min { get; set; }
+        public Nullable<int> max { get; set; }
     }
 }
