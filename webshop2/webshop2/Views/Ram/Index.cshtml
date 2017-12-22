@@ -36,7 +36,13 @@
     {
         <div class="left">
             <form class="form-control-static" method="post">
-                Prijs: van @Html.TextBoxFor(model => model.ToArray()[0].min) tot @Html.TextBoxFor(model => model.ToArray()[0].max)
+                Prijs: van @Html.TextBoxFor(model => model.ToArray()[0].minprice) tot @Html.TextBoxFor(model => model.ToArray()[0].maxprice)
+                Size: van @Html.TextBoxFor(model => model.ToArray()[0].minsize) tot @Html.TextBoxFor(model => model.ToArray()[0].maxsize)
+                Brand:  <br /> Kingston @Html.RadioButtonFor(model => model.ToArray()[0].brand, "Kingston")
+                        <br /> Corsair @Html.RadioButtonFor(model => model.ToArray()[0].brand, "Corsair")
+                        <br /> Crucial @Html.RadioButtonFor(model => model.ToArray()[0].brand, "Crucial")
+                Ramtype:<br /> DDR3 @Html.RadioButtonFor(model=>model.ToArray()[0].ramtype, "DDR3")
+                        <br /> DDR4 @Html.RadioButtonFor(model=>model.ToArray()[0].ramtype, "DDR4")
                 <button href="javascript:;" onclick="filter(model.min, model.max);" runat="server">UPDATE LIST</button>
             </form>
         </div>
@@ -44,6 +50,9 @@
             <tr>
                 <th>
                     Image
+                </th>
+                <th>
+                    Ramsize
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Brand)
@@ -71,6 +80,11 @@
 
                         <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
                             <img src="@Url.Content(item.ImagePath)" width="125" height="75" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.Ramsize) GB
                         </a>
                     </td>
                     <td>
