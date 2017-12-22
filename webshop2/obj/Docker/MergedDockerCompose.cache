@@ -1,0 +1,13 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  webshop2:
+    build:
+      context: C:\Users\erikv\Desktop\PRJ 56\project-5-6 - kopie (2)\webshop2\webshop2
+      dockerfile: Dockerfile
+    image: webshop2
+    ports:
+    - 80/tcp
+version: '3.0'
