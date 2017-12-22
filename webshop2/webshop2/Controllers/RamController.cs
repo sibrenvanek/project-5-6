@@ -19,14 +19,14 @@ namespace webshop2.Controllers
 
                 var minPrice = Request.Form.Get(keys[0]);
                 var maxPrice = Request.Form.Get(keys[1]);
-                var minSize  = Request.Form.Get(keys[2]);
-                var maxSize  = Request.Form.Get(keys[3]);
+                var minSize = Request.Form.Get(keys[2]);
+                var maxSize = Request.Form.Get(keys[3]);
                 string brands, ramType;
                 bool check = false;
                 try
                 {
                     brands = Request.Form.Get(keys[4]);
-                    if(brands == "DDR3" || brands == "DDR4")
+                    if (brands == "DDR3" || brands == "DDR4")
                     {
                         check = true;
                     }
@@ -50,7 +50,7 @@ namespace webshop2.Controllers
                 }
 
                 int? minprice = null, maxprice = null, minsize = null, maxsize = null;
-                if(minPrice != "")
+                if (minPrice != "")
                 {
                     minprice = Convert.ToInt32(minPrice);
                 }
@@ -80,7 +80,7 @@ namespace webshop2.Controllers
         {
             using (new_testEntities db = new new_testEntities())
             {
-                if(ramType == "")
+                if (ramType == "")
                 {
                     if (brands == "")
                     {
@@ -625,4 +625,5 @@ namespace webshop2.Controllers
                 return RedirectToAction("View/" + ID, "Ram");
             }
         }
+    }
 }
