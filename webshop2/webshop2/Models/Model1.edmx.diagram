@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="50c35e4e0ff94567a3d7497e46ef7749" Name="Diagram1">
+      <Diagram DiagramId="c3600025f04646c2822912484ecd15e2" Name="Diagram1">
         <EntityTypeShape EntityType="new_testModel.aspnetroles" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.aspnetuserclaims" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.aspnetuserlogins" Width="1.5" PointX="10.25" PointY="3.75" IsExpanded="true" />
@@ -21,7 +21,7 @@
         <EntityTypeShape EntityType="new_testModel.ssd" Width="1.5" PointX="3" PointY="49.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.supplier" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.wishlist" Width="1.5" PointX="3" PointY="54.75" IsExpanded="true" />
-        <AssociationConnector Association="new_testModel.aspnetusers_aspnetclaims_id" ManuallyRouted="false" />
+        <AssociationConnector Association="new_testModel.aspnetusers_aspnetuserclaims_id" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.aspnetusers_aspnetuserlogins_id" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.Product_Case_ID" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.Product_CPUcooler_ID" ManuallyRouted="false" />

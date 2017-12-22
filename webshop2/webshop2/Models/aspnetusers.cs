@@ -9,30 +9,31 @@
 
 namespace webshop2.Models
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     
-    public partial class aspnetusers : ApplicationUser
+    public partial class aspnetusers : IdentityUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public aspnetusers() : base()
+        public aspnetusers()  : base("name=new_testEntities")
         {
             this.aspnetuserclaims = new HashSet<aspnetuserclaims>();
             this.aspnetroles = new HashSet<aspnetroles>();
         }
     
-        public override string id { get; set; }
-        public override string Email { get; set; }
-        public override bool EmailConfirmed { get; set; }
-        public override string PasswordHash { get; set; }
-        public override string SecurityStamp { get; set; }
-        public override string PhoneNumber { get; set; }
-        public override bool PhoneNumberConfirmed { get; set; }
-        public override bool TwoFactorEnabled { get; set; }
-        public override Nullable<System.DateTime> LockoutEndDateUtc { get; set; }
-        public override bool LockoutEnabled { get; set; }
-        public override int AccessFailedCount { get; set; }
-        public override string UserName { get; set; }
+        public string Id { get; set; }
+        public string Email { get; set; }
+        public sbyte EmailConfirmed { get; set; }
+        public string PasswordHash { get; set; }
+        public string SecurityStamp { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool PhoneNumberConfirmed { get; set; }
+        public bool TwoFactorEnabled { get; set; }
+        public Nullable<System.DateTime> LockoutEndDateUtc { get; set; }
+        public bool LockoutEnabled { get; set; }
+        public int AccessFailedCount { get; set; }
+        public string UserName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<aspnetuserclaims> aspnetuserclaims { get; set; }

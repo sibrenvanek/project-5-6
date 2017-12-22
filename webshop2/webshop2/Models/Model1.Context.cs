@@ -13,7 +13,7 @@ namespace webshop2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class new_testEntities : Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext
+    public partial class new_testEntities : DbContext
     {
         public new_testEntities()
             : base("name=new_testEntities")

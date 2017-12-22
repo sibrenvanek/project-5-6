@@ -16,7 +16,7 @@ namespace webshop2.Models
     {
         public string LoginProvider { get; set; }
         public string ProviderKey { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     
         public virtual aspnetusers aspnetusers { get; set; }
     }

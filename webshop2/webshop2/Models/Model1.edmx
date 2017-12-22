@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="aspnetuserclaims">
@@ -17,7 +17,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="userid" Type="int" />
+          <Property Name="userid" Type="varchar" MaxLength="128" />
           <Property Name="Claimtype" Type="varchar" MaxLength="45" />
           <Property Name="Claimvalue" Type="varchar" MaxLength="45" />
         </EntityType>
@@ -27,21 +27,21 @@
           </Key>
           <Property Name="LoginProvider" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="ProviderKey" Type="varchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="aspnetuserroles">
           <Key>
             <PropertyRef Name="UserId" />
             <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="UserId" Type="int" Nullable="false" />
-          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="aspnetusers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="256" />
           <Property Name="EmailConfirmed" Type="tinyint" Nullable="false" />
           <Property Name="PasswordHash" Type="varchar" MaxLength="45" />
@@ -335,7 +335,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="aspnetusers_aspnetclaims_id">
+        <Association Name="aspnetusers_aspnetuserclaims_id">
           <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="0..1" />
           <End Role="aspnetuserclaims" Type="Self.aspnetuserclaims" Multiplicity="*" />
           <ReferentialConstraint>
@@ -359,7 +359,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="aspnetusers_aspnetuserroles_Id">
+        <Association Name="aspnetusers_aspnetuserroles_id">
           <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="1" />
           <End Role="aspnetuserroles" Type="Self.aspnetuserroles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -501,7 +501,7 @@
             <End Role="aspnetroles" EntitySet="aspnetroles" />
             <End Role="aspnetuserroles" EntitySet="aspnetuserroles" />
           </AssociationSet>
-          <AssociationSet Name="aspnetusers_aspnetclaims_id" Association="Self.aspnetusers_aspnetclaims_id">
+          <AssociationSet Name="aspnetusers_aspnetuserclaims_id" Association="Self.aspnetusers_aspnetuserclaims_id">
             <End Role="aspnetusers" EntitySet="aspnetusers" />
             <End Role="aspnetuserclaims" EntitySet="aspnetuserclaims" />
           </AssociationSet>
@@ -509,7 +509,7 @@
             <End Role="aspnetusers" EntitySet="aspnetusers" />
             <End Role="aspnetuserlogins" EntitySet="aspnetuserlogins" />
           </AssociationSet>
-          <AssociationSet Name="aspnetusers_aspnetuserroles_Id" Association="Self.aspnetusers_aspnetuserroles_Id">
+          <AssociationSet Name="aspnetusers_aspnetuserroles_id" Association="Self.aspnetusers_aspnetuserroles_id">
             <End Role="aspnetusers" EntitySet="aspnetusers" />
             <End Role="aspnetuserroles" EntitySet="aspnetuserroles" />
           </AssociationSet>
@@ -559,7 +559,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetuserroles" FromRole="aspnetroles" ToRole="aspnetusers" />
         </EntityType>
@@ -568,10 +568,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="userid" Type="Int32" />
+          <Property Name="userid" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="Claimtype" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Claimvalue" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetusers_aspnetclaims_id" FromRole="aspnetuserclaims" ToRole="aspnetusers" />
+          <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetusers_aspnetuserclaims_id" FromRole="aspnetuserclaims" ToRole="aspnetusers" />
         </EntityType>
         <EntityType Name="aspnetuserlogins">
           <Key>
@@ -579,14 +579,14 @@
           </Key>
           <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetusers_aspnetuserlogins_id" FromRole="aspnetuserlogins" ToRole="aspnetusers" />
         </EntityType>
         <EntityType Name="aspnetusers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="EmailConfirmed" Type="SByte" Nullable="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -598,7 +598,7 @@
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="aspnetuserclaims" Relationship="Self.aspnetusers_aspnetclaims_id" FromRole="aspnetusers" ToRole="aspnetuserclaims" />
+          <NavigationProperty Name="aspnetuserclaims" Relationship="Self.aspnetusers_aspnetuserclaims_id" FromRole="aspnetusers" ToRole="aspnetuserclaims" />
           <NavigationProperty Name="aspnetuserlogins" Relationship="Self.aspnetusers_aspnetuserlogins_id" FromRole="aspnetusers" ToRole="aspnetuserlogins" />
           <NavigationProperty Name="aspnetroles" Relationship="Self.aspnetuserroles" FromRole="aspnetusers" ToRole="aspnetroles" />
         </EntityType>
@@ -889,7 +889,7 @@
           <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="product" Relationship="Self.Product_Wishlist_ID" FromRole="wishlist" ToRole="product" />
         </EntityType>
-        <Association Name="aspnetusers_aspnetclaims_id">
+        <Association Name="aspnetusers_aspnetuserclaims_id">
           <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="0..1" />
           <End Role="aspnetuserclaims" Type="Self.aspnetuserclaims" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1042,7 +1042,7 @@
           <EntitySet Name="ssd" EntityType="Self.ssd" />
           <EntitySet Name="supplier" EntityType="Self.supplier" />
           <EntitySet Name="wishlist" EntityType="Self.wishlist" />
-          <AssociationSet Name="aspnetusers_aspnetclaims_id" Association="Self.aspnetusers_aspnetclaims_id">
+          <AssociationSet Name="aspnetusers_aspnetuserclaims_id" Association="Self.aspnetusers_aspnetuserclaims_id">
             <End Role="aspnetusers" EntitySet="aspnetusers" />
             <End Role="aspnetuserclaims" EntitySet="aspnetuserclaims" />
           </AssociationSet>

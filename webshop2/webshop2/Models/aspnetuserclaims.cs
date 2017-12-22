@@ -15,7 +15,7 @@ namespace webshop2.Models
     public partial class aspnetuserclaims
     {
         public int id { get; set; }
-        public Nullable<int> userid { get; set; }
+        public string userid { get; set; }
         public string Claimtype { get; set; }
         public string Claimvalue { get; set; }
     

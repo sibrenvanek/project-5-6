@@ -20,7 +20,7 @@ namespace webshop2.Models
             this.aspnetusers = new HashSet<aspnetusers>();
         }
     
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
