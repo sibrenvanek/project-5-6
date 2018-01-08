@@ -45,6 +45,8 @@ namespace webshop2.Models
         public Nullable<float> Width { get; set; }
         public Nullable<float> Depth { get; set; }
         public Nullable<float> Height { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public string Name { get; set; }
     
         public virtual product product { get; set; }
     }

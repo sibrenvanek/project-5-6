@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetuserroles" FromRole="aspnetroles" ToRole="aspnetusers" />
   </EntityType>
@@ -13,10 +13,10 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="userid" Type="Int32" />
+    <Property Name="userid" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
     <Property Name="Claimtype" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Claimvalue" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetusers_aspnetclaims_id" FromRole="aspnetuserclaims" ToRole="aspnetusers" />
+    <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetusers_aspnetuserclaims_id" FromRole="aspnetuserclaims" ToRole="aspnetusers" />
   </EntityType>
   <EntityType Name="aspnetuserlogins">
     <Key>
@@ -24,14 +24,14 @@
     </Key>
     <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetusers_aspnetuserlogins_id" FromRole="aspnetuserlogins" ToRole="aspnetusers" />
   </EntityType>
   <EntityType Name="aspnetusers">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
     <Property Name="EmailConfirmed" Type="SByte" Nullable="false" />
     <Property Name="PasswordHash" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -43,7 +43,7 @@
     <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="aspnetuserclaims" Relationship="Self.aspnetusers_aspnetclaims_id" FromRole="aspnetusers" ToRole="aspnetuserclaims" />
+    <NavigationProperty Name="aspnetuserclaims" Relationship="Self.aspnetusers_aspnetuserclaims_id" FromRole="aspnetusers" ToRole="aspnetuserclaims" />
     <NavigationProperty Name="aspnetuserlogins" Relationship="Self.aspnetusers_aspnetuserlogins_id" FromRole="aspnetusers" ToRole="aspnetuserlogins" />
     <NavigationProperty Name="aspnetroles" Relationship="Self.aspnetuserroles" FromRole="aspnetusers" ToRole="aspnetroles" />
   </EntityType>
@@ -81,6 +81,8 @@
     <Property Name="Height" Type="Int32" />
     <Property Name="Color" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Material" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_Case_ID" FromRole="case" ToRole="product" />
   </EntityType>
   <EntityType Name="chat">
@@ -110,6 +112,8 @@
     <Property Name="Width" Type="Single" />
     <Property Name="Depth" Type="Single" />
     <Property Name="Height" Type="Single" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_CPUcooler_ID" FromRole="cpucooler" ToRole="product" />
   </EntityType>
   <EntityType Name="gpu">
@@ -147,6 +151,8 @@
     <Property Name="Width" Type="Single" />
     <Property Name="Depth" Type="Single" />
     <Property Name="Height" Type="Single" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_GPU_ID" FromRole="gpu" ToRole="product" />
   </EntityType>
   <EntityType Name="internalharddisk">
@@ -162,6 +168,7 @@
     <Property Name="InternalHDDDiskcol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="StorageCapacity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" />
     <NavigationProperty Name="product" Relationship="Self.Product_Internalharddisk_ID" FromRole="internalharddisk" ToRole="product" />
   </EntityType>
   <EntityType Name="motherboard">
@@ -177,41 +184,11 @@
     <Property Name="Max_AmountOfMemory" Type="Int32" />
     <Property Name="MemoryLockedTotal" Type="Int32" />
     <Property Name="Memory" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="PXIx16" Type="Int32" />
-    <Property Name="PCIx8" Type="Int32" />
-    <Property Name="PCix4" Type="Int32" />
-    <Property Name="PCIx2" Type="Int32" />
-    <Property Name="PCILocks" Type="Int32" />
-    <Property Name="PCIMini" Type="Int32" />
-    <Property Name="EthernetPorts" Type="Int32" />
-    <Property Name="BuiltINWifi" Type="SByte" />
-    <Property Name="Bluetooth" Type="SByte" />
-    <Property Name="FireWire" Type="SByte" />
-    <Property Name="USB2Ports" Type="Int32" />
-    <Property Name="USB3Ports" Type="Int32" />
-    <Property Name="Thunderbolt" Type="SByte" />
-    <Property Name="PS2" Type="SByte" />
-    <Property Name="SATA300" Type="Int32" />
-    <Property Name="SATA600" Type="Int32" />
-    <Property Name="mSATA" Type="Int32" />
-    <Property Name="M2Connections" Type="Int32" />
-    <Property Name="Raid" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="SpeakerChannels" Type="Int32" />
-    <Property Name="OpticalConnection" Type="SByte" />
-    <Property Name="AudioProcessor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="VGAPort" Type="SByte" />
-    <Property Name="DVIPort" Type="SByte" />
-    <Property Name="HDMIPort" Type="SByte" />
-    <Property Name="DisplayPort" Type="SByte" />
-    <Property Name="ChipsetCooler" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="CaseFanConnections" Type="Int32" />
-    <Property Name="UEFIBIOS" Type="SByte" />
-    <Property Name="NVIDEASLI" Type="SByte" />
-    <Property Name="CrossfireX" Type="SByte" />
-    <Property Name="KillerNIC" Type="SByte" />
     <Property Name="Width" Type="Single" />
     <Property Name="Depth" Type="Single" />
     <Property Name="Height" Type="Single" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_Motherboard_ID" FromRole="motherboard" ToRole="product" />
   </EntityType>
   <EntityType Name="powersupply">
@@ -226,25 +203,11 @@
     <Property Name="Power" Type="Int32" />
     <Property Name="Certification" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="AverageLifespan" Type="Int32" />
-    <Property Name="ATX20" Type="Int32" />
-    <Property Name="CPU8" Type="Int32" />
-    <Property Name="CPU4" Type="Int32" />
-    <Property Name="CPU4p4" Type="Int32" />
-    <Property Name="PCIExpress6pin" Type="Int32" />
-    <Property Name="PCIExpress6pin2pin" Type="Int32" />
-    <Property Name="IDE" Type="Int32" />
-    <Property Name="SATA" Type="Int32" />
-    <Property Name="FDD" Type="Int32" />
-    <Property Name="currentspikes" Type="SByte" />
-    <Property Name="Overvoltage" Type="SByte" />
-    <Property Name="SurgeProtection" Type="SByte" />
-    <Property Name="UnderPressure" Type="SByte" />
-    <Property Name="Overload" Type="SByte" />
-    <Property Name="ShortCircuit" Type="SByte" />
-    <Property Name="OverheatingProtection" Type="SByte" />
     <Property Name="Width" Type="Single" />
     <Property Name="Depth" Type="Single" />
     <Property Name="Height" Type="Single" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_Powersupply_ID" FromRole="powersupply" ToRole="product" />
   </EntityType>
   <EntityType Name="product">
@@ -257,6 +220,8 @@
     <Property Name="stock" Type="Int32" />
     <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Supplier" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="PurchasedQuantity" Type="Int32" />
     <NavigationProperty Name="case" Relationship="Self.Product_Case_ID" FromRole="product" ToRole="case" />
     <NavigationProperty Name="cpucooler" Relationship="Self.Product_CPUcooler_ID" FromRole="product" ToRole="cpucooler" />
     <NavigationProperty Name="gpu" Relationship="Self.Product_GPU_ID" FromRole="product" ToRole="gpu" />
@@ -264,6 +229,7 @@
     <NavigationProperty Name="motherboard" Relationship="Self.Product_Motherboard_ID" FromRole="product" ToRole="motherboard" />
     <NavigationProperty Name="powersupply" Relationship="Self.Product_Powersupply_ID" FromRole="product" ToRole="powersupply" />
     <NavigationProperty Name="ram" Relationship="Self.Product_Ram_ID" FromRole="product" ToRole="ram" />
+    <NavigationProperty Name="shoppingcart" Relationship="Self.Product_Shoppingcart_ID" FromRole="product" ToRole="shoppingcart" />
     <NavigationProperty Name="ssd" Relationship="Self.Product_ssd_ID" FromRole="product" ToRole="ssd" />
     <NavigationProperty Name="wishlist" Relationship="Self.Product_Wishlist_ID" FromRole="product" ToRole="wishlist" />
   </EntityType>
@@ -286,6 +252,25 @@
     <Property Name="Ramsize" Type="Int32" />
     <NavigationProperty Name="product" Relationship="Self.Product_Ram_ID" FromRole="ram" ToRole="product" />
   </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shoppingcart">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_Shoppingcart_ID" FromRole="shoppingcart" ToRole="product" />
+  </EntityType>
   <EntityType Name="ssd">
     <Key>
       <PropertyRef Name="ID" />
@@ -306,6 +291,8 @@
     <Property Name="Depth" Type="Single" />
     <Property Name="Height" Type="Single" />
     <Property Name="Color" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_ssd_ID" FromRole="ssd" ToRole="product" />
   </EntityType>
   <EntityType Name="supplier">
@@ -334,7 +321,7 @@
     <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_Wishlist_ID" FromRole="wishlist" ToRole="product" />
   </EntityType>
-  <Association Name="aspnetusers_aspnetclaims_id">
+  <Association Name="aspnetusers_aspnetuserclaims_id">
     <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="0..1" />
     <End Role="aspnetuserclaims" Type="Self.aspnetuserclaims" Multiplicity="*" />
     <ReferentialConstraint>
@@ -442,6 +429,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="Product_Shoppingcart_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="shoppingcart">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Product_ssd_ID">
     <End Role="product" Type="Self.product" Multiplicity="1" />
     <End Role="ssd" Type="Self.ssd" Multiplicity="0..1" />
@@ -484,10 +483,12 @@
     <EntitySet Name="powersupply" EntityType="Self.powersupply" />
     <EntitySet Name="product" EntityType="Self.product" />
     <EntitySet Name="ram" EntityType="Self.ram" />
+    <EntitySet Name="roles" EntityType="Self.roles" />
+    <EntitySet Name="shoppingcart" EntityType="Self.shoppingcart" />
     <EntitySet Name="ssd" EntityType="Self.ssd" />
     <EntitySet Name="supplier" EntityType="Self.supplier" />
     <EntitySet Name="wishlist" EntityType="Self.wishlist" />
-    <AssociationSet Name="aspnetusers_aspnetclaims_id" Association="Self.aspnetusers_aspnetclaims_id">
+    <AssociationSet Name="aspnetusers_aspnetuserclaims_id" Association="Self.aspnetusers_aspnetuserclaims_id">
       <End Role="aspnetusers" EntitySet="aspnetusers" />
       <End Role="aspnetuserclaims" EntitySet="aspnetuserclaims" />
     </AssociationSet>
@@ -522,6 +523,10 @@
     <AssociationSet Name="Product_Ram_ID" Association="Self.Product_Ram_ID">
       <End Role="product" EntitySet="product" />
       <End Role="ram" EntitySet="ram" />
+    </AssociationSet>
+    <AssociationSet Name="Product_Shoppingcart_ID" Association="Self.Product_Shoppingcart_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="shoppingcart" EntitySet="shoppingcart" />
     </AssociationSet>
     <AssociationSet Name="Product_ssd_ID" Association="Self.Product_ssd_ID">
       <End Role="product" EntitySet="product" />

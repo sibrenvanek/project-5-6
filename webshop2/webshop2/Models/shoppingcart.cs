@@ -12,18 +12,14 @@ namespace webshop2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class internalharddisk
+    public partial class shoppingcart
     {
-        public int ID { get; set; }
-        public string Brand { get; set; }
-        public Nullable<int> HDDSpeed { get; set; }
-        public Nullable<int> Cache { get; set; }
-        public Nullable<float> HDDFormat { get; set; }
-        public Nullable<float> Height { get; set; }
-        public string InternalHDDDiskcol { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> StorageCapacity { get; set; }
+        public int ProductId { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<int> UserId { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public string ProductName { get; set; }
+        public string Imagepath { get; set; }
     
         public virtual product product { get; set; }
     }

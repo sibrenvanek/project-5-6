@@ -265,6 +265,12 @@
     <Compile Include="Models\ram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shoppingcart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ssd.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

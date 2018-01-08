@@ -22,25 +22,11 @@ namespace webshop2.Models
         public Nullable<int> Power { get; set; }
         public string Certification { get; set; }
         public Nullable<int> AverageLifespan { get; set; }
-        public Nullable<int> ATX20 { get; set; }
-        public Nullable<int> CPU8 { get; set; }
-        public Nullable<int> CPU4 { get; set; }
-        public Nullable<int> CPU4p4 { get; set; }
-        public Nullable<int> PCIExpress6pin { get; set; }
-        public Nullable<int> PCIExpress6pin2pin { get; set; }
-        public Nullable<int> IDE { get; set; }
-        public Nullable<int> SATA { get; set; }
-        public Nullable<int> FDD { get; set; }
-        public Nullable<sbyte> currentspikes { get; set; }
-        public Nullable<sbyte> Overvoltage { get; set; }
-        public Nullable<sbyte> SurgeProtection { get; set; }
-        public Nullable<sbyte> UnderPressure { get; set; }
-        public Nullable<sbyte> Overload { get; set; }
-        public Nullable<sbyte> ShortCircuit { get; set; }
-        public Nullable<sbyte> OverheatingProtection { get; set; }
         public Nullable<float> Width { get; set; }
         public Nullable<float> Depth { get; set; }
         public Nullable<float> Height { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public string Name { get; set; }
     
         public virtual product product { get; set; }
     }

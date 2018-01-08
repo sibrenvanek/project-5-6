@@ -26,6 +26,8 @@ namespace webshop2.Models
         public Nullable<int> stock { get; set; }
         public string Brand { get; set; }
         public string Supplier { get; set; }
+        public string ProductName { get; set; }
+        public Nullable<int> PurchasedQuantity { get; set; }
     
         public virtual @case @case { get; set; }
         public virtual cpucooler cpucooler { get; set; }
@@ -34,6 +36,7 @@ namespace webshop2.Models
         public virtual motherboard motherboard { get; set; }
         public virtual powersupply powersupply { get; set; }
         public virtual ram ram { get; set; }
+        public virtual shoppingcart shoppingcart { get; set; }
         public virtual ssd ssd { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wishlist> wishlist { get; set; }

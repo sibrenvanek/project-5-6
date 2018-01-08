@@ -38,6 +38,8 @@ namespace webshop2.Models
         public virtual DbSet<powersupply> powersupply { get; set; }
         public virtual DbSet<product> product { get; set; }
         public virtual DbSet<ram> ram { get; set; }
+        public virtual DbSet<roles> roles { get; set; }
+        public virtual DbSet<shoppingcart> shoppingcart { get; set; }
         public virtual DbSet<ssd> ssd { get; set; }
         public virtual DbSet<supplier> supplier { get; set; }
         public virtual DbSet<wishlist> wishlist { get; set; }

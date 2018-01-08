@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="aspnetuserclaims">
@@ -12,7 +12,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="userid" Type="int" />
+    <Property Name="userid" Type="varchar" MaxLength="128" />
     <Property Name="Claimtype" Type="varchar" MaxLength="45" />
     <Property Name="Claimvalue" Type="varchar" MaxLength="45" />
   </EntityType>
@@ -22,21 +22,21 @@
     </Key>
     <Property Name="LoginProvider" Type="varchar" MaxLength="128" Nullable="false" />
     <Property Name="ProviderKey" Type="varchar" MaxLength="128" Nullable="false" />
-    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
   </EntityType>
   <EntityType Name="aspnetuserroles">
     <Key>
       <PropertyRef Name="UserId" />
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="varchar" MaxLength="128" Nullable="false" />
   </EntityType>
   <EntityType Name="aspnetusers">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="256" />
     <Property Name="EmailConfirmed" Type="tinyint" Nullable="false" />
     <Property Name="PasswordHash" Type="varchar" MaxLength="45" />
@@ -83,6 +83,8 @@
     <Property Name="Height" Type="int" />
     <Property Name="Color" Type="varchar" MaxLength="45" />
     <Property Name="Material" Type="varchar" MaxLength="45" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Name" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="chat">
     <Key>
@@ -111,6 +113,8 @@
     <Property Name="Width" Type="float" />
     <Property Name="Depth" Type="float" />
     <Property Name="Height" Type="float" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Name" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="gpu">
     <Key>
@@ -147,6 +151,8 @@
     <Property Name="Width" Type="float" />
     <Property Name="Depth" Type="float" />
     <Property Name="Height" Type="float" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Name" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="internalharddisk">
     <Key>
@@ -161,6 +167,7 @@
     <Property Name="InternalHDDDiskcol" Type="varchar" MaxLength="45" />
     <Property Name="Name" Type="varchar" MaxLength="45" />
     <Property Name="StorageCapacity" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
   </EntityType>
   <EntityType Name="motherboard">
     <Key>
@@ -175,41 +182,11 @@
     <Property Name="Max_AmountOfMemory" Type="int" />
     <Property Name="MemoryLockedTotal" Type="int" />
     <Property Name="Memory" Type="varchar" MaxLength="45" />
-    <Property Name="PXIx16" Type="int" />
-    <Property Name="PCIx8" Type="int" />
-    <Property Name="PCix4" Type="int" />
-    <Property Name="PCIx2" Type="int" />
-    <Property Name="PCILocks" Type="int" />
-    <Property Name="PCIMini" Type="int" />
-    <Property Name="EthernetPorts" Type="int" />
-    <Property Name="BuiltINWifi" Type="tinyint" />
-    <Property Name="Bluetooth" Type="tinyint" />
-    <Property Name="FireWire" Type="tinyint" />
-    <Property Name="USB2Ports" Type="int" />
-    <Property Name="USB3Ports" Type="int" />
-    <Property Name="Thunderbolt" Type="tinyint" />
-    <Property Name="PS2" Type="tinyint" />
-    <Property Name="SATA300" Type="int" />
-    <Property Name="SATA600" Type="int" />
-    <Property Name="mSATA" Type="int" />
-    <Property Name="M2Connections" Type="int" />
-    <Property Name="Raid" Type="varchar" MaxLength="45" />
-    <Property Name="SpeakerChannels" Type="int" />
-    <Property Name="OpticalConnection" Type="tinyint" />
-    <Property Name="AudioProcessor" Type="varchar" MaxLength="45" />
-    <Property Name="VGAPort" Type="tinyint" />
-    <Property Name="DVIPort" Type="tinyint" />
-    <Property Name="HDMIPort" Type="tinyint" />
-    <Property Name="DisplayPort" Type="tinyint" />
-    <Property Name="ChipsetCooler" Type="varchar" MaxLength="45" />
-    <Property Name="CaseFanConnections" Type="int" />
-    <Property Name="UEFIBIOS" Type="tinyint" />
-    <Property Name="NVIDEASLI" Type="tinyint" />
-    <Property Name="CrossfireX" Type="tinyint" />
-    <Property Name="KillerNIC" Type="tinyint" />
     <Property Name="Width" Type="float" />
     <Property Name="Depth" Type="float" />
     <Property Name="Height" Type="float" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Name" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="powersupply">
     <Key>
@@ -223,25 +200,11 @@
     <Property Name="Power" Type="int" />
     <Property Name="Certification" Type="varchar" MaxLength="45" />
     <Property Name="AverageLifespan" Type="int" />
-    <Property Name="ATX20" Type="int" />
-    <Property Name="CPU8" Type="int" />
-    <Property Name="CPU4" Type="int" />
-    <Property Name="CPU4p4" Type="int" />
-    <Property Name="PCIExpress6pin" Type="int" />
-    <Property Name="PCIExpress6pin2pin" Type="int" />
-    <Property Name="IDE" Type="int" />
-    <Property Name="SATA" Type="int" />
-    <Property Name="FDD" Type="int" />
-    <Property Name="currentspikes" Type="tinyint" />
-    <Property Name="Overvoltage" Type="tinyint" />
-    <Property Name="SurgeProtection" Type="tinyint" />
-    <Property Name="UnderPressure" Type="tinyint" />
-    <Property Name="Overload" Type="tinyint" />
-    <Property Name="ShortCircuit" Type="tinyint" />
-    <Property Name="OverheatingProtection" Type="tinyint" />
     <Property Name="Width" Type="float" />
     <Property Name="Depth" Type="float" />
     <Property Name="Height" Type="float" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Name" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="product">
     <Key>
@@ -253,6 +216,8 @@
     <Property Name="stock" Type="int" />
     <Property Name="Brand" Type="varchar" MaxLength="45" />
     <Property Name="Supplier" Type="varchar" MaxLength="45" />
+    <Property Name="ProductName" Type="varchar" MaxLength="45" />
+    <Property Name="PurchasedQuantity" Type="int" />
   </EntityType>
   <EntityType Name="ram">
     <Key>
@@ -271,6 +236,24 @@
     <Property Name="Name" Type="varchar" MaxLength="45" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
     <Property Name="Ramsize" Type="int" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shoppingcart">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="ProductName" Type="varchar" MaxLength="45" />
+    <Property Name="Imagepath" Type="longtext" />
   </EntityType>
   <EntityType Name="ssd">
     <Key>
@@ -292,6 +275,8 @@
     <Property Name="Depth" Type="float" />
     <Property Name="Height" Type="float" />
     <Property Name="Color" Type="varchar" MaxLength="45" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Name" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="supplier">
     <Key>
@@ -330,7 +315,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="aspnetusers_aspnetclaims_id">
+  <Association Name="aspnetusers_aspnetuserclaims_id">
     <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="0..1" />
     <End Role="aspnetuserclaims" Type="Self.aspnetuserclaims" Multiplicity="*" />
     <ReferentialConstraint>
@@ -354,7 +339,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="aspnetusers_aspnetuserroles_Id">
+  <Association Name="aspnetusers_aspnetuserroles_id">
     <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="1" />
     <End Role="aspnetuserroles" Type="Self.aspnetuserroles" Multiplicity="*" />
     <ReferentialConstraint>
@@ -450,6 +435,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="Product_Shoppingcart_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="shoppingcart">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Product_ssd_ID">
     <End Role="product" Type="Self.product" Multiplicity="1" />
     <End Role="ssd" Type="Self.ssd" Multiplicity="0..1" />
@@ -489,6 +486,8 @@
     <EntitySet Name="powersupply" EntityType="Self.powersupply" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="product" EntityType="Self.product" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="ram" EntityType="Self.ram" Schema="new_test" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="new_test" store:Type="Tables" />
+    <EntitySet Name="shoppingcart" EntityType="Self.shoppingcart" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="ssd" EntityType="Self.ssd" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="supplier" EntityType="Self.supplier" Schema="new_test" store:Type="Tables" />
     <EntitySet Name="wishlist" EntityType="Self.wishlist" Schema="new_test" store:Type="Tables" />
@@ -496,7 +495,7 @@
       <End Role="aspnetroles" EntitySet="aspnetroles" />
       <End Role="aspnetuserroles" EntitySet="aspnetuserroles" />
     </AssociationSet>
-    <AssociationSet Name="aspnetusers_aspnetclaims_id" Association="Self.aspnetusers_aspnetclaims_id">
+    <AssociationSet Name="aspnetusers_aspnetuserclaims_id" Association="Self.aspnetusers_aspnetuserclaims_id">
       <End Role="aspnetusers" EntitySet="aspnetusers" />
       <End Role="aspnetuserclaims" EntitySet="aspnetuserclaims" />
     </AssociationSet>
@@ -504,7 +503,7 @@
       <End Role="aspnetusers" EntitySet="aspnetusers" />
       <End Role="aspnetuserlogins" EntitySet="aspnetuserlogins" />
     </AssociationSet>
-    <AssociationSet Name="aspnetusers_aspnetuserroles_Id" Association="Self.aspnetusers_aspnetuserroles_Id">
+    <AssociationSet Name="aspnetusers_aspnetuserroles_id" Association="Self.aspnetusers_aspnetuserroles_id">
       <End Role="aspnetusers" EntitySet="aspnetusers" />
       <End Role="aspnetuserroles" EntitySet="aspnetuserroles" />
     </AssociationSet>
@@ -535,6 +534,10 @@
     <AssociationSet Name="Product_Ram_ID" Association="Self.Product_Ram_ID">
       <End Role="product" EntitySet="product" />
       <End Role="ram" EntitySet="ram" />
+    </AssociationSet>
+    <AssociationSet Name="Product_Shoppingcart_ID" Association="Self.Product_Shoppingcart_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="shoppingcart" EntitySet="shoppingcart" />
     </AssociationSet>
     <AssociationSet Name="Product_ssd_ID" Association="Self.Product_ssd_ID">
       <End Role="product" EntitySet="product" />

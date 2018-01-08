@@ -79,6 +79,8 @@
           <ScalarProperty Name="Height" ColumnName="Height" />
           <ScalarProperty Name="Color" ColumnName="Color" />
           <ScalarProperty Name="Material" ColumnName="Material" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -109,6 +111,8 @@
           <ScalarProperty Name="Width" ColumnName="Width" />
           <ScalarProperty Name="Depth" ColumnName="Depth" />
           <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -146,6 +150,8 @@
           <ScalarProperty Name="Width" ColumnName="Width" />
           <ScalarProperty Name="Depth" ColumnName="Depth" />
           <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -161,6 +167,7 @@
           <ScalarProperty Name="InternalHDDDiskcol" ColumnName="InternalHDDDiskcol" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="StorageCapacity" ColumnName="StorageCapacity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -176,41 +183,11 @@
           <ScalarProperty Name="Max_AmountOfMemory" ColumnName="Max_AmountOfMemory" />
           <ScalarProperty Name="MemoryLockedTotal" ColumnName="MemoryLockedTotal" />
           <ScalarProperty Name="Memory" ColumnName="Memory" />
-          <ScalarProperty Name="PXIx16" ColumnName="PXIx16" />
-          <ScalarProperty Name="PCIx8" ColumnName="PCIx8" />
-          <ScalarProperty Name="PCix4" ColumnName="PCix4" />
-          <ScalarProperty Name="PCIx2" ColumnName="PCIx2" />
-          <ScalarProperty Name="PCILocks" ColumnName="PCILocks" />
-          <ScalarProperty Name="PCIMini" ColumnName="PCIMini" />
-          <ScalarProperty Name="EthernetPorts" ColumnName="EthernetPorts" />
-          <ScalarProperty Name="BuiltINWifi" ColumnName="BuiltINWifi" />
-          <ScalarProperty Name="Bluetooth" ColumnName="Bluetooth" />
-          <ScalarProperty Name="FireWire" ColumnName="FireWire" />
-          <ScalarProperty Name="USB2Ports" ColumnName="USB2Ports" />
-          <ScalarProperty Name="USB3Ports" ColumnName="USB3Ports" />
-          <ScalarProperty Name="Thunderbolt" ColumnName="Thunderbolt" />
-          <ScalarProperty Name="PS2" ColumnName="PS2" />
-          <ScalarProperty Name="SATA300" ColumnName="SATA300" />
-          <ScalarProperty Name="SATA600" ColumnName="SATA600" />
-          <ScalarProperty Name="mSATA" ColumnName="mSATA" />
-          <ScalarProperty Name="M2Connections" ColumnName="M2Connections" />
-          <ScalarProperty Name="Raid" ColumnName="Raid" />
-          <ScalarProperty Name="SpeakerChannels" ColumnName="SpeakerChannels" />
-          <ScalarProperty Name="OpticalConnection" ColumnName="OpticalConnection" />
-          <ScalarProperty Name="AudioProcessor" ColumnName="AudioProcessor" />
-          <ScalarProperty Name="VGAPort" ColumnName="VGAPort" />
-          <ScalarProperty Name="DVIPort" ColumnName="DVIPort" />
-          <ScalarProperty Name="HDMIPort" ColumnName="HDMIPort" />
-          <ScalarProperty Name="DisplayPort" ColumnName="DisplayPort" />
-          <ScalarProperty Name="ChipsetCooler" ColumnName="ChipsetCooler" />
-          <ScalarProperty Name="CaseFanConnections" ColumnName="CaseFanConnections" />
-          <ScalarProperty Name="UEFIBIOS" ColumnName="UEFIBIOS" />
-          <ScalarProperty Name="NVIDEASLI" ColumnName="NVIDEASLI" />
-          <ScalarProperty Name="CrossfireX" ColumnName="CrossfireX" />
-          <ScalarProperty Name="KillerNIC" ColumnName="KillerNIC" />
           <ScalarProperty Name="Width" ColumnName="Width" />
           <ScalarProperty Name="Depth" ColumnName="Depth" />
           <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -225,25 +202,11 @@
           <ScalarProperty Name="Power" ColumnName="Power" />
           <ScalarProperty Name="Certification" ColumnName="Certification" />
           <ScalarProperty Name="AverageLifespan" ColumnName="AverageLifespan" />
-          <ScalarProperty Name="ATX20" ColumnName="ATX20" />
-          <ScalarProperty Name="CPU8" ColumnName="CPU8" />
-          <ScalarProperty Name="CPU4" ColumnName="CPU4" />
-          <ScalarProperty Name="CPU4p4" ColumnName="CPU4p4" />
-          <ScalarProperty Name="PCIExpress6pin" ColumnName="PCIExpress6pin" />
-          <ScalarProperty Name="PCIExpress6pin2pin" ColumnName="PCIExpress6pin2pin" />
-          <ScalarProperty Name="IDE" ColumnName="IDE" />
-          <ScalarProperty Name="SATA" ColumnName="SATA" />
-          <ScalarProperty Name="FDD" ColumnName="FDD" />
-          <ScalarProperty Name="currentspikes" ColumnName="currentspikes" />
-          <ScalarProperty Name="Overvoltage" ColumnName="Overvoltage" />
-          <ScalarProperty Name="SurgeProtection" ColumnName="SurgeProtection" />
-          <ScalarProperty Name="UnderPressure" ColumnName="UnderPressure" />
-          <ScalarProperty Name="Overload" ColumnName="Overload" />
-          <ScalarProperty Name="ShortCircuit" ColumnName="ShortCircuit" />
-          <ScalarProperty Name="OverheatingProtection" ColumnName="OverheatingProtection" />
           <ScalarProperty Name="Width" ColumnName="Width" />
           <ScalarProperty Name="Depth" ColumnName="Depth" />
           <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -256,6 +219,8 @@
           <ScalarProperty Name="stock" ColumnName="stock" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="PurchasedQuantity" ColumnName="PurchasedQuantity" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -278,6 +243,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="new_testModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shoppingcart">
+      <EntityTypeMapping TypeName="new_testModel.shoppingcart">
+        <MappingFragment StoreEntitySet="shoppingcart">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ssd">
       <EntityTypeMapping TypeName="new_testModel.ssd">
         <MappingFragment StoreEntitySet="ssd">
@@ -297,6 +282,8 @@
           <ScalarProperty Name="Depth" ColumnName="Depth" />
           <ScalarProperty Name="Height" ColumnName="Height" />
           <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
