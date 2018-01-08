@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 145.24.198.79    Database: new_test
+-- Host: 127.0.0.1    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -16,28 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aspnetuserlogins`
+-- Table structure for table `shoppingcart`
 --
 
-DROP TABLE IF EXISTS `aspnetuserlogins`;
+DROP TABLE IF EXISTS `shoppingcart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetuserlogins` (
-  `LoginProvider` varchar(128) NOT NULL,
-  `ProviderKey` varchar(128) NOT NULL,
-  `UserId` int(11) NOT NULL,
-  PRIMARY KEY (`UserId`),
-  CONSTRAINT `aspnetusers_aspnetuserlogins_id` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `shoppingcart` (
+  `ProductId` int(11) NOT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  `UserId` int(11) DEFAULT NULL,
+  `Price` decimal(10,0) DEFAULT NULL,
+  `ProductName` varchar(45) DEFAULT NULL,
+  `Imagepath` longtext,
+  PRIMARY KEY (`ProductId`),
+  CONSTRAINT `Product_Shoppingcart_ID` FOREIGN KEY (`ProductId`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aspnetuserlogins`
+-- Dumping data for table `shoppingcart`
 --
 
-LOCK TABLES `aspnetuserlogins` WRITE;
-/*!40000 ALTER TABLE `aspnetuserlogins` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aspnetuserlogins` ENABLE KEYS */;
+LOCK TABLES `shoppingcart` WRITE;
+/*!40000 ALTER TABLE `shoppingcart` DISABLE KEYS */;
+INSERT INTO `shoppingcart` (`ProductId`, `Quantity`, `UserId`, `Price`, `ProductName`, `Imagepath`) VALUES (1,1,NULL,0,'Kingston ValueRAM','~/images/ram/ram1.jpg');
+/*!40000 ALTER TABLE `shoppingcart` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-21 13:58:23
+-- Dump completed on 2018-01-08 14:01:25

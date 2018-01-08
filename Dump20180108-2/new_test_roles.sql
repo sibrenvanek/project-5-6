@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 145.24.198.79    Database: new_test
+-- Host: 127.0.0.1    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -16,34 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `wishlist`
+-- Table structure for table `roles`
 --
 
-DROP TABLE IF EXISTS `wishlist`;
+DROP TABLE IF EXISTS `roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `wishlist` (
-  `ProductId` int(11) NOT NULL,
-  `Quantity` int(11) DEFAULT NULL,
-  `UserId` int(11) NOT NULL,
-  `Price` decimal(10,0) DEFAULT NULL,
-  `ProductName` varchar(45) DEFAULT NULL,
-  `Imagepath` longtext,
-  PRIMARY KEY (`ProductId`,`UserId`),
-  KEY `FK_ram_name_idx` (`ProductName`),
-  KEY `Product_Wishlist_Price_idx` (`Price`),
-  CONSTRAINT `Product_Wishlist_ID` FOREIGN KEY (`ProductId`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `roles` (
+  `Id` varchar(128) NOT NULL,
+  `Name` varchar(256) NOT NULL,
+  PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `wishlist`
+-- Dumping data for table `roles`
 --
 
-LOCK TABLES `wishlist` WRITE;
-/*!40000 ALTER TABLE `wishlist` DISABLE KEYS */;
-INSERT INTO `wishlist` VALUES (1,3,1,0,'string','~/images/ram/ram1.jpg');
-/*!40000 ALTER TABLE `wishlist` ENABLE KEYS */;
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-21 13:58:44
+-- Dump completed on 2018-01-08 14:01:23

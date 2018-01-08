@@ -16,34 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user`
+-- Table structure for table `internalharddisk`
 --
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `internalharddisk`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `adress` varchar(45) DEFAULT NULL,
-  `Email` varchar(45) DEFAULT NULL,
-  `dateofbirth` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `username` varchar(45) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `phonenumber` varchar(45) DEFAULT NULL,
-  `code` int(11) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+CREATE TABLE `internalharddisk` (
+  `ID` int(11) NOT NULL,
+  `Brand` varchar(45) DEFAULT NULL,
+  `HDDSpeed` int(11) DEFAULT NULL,
+  `Cache` int(11) DEFAULT NULL,
+  `HDDFormat` float DEFAULT NULL,
+  `Height` float DEFAULT NULL,
+  `InternalHDDDiskcol` varchar(45) DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `StorageCapacity` int(11) DEFAULT NULL,
+  `Price` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `Product_Internalharddisk_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `internalharddisk`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,',F,(3E((?3(','s@s.nl','10-11-1091','((((((','d','w3w',NULL,19),(2,'@Z@VRl~RVRxlR','q@q.nl','10-10-1010','RRR___','d','RlR',NULL,76),(3,'TlT_]u*]_]#u]','f@f.nl','11-12-1991',']]]]]]','f',']u]',NULL,85),(4,'E\\DWVm!VWVXymV','g@g.nl','19-10-9119','VVVVVV','s','VmU',NULL,77);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+LOCK TABLES `internalharddisk` WRITE;
+/*!40000 ALTER TABLE `internalharddisk` DISABLE KEYS */;
+/*!40000 ALTER TABLE `internalharddisk` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-08 11:06:57
+-- Dump completed on 2018-01-08 14:01:17

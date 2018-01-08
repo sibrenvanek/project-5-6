@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 145.24.198.79    Database: new_test
+-- Host: 127.0.0.1    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -16,41 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `ssd`
+-- Table structure for table `aspnetroles`
 --
 
-DROP TABLE IF EXISTS `ssd`;
+DROP TABLE IF EXISTS `aspnetroles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ssd` (
-  `ID` int(11) NOT NULL,
-  `Brand` varchar(45) DEFAULT NULL,
-  `Connection` varchar(45) DEFAULT NULL,
-  `StorageCapacity` int(11) DEFAULT NULL,
-  `AverageTimeBetweenFailures` int(11) DEFAULT NULL,
-  `TypeOfMemory` varchar(45) DEFAULT NULL,
-  `SSDController` varchar(45) DEFAULT NULL,
-  `HardDiskFormat` float DEFAULT NULL,
-  `Max_ReadSpeed` int(11) DEFAULT NULL,
-  `Min_ReadingSpeed` int(11) DEFAULT NULL,
-  `Random_ReadingSpeed` int(11) DEFAULT NULL,
-  `Random_WriteSpeed` int(11) DEFAULT NULL,
-  `Width` float DEFAULT NULL,
-  `Depth` float DEFAULT NULL,
-  `Height` float DEFAULT NULL,
-  `Color` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  CONSTRAINT `Product_ssd_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=cp850;
+CREATE TABLE `aspnetroles` (
+  `Id` varchar(128) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ssd`
+-- Dumping data for table `aspnetroles`
 --
 
-LOCK TABLES `ssd` WRITE;
-/*!40000 ALTER TABLE `ssd` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ssd` ENABLE KEYS */;
+LOCK TABLES `aspnetroles` WRITE;
+/*!40000 ALTER TABLE `aspnetroles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aspnetroles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -62,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-21 13:58:42
+-- Dump completed on 2018-01-08 14:01:19

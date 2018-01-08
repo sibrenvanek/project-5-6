@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using webshop2.Models;
+using System.Net.Mail;
 
 namespace webshop2
 {
@@ -19,6 +20,31 @@ namespace webshop2
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
+
+            MailMessage msg = new MailMessage();
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+
+            try
+            {
+                msg.Subject = message.Subject;
+                msg.Body = message.Body;
+                msg.From = new MailAddress("infobrightyellow@gmail.com");
+                msg.To.Add(message.Destination);
+                msg.IsBodyHtml = true;
+                client.Host = "smtp.gmail.com";
+                System.Net.NetworkCredential basicauthenticationinfo = new System.Net.NetworkCredential("infobrightyellow@gmail.com", "project56");
+                client.Port = int.Parse("587");
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.Credentials = basicauthenticationinfo;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.Send(msg);
+            }
+            catch (Exception ex)
+            {
+                throw (new Exception(ex.Message));
+            }
+
             return Task.FromResult(0);
         }
     }
@@ -40,9 +66,10 @@ namespace webshop2
         {
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            //var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
@@ -81,7 +108,7 @@ namespace webshop2
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = 
+                manager.UserTokenProvider =
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;

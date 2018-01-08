@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 145.24.198.79    Database: new_test
+-- Host: 127.0.0.1    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -16,40 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cpucooler`
+-- Table structure for table `aspnetuserclaims`
 --
 
-DROP TABLE IF EXISTS `cpucooler`;
+DROP TABLE IF EXISTS `aspnetuserclaims`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cpucooler` (
-  `ID` int(11) NOT NULL,
-  `Brand` varchar(45) DEFAULT NULL,
-  `FanConnections` int(11) DEFAULT NULL,
-  `CoolingMethod` varchar(45) DEFAULT NULL,
-  `Socket` varchar(45) DEFAULT NULL,
-  `DiameterFan` int(11) DEFAULT NULL,
-  `Min_RotationSpeed` int(11) DEFAULT NULL,
-  `Max_RotationSpeed` int(11) DEFAULT NULL,
-  `Min_SoundProduction` float DEFAULT NULL,
-  `Max_SoundProduction` float DEFAULT NULL,
-  `HeatPipes` int(11) DEFAULT NULL,
-  `Weight` float DEFAULT NULL,
-  `Width` float DEFAULT NULL,
-  `Depth` float DEFAULT NULL,
-  `Height` float DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  CONSTRAINT `Product_CPUcooler_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `aspnetuserclaims` (
+  `id` int(11) NOT NULL,
+  `userid` varchar(128) DEFAULT NULL,
+  `Claimtype` varchar(45) DEFAULT NULL,
+  `Claimvalue` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `aspnetusers_aspnetuserclaims_id_idx` (`userid`),
+  CONSTRAINT `aspnetusers_aspnetuserclaims_id` FOREIGN KEY (`userid`) REFERENCES `aspnetusers` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cpucooler`
+-- Dumping data for table `aspnetuserclaims`
 --
 
-LOCK TABLES `cpucooler` WRITE;
-/*!40000 ALTER TABLE `cpucooler` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cpucooler` ENABLE KEYS */;
+LOCK TABLES `aspnetuserclaims` WRITE;
+/*!40000 ALTER TABLE `aspnetuserclaims` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aspnetuserclaims` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -61,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-21 13:58:49
+-- Dump completed on 2018-01-08 14:01:24

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 145.24.198.79    Database: new_test
+-- Host: 127.0.0.1    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -31,25 +31,11 @@ CREATE TABLE `powersupply` (
   `Power` int(11) DEFAULT NULL,
   `Certification` varchar(45) DEFAULT NULL,
   `AverageLifespan` int(11) DEFAULT NULL,
-  `ATX20` int(11) DEFAULT NULL,
-  `CPU8` int(11) DEFAULT NULL,
-  `CPU4` int(11) DEFAULT NULL,
-  `CPU4p4` int(11) DEFAULT NULL,
-  `PCIExpress6pin` int(11) DEFAULT NULL,
-  `PCIExpress6pin2pin` int(11) DEFAULT NULL,
-  `IDE` int(11) DEFAULT NULL,
-  `SATA` int(11) DEFAULT NULL,
-  `FDD` int(11) DEFAULT NULL,
-  `currentspikes` tinyint(4) DEFAULT NULL,
-  `Overvoltage` tinyint(4) DEFAULT NULL,
-  `SurgeProtection` tinyint(4) DEFAULT NULL,
-  `UnderPressure` tinyint(4) DEFAULT NULL,
-  `Overload` tinyint(4) DEFAULT NULL,
-  `ShortCircuit` tinyint(4) DEFAULT NULL,
-  `OverheatingProtection` tinyint(4) DEFAULT NULL,
   `Width` float DEFAULT NULL,
   `Depth` float DEFAULT NULL,
   `Height` float DEFAULT NULL,
+  `Price` decimal(10,0) DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   CONSTRAINT `Product_Powersupply_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -73,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-21 13:58:31
+-- Dump completed on 2018-01-08 14:01:16

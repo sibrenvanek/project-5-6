@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 145.24.198.79    Database: new_test
+-- Host: 127.0.0.1    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -16,32 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `supplier`
+-- Table structure for table `aspnetusers`
 --
 
-DROP TABLE IF EXISTS `supplier`;
+DROP TABLE IF EXISTS `aspnetusers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `supplier` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(45) DEFAULT NULL,
-  `City` varchar(45) DEFAULT NULL,
-  `Street` varchar(45) DEFAULT NULL,
-  `Housenumber` varchar(45) DEFAULT NULL,
-  `KvKNumber` int(11) DEFAULT NULL,
-  `ShippingTime` varchar(45) DEFAULT NULL,
-  `Email` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+CREATE TABLE `aspnetusers` (
+  `Id` varchar(128) NOT NULL,
+  `Email` varchar(256) DEFAULT NULL,
+  `EmailConfirmed` tinyint(4) NOT NULL,
+  `PasswordHash` varchar(45) DEFAULT NULL,
+  `SecurityStamp` varchar(45) DEFAULT NULL,
+  `PhoneNumber` varchar(15) DEFAULT NULL,
+  `PhoneNumberConfirmed` bit(1) NOT NULL,
+  `TwoFactorEnabled` bit(1) NOT NULL,
+  `LockoutEndDateUtc` datetime DEFAULT NULL,
+  `LockoutEnabled` bit(1) NOT NULL,
+  `AccessFailedCount` int(11) NOT NULL,
+  `UserName` varchar(256) NOT NULL,
+  PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `supplier`
+-- Dumping data for table `aspnetusers`
 --
 
-LOCK TABLES `supplier` WRITE;
-/*!40000 ALTER TABLE `supplier` DISABLE KEYS */;
-/*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
+LOCK TABLES `aspnetusers` WRITE;
+/*!40000 ALTER TABLE `aspnetusers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aspnetusers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-21 13:58:56
+-- Dump completed on 2018-01-08 14:01:12

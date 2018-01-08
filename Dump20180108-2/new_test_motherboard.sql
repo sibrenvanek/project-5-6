@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 145.24.198.79    Database: new_test
+-- Host: 127.0.0.1    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -16,30 +16,39 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aspnetuserclaims`
+-- Table structure for table `motherboard`
 --
 
-DROP TABLE IF EXISTS `aspnetuserclaims`;
+DROP TABLE IF EXISTS `motherboard`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetuserclaims` (
-  `id` int(11) NOT NULL,
-  `userid` int(11) DEFAULT NULL,
-  `Claimtype` varchar(45) DEFAULT NULL,
-  `Claimvalue` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `aspnetusers_aspnetclaims_id_idx` (`userid`),
-  CONSTRAINT `aspnetusers_aspnetclaims_id` FOREIGN KEY (`userid`) REFERENCES `aspnetusers` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `motherboard` (
+  `ID` int(11) NOT NULL,
+  `Brand` varchar(45) DEFAULT NULL,
+  `FormatMotherboard` varchar(45) DEFAULT NULL,
+  `Socket` int(11) DEFAULT NULL,
+  `Chipset` varchar(45) DEFAULT NULL,
+  `ClockSpeedMemoryModule` int(11) DEFAULT NULL,
+  `Max_AmountOfMemory` int(11) DEFAULT NULL,
+  `MemoryLockedTotal` int(11) DEFAULT NULL,
+  `Memory` varchar(45) DEFAULT NULL,
+  `Width` float DEFAULT NULL,
+  `Depth` float DEFAULT NULL,
+  `Height` float DEFAULT NULL,
+  `Price` decimal(10,0) DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `Product_Motherboard_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aspnetuserclaims`
+-- Dumping data for table `motherboard`
 --
 
-LOCK TABLES `aspnetuserclaims` WRITE;
-/*!40000 ALTER TABLE `aspnetuserclaims` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aspnetuserclaims` ENABLE KEYS */;
+LOCK TABLES `motherboard` WRITE;
+/*!40000 ALTER TABLE `motherboard` DISABLE KEYS */;
+/*!40000 ALTER TABLE `motherboard` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-21 13:58:51
+-- Dump completed on 2018-01-08 14:01:14

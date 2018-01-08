@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 145.24.198.79    Database: new_test
+-- Host: 127.0.0.1    Database: new_test
 -- ------------------------------------------------------
 -- Server version	5.6.38-log
 
@@ -16,26 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aspnetroles`
+-- Table structure for table `wishlist`
 --
 
-DROP TABLE IF EXISTS `aspnetroles`;
+DROP TABLE IF EXISTS `wishlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetroles` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
+CREATE TABLE `wishlist` (
+  `ProductId` int(11) NOT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  `UserId` int(11) NOT NULL,
+  `Price` decimal(10,0) DEFAULT NULL,
+  `ProductName` varchar(45) DEFAULT NULL,
+  `Imagepath` longtext,
+  PRIMARY KEY (`ProductId`,`UserId`),
+  KEY `FK_ram_name_idx` (`ProductName`),
+  KEY `Product_Wishlist_Price_idx` (`Price`),
+  CONSTRAINT `Product_Wishlist_ID` FOREIGN KEY (`ProductId`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aspnetroles`
+-- Dumping data for table `wishlist`
 --
 
-LOCK TABLES `aspnetroles` WRITE;
-/*!40000 ALTER TABLE `aspnetroles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aspnetroles` ENABLE KEYS */;
+LOCK TABLES `wishlist` WRITE;
+/*!40000 ALTER TABLE `wishlist` DISABLE KEYS */;
+INSERT INTO `wishlist` (`ProductId`, `Quantity`, `UserId`, `Price`, `ProductName`, `Imagepath`) VALUES (1,4,0,0,'string','~/images/ram/ram1.jpg'),(5,1,0,0,'string','~/images/ram/ram5.png'),(6,1,0,0,'string','~/images/ram/ram6.png'),(9,1,0,0,'string','~/images/ram/ram9.png');
+/*!40000 ALTER TABLE `wishlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-21 13:58:40
+-- Dump completed on 2018-01-08 14:01:21
