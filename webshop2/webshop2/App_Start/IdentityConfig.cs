@@ -32,7 +32,7 @@ namespace webshop2
                 msg.To.Add(message.Destination);
                 msg.IsBodyHtml = true;
                 client.Host = "smtp.gmail.com";
-                System.Net.NetworkCredential basicauthenticationinfo = new System.Net.NetworkCredential("infobrightyellow@gmail.com", "project56");
+                System.Net.NetworkCredential basicauthenticationinfo = new System.Net.NetworkCredential("infobrightyellow@gmail.com", "BrightYellow!56");
                 client.Port = int.Parse("587");
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
