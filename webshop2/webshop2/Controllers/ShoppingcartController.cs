@@ -47,10 +47,10 @@ namespace webshop2.Controllers
                 foreach (shoppingcart item in shoppingcartitems)
                 {
                     product = db.product.FirstOrDefault(x => x.ID == item.ProductId);
-                    product.stock = product.stock - 1;
+                    product.stock = product.stock - item.Quantity;
                     message.Body = message.Body + "<br />" + product.ProductName;
                     if (product.PurchasedQuantity==null) { product.PurchasedQuantity = 1; }
-                    product.PurchasedQuantity = product.PurchasedQuantity + 1;
+                    product.PurchasedQuantity = product.PurchasedQuantity + item.Quantity;
                     db.SaveChanges();
                     db.shoppingcart.Remove(item);
                     db.SaveChanges();
