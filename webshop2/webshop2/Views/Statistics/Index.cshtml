@@ -75,7 +75,7 @@
                 @Html.Encode(string.Format("{0}", item.price * item.PurchasedQuantity))
             </td>
             <td>
-                @Html.Encode(string.Format("{0}", item.price * (decimal)0.80))
+                @Html.Encode(string.Format("{0}", item.price * item.PurchasedQuantity * (decimal)0.80))
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

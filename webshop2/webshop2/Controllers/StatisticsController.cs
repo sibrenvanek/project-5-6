@@ -33,8 +33,11 @@ namespace webshop2.Controllers
                 List<string> listproductpurchasedquantity = new List<string>();
                 foreach (product p in db.product)
                 {
-                    listproductnames.Add(p.ProductName.ToString());
-                    listproductpurchasedquantity.Add(p.PurchasedQuantity.ToString());
+                    if (p.PurchasedQuantity > 0)
+                    {
+                        listproductnames.Add(p.ProductName.ToString());
+                        listproductpurchasedquantity.Add(p.PurchasedQuantity.ToString());
+                    }
                 }
                 var chart = new Chart(width: 600, height: 400)
                     .AddSeries(
