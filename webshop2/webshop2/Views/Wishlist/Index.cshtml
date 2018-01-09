@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<webshop2.Models.wishlist>
 
-
-
 <!DOCTYPE html>
 
 <html>
@@ -10,9 +8,13 @@
     <title>Index</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+    @if (Request.IsAuthenticated)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+
     <table class="table">
         <tr>
             <th>
@@ -20,9 +22,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Price)
@@ -45,25 +44,39 @@
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                €@Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Imagepath)
+                <img src="@Url.Content(item.Imagepath)" width="125" height="75" />
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a href="@Url.Action("Plus_To_Wishlist/" + item.ProductId, "Wishlist")" class="navbar-brand">
+                    <img src="~/images/plus.png" title="Cart" alt="" width="25" height="25" />
+                </a> 
+                <a href="@Url.Action("Minus_To_Wishlist/" + item.ProductId, "Wishlist")" class="navbar-brand">
+                    <img src="~/images/minus.png" title="Cart" alt="" width="25" height="25" />
+                </a> 
             </td>
+
+
+            @if (Request.IsAuthenticated)
+            {
+                
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </p>
+            }
         </tr>
+
     }
     
     </table>
+
+
 </body>
 </html>

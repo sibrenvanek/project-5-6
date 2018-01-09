@@ -586,7 +586,7 @@ namespace webshop2.Controllers
                 if (Wishlist == null)
                 {
 
-                    db.wishlist.Add(new wishlist { ProductId = product.ID, /*UserId = user.ID,*/ Quantity = 1, ProductName = "string", Price = (decimal)0.0, Imagepath = product.imagepath });
+                    db.wishlist.Add(new wishlist { ProductId = product.ID, /*UserId = user.ID,*/ Quantity = 1, ProductName = product.ProductName, Price = product.price, Imagepath = product.imagepath });
                     db.SaveChanges();
                 }
                 else
