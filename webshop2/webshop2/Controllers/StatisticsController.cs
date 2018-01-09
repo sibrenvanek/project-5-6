@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using webshop2.Models;
+using System.Web.Helpers;
 
 namespace webshop2.Controllers
 {
@@ -21,6 +22,29 @@ namespace webshop2.Controllers
             }
 
                 return View(listproducts);
+        }
+        public ActionResult ShowChart()
+        {
+
+
+            using (new_testEntities db = new new_testEntities())
+            {
+                List<string> listproductnames = new List<string>();
+                List<string> listproductpurchasedquantity = new List<string>();
+                foreach (product p in db.product)
+                {
+                    listproductnames.Add(p.ProductName.ToString());
+                    listproductpurchasedquantity.Add(p.PurchasedQuantity.ToString());
+                }
+                var chart = new Chart(width: 600, height: 400)
+                    .AddSeries(
+                            chartType: "bar",
+                            xValue: listproductnames,
+                            yValues: listproductpurchasedquantity)
+                            .GetBytes("png");
+
+                return File(chart, "image/bytes");
+            }
         }
 
         // GET: Statistics/Details/5
