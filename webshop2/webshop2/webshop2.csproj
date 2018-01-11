@@ -368,6 +368,7 @@
     <Content Include="Views\Ram\View.cshtml" />
     <Content Include="Views\Ram\Add_To_Wishlist.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
+    <Content Include="Views\Ram\search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
