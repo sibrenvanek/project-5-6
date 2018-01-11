@@ -526,7 +526,14 @@ namespace webshop2.Controllers
                 }
             }
         }
-
+        public ActionResult FilterRam(string searchstring)
+        {
+            using(new_testEntities db = new new_testEntities())
+            {
+                var data = db.ram.Where(r => r.Name.Contains(searchstring) || r.Brand.Contains(searchstring)).ToList();
+                return View(data);
+            }
+        }
         // GET: Image
         [HttpGet]
         public ActionResult View(int? id)
@@ -615,7 +622,8 @@ namespace webshop2.Controllers
                 if (shoppingcart == null)
                 {
 
-                    db.shoppingcart.Add(new shoppingcart { ProductId = product.ID, /*UserId = user.ID,*/ Quantity = 1, ProductName = product.ProductName, Price = (decimal)0.0, Imagepath = product.imagepath });
+                    db.shoppingcart.Add(new shoppingcart {
+                        ProductId = product.ID, /*UserId = user.ID,*/ Quantity = 1, ProductName = product.ProductName, Price = (decimal)0.0, Imagepath = product.imagepath });
                     db.SaveChanges();
                 }
                 else
@@ -626,6 +634,12 @@ namespace webshop2.Controllers
 
                 return RedirectToAction("View/" + ID, "Ram");
             }
+        }
+        public ActionResult search()
+        {
+            var nvc = Request.Form;
+            string searchstring = nvc["searchstring"];
+            return FilterRam(searchstring);
         }
     }
 }
