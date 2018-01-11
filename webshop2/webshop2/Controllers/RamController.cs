@@ -530,7 +530,7 @@ namespace webshop2.Controllers
         {
             using(new_testEntities db = new new_testEntities())
             {
-                var data = db.ram.Where(r => r.Name.Contains(searchstring) || r.Brand.Contains(searchstring)).ToList();
+                var data = db.ram.Where(r => r.Name.Contains(searchstring) || r.Brand.Contains(searchstring) || r.MemorySuitableFor.Contains(searchstring) || r.MemoryType.Contains(searchstring)).ToList();
                 return View(data);
             }
         }
