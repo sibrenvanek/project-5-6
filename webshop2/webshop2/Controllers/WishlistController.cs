@@ -73,61 +73,6 @@ namespace webshop2.Controllers
 
         }
 
-        public ActionResult Remove_From_Wishlist(int id)
-        {
-            //Console.WriteLine("Add to wishlist is succesfully called");
-            int? ProductId;
-            ProductId = id;
-
-
-            using (new_testEntities db = new new_testEntities())
-            {
-
-                //user user = db.user.FirstOrDefault(x => x.ID == id);
-                wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id);
-
-
-                db.SaveChanges();
-
-                db.wishlist.Remove(Wishlist);
-                    db.SaveChanges();
-
-
-                return RedirectToAction("Index", "Wishlist");
-            }
-
-        }
-
-        public ActionResult Add_To_Cart(int id)
-        {
-            //Console.WriteLine("Add to wishlist is succesfully called");
-            int? ProductId;
-            ProductId = id;
-
-
-            using (new_testEntities db = new new_testEntities())
-            {
-
-                //user user = db.user.FirstOrDefault(x => x.ID == id);
-                product product = db.product.FirstOrDefault(x => x.ID == id);
-                shoppingcart shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id);
-
-                if (shoppingcart == null)
-                {
-
-                    db.shoppingcart.Add(new shoppingcart { ProductId = product.ID, /*UserId = user.ID,*/ Quantity = 1, ProductName = product.ProductName, Price = (decimal)0.0, Imagepath = product.imagepath });
-                    db.SaveChanges();
-                }
-                else
-                {
-                    shoppingcart.Quantity += 1;
-                    db.SaveChanges();
-                }
-
-                return RedirectToAction("Index", "Wishlist");
-            }
-        }
-
         // GET: Wishlist/WishlistItems/5
         public ActionResult WishlistItems()
         {
