@@ -54,15 +54,15 @@ namespace webshop2.Controllers
                     db.SaveChanges();
                     db.shoppingcart.Remove(item);
                     db.SaveChanges();
-                    int productid = item.ProductId;
-                    int userid = 0;
-                    int quantity = (int)item.Quantity;
-                    DateTime date = DateTime.Now;
                 }
                 mail.SendAsync(message);
                 
             }
-            return View();
+            
+
+
+
+                return View();
         }
         public ActionResult Plus_To_Cart(int id)
         {

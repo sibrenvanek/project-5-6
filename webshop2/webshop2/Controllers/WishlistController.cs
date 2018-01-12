@@ -73,7 +73,6 @@ namespace webshop2.Controllers
 
         }
 
-<<<<<<< HEAD
         public ActionResult Remove_From_Wishlist(int id)
         {
             //Console.WriteLine("Add to wishlist is succesfully called");
@@ -130,8 +129,6 @@ namespace webshop2.Controllers
             }
         }
 
-=======
->>>>>>> 5cb7c59aa59b96cffb84545070f3ce352970fa35
         // GET: Wishlist/WishlistItems/5
         public ActionResult WishlistItems()
         {
