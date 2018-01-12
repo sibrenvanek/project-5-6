@@ -37,7 +37,7 @@
         <div class="left">
             <form class="form-control-static" method="post">
                 Prijs: van @Html.TextBoxFor(model => model.ToArray()[0].minprice) tot @Html.TextBoxFor(model => model.ToArray()[0].maxprice)
-                Size: van @Html.TextBoxFor(model => model.ToArray()[0].minsize) tot @Html.TextBoxFor(model => model.ToArray()[0].maxsize)
+                Size(in GB): van @Html.TextBoxFor(model => model.ToArray()[0].minsize) tot @Html.TextBoxFor(model => model.ToArray()[0].maxsize)
                 Brand:  <br /> Kingston @Html.RadioButtonFor(model => model.ToArray()[0].brand, "Kingston")
                         <br /> Corsair @Html.RadioButtonFor(model => model.ToArray()[0].brand, "Corsair")
                         <br /> Crucial @Html.RadioButtonFor(model => model.ToArray()[0].brand, "Crucial")
