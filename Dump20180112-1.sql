@@ -16,141 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aspnetroles`
---
-
-DROP TABLE IF EXISTS `aspnetroles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetroles` (
-  `Id` varchar(128) NOT NULL,
-  `Name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `aspnetroles`
---
-
-LOCK TABLES `aspnetroles` WRITE;
-/*!40000 ALTER TABLE `aspnetroles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aspnetroles` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `aspnetuserclaims`
---
-
-DROP TABLE IF EXISTS `aspnetuserclaims`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetuserclaims` (
-  `id` int(11) NOT NULL,
-  `userid` varchar(128) DEFAULT NULL,
-  `Claimtype` varchar(45) DEFAULT NULL,
-  `Claimvalue` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `aspnetusers_aspnetuserclaims_id_idx` (`userid`),
-  CONSTRAINT `aspnetusers_aspnetuserclaims_id` FOREIGN KEY (`userid`) REFERENCES `aspnetusers` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `aspnetuserclaims`
---
-
-LOCK TABLES `aspnetuserclaims` WRITE;
-/*!40000 ALTER TABLE `aspnetuserclaims` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aspnetuserclaims` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `aspnetuserlogins`
---
-
-DROP TABLE IF EXISTS `aspnetuserlogins`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetuserlogins` (
-  `LoginProvider` varchar(128) NOT NULL,
-  `ProviderKey` varchar(128) NOT NULL,
-  `UserId` varchar(128) NOT NULL,
-  PRIMARY KEY (`UserId`),
-  CONSTRAINT `aspnetusers_aspnetuserlogins_id` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `aspnetuserlogins`
---
-
-LOCK TABLES `aspnetuserlogins` WRITE;
-/*!40000 ALTER TABLE `aspnetuserlogins` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aspnetuserlogins` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `aspnetuserroles`
---
-
-DROP TABLE IF EXISTS `aspnetuserroles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetuserroles` (
-  `UserId` varchar(128) NOT NULL,
-  `RoleId` varchar(128) NOT NULL,
-  PRIMARY KEY (`RoleId`,`UserId`),
-  KEY `Roles_Roles_ID_idx` (`RoleId`),
-  KEY `aspnetusers_aspnetuserroles_id_idx` (`UserId`),
-  CONSTRAINT `aspnetroles_aspnetuserroles_id` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `aspnetusers_aspnetuserroles_id` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `aspnetuserroles`
---
-
-LOCK TABLES `aspnetuserroles` WRITE;
-/*!40000 ALTER TABLE `aspnetuserroles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aspnetuserroles` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `aspnetusers`
---
-
-DROP TABLE IF EXISTS `aspnetusers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetusers` (
-  `Id` varchar(128) NOT NULL,
-  `Email` varchar(256) DEFAULT NULL,
-  `EmailConfirmed` tinyint(4) NOT NULL,
-  `PasswordHash` varchar(45) DEFAULT NULL,
-  `SecurityStamp` varchar(45) DEFAULT NULL,
-  `PhoneNumber` varchar(15) DEFAULT NULL,
-  `PhoneNumberConfirmed` bit(1) NOT NULL,
-  `TwoFactorEnabled` bit(1) NOT NULL,
-  `LockoutEndDateUtc` datetime DEFAULT NULL,
-  `LockoutEnabled` bit(1) NOT NULL,
-  `AccessFailedCount` int(11) NOT NULL,
-  `UserName` varchar(256) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `aspnetusers`
---
-
-LOCK TABLES `aspnetusers` WRITE;
-/*!40000 ALTER TABLE `aspnetusers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aspnetusers` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `case`
 --
 
@@ -442,7 +307,7 @@ CREATE TABLE `product` (
   `ProductName` varchar(45) DEFAULT NULL,
   `PurchasedQuantity` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -451,8 +316,35 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,80,'~/images/ram/ram1.jpg',95,'Kingston','testsupplier','Kingston ValueRAM',5),(2,220,'~/images/ram/ram2.png',99,'Kingston','testsupplier','Kingston HyperX Fury 10',2),(3,120,'~/images/ram/ram3.png',100,'Kingston','testsupplier','Kingston 8GB DDR3',NULL),(4,180,'~/images/ram/ram4.png',100,'Kingston','testsupplier','Kingston HyperX Impact',NULL),(5,300,'~/images/ram/ram5.png',100,'Corsair','testsupplier','Corsair Vengeance LPX',NULL),(6,95,'~/images/ram/ram6.png',99,'Corsair','testsupplier','Corsair Vengeance LPX 8 GB',2),(7,70,'~/images/ram/ram7.png',100,'Corsair','testsupplier','Corsair 8 GB SODIMM DDR3',NULL),(8,89,'~/images/ram/ram8.png',100,'Crucial','testsupplier','Crucial 8 GB SODIMM DDR4',NULL),(9,110,'~/images/ram/ram9.png',100,'Crucial','testsupplier','Crucial Ballistix Sport LT',NULL),(10,235,'~/images/ram/ram10.png',100,'Crucial','testsupplier','Crucial Standard 16 GB SODIMM DDR3L',NULL);
+INSERT INTO `product` (`ID`, `price`, `imagepath`, `stock`, `Brand`, `Supplier`, `ProductName`, `PurchasedQuantity`) VALUES (1,80,'~/images/ram/ram1.jpg',87,'Kingston','testsupplier','Kingston ValueRAM',13),(2,220,'~/images/ram/ram2.png',99,'Kingston','testsupplier','Kingston HyperX Fury 10',2),(3,120,'~/images/ram/ram3.png',100,'Kingston','testsupplier','Kingston 8GB DDR3',NULL),(4,180,'~/images/ram/ram4.png',100,'Kingston','testsupplier','Kingston HyperX Impact',NULL),(5,300,'~/images/ram/ram5.png',95,'Corsair','testsupplier','Corsair Vengeance LPX',6),(6,95,'~/images/ram/ram6.png',99,'Corsair','testsupplier','Corsair Vengeance LPX 8 GB',2),(7,70,'~/images/ram/ram7.png',94,'Corsair','testsupplier','Corsair 8 GB SODIMM DDR3',7),(8,89,'~/images/ram/ram8.png',94,'Crucial','testsupplier','Crucial 8 GB SODIMM DDR4',7),(9,110,'~/images/ram/ram9.png',100,'Crucial','testsupplier','Crucial Ballistix Sport LT',NULL),(10,235,'~/images/ram/ram10.png',96,'Crucial','testsupplier','Crucial Standard 16 GB SODIMM DDR3L',5);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `purchasehistory`
+--
+
+DROP TABLE IF EXISTS `purchasehistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `purchasehistory` (
+  `ProductID` int(11) NOT NULL,
+  `UserID` int(11) NOT NULL,
+  `PurchaseDate` datetime DEFAULT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ProductID`,`UserID`),
+  CONSTRAINT `Products_Purchasehistory_ID` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `purchasehistory`
+--
+
+LOCK TABLES `purchasehistory` WRITE;
+/*!40000 ALTER TABLE `purchasehistory` DISABLE KEYS */;
+INSERT INTO `purchasehistory` (`ProductID`, `UserID`, `PurchaseDate`, `Quantity`) VALUES (1,0,'2018-01-12 11:45:04',1),(8,0,'2018-01-12 11:45:33',6);
+/*!40000 ALTER TABLE `purchasehistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -487,7 +379,7 @@ CREATE TABLE `ram` (
 
 LOCK TABLES `ram` WRITE;
 /*!40000 ALTER TABLE `ram` DISABLE KEYS */;
-INSERT INTO `ram` VALUES (1,'Kingston','1x','DDR3',2133,15,1.2,1,'Desktop','~/images/ram/ram1.jpg','Kingston ValueRAM',50,4),(2,'Kingston','2x','DDR3',2350,15,1.5,1,'Desktop','~/images/ram/ram2.png','Kingston HyperX Fury 10',220,16),(3,'Kingston','1x','DDR3',2200,15,1.2,1,'Desktop','~/images/ram/ram3.png','Kingston 8GB DDR3',80,8),(4,'Kingston','2x','DDR3',2180,15,1.25,1,'Desktop','~/images/ram/ram4.png','Kingston HyperX Impact',180,16),(5,'Corsair','2x','DDR4',2230,15,1.4,1,'Desktop','~/images/ram/ram5.png','Corsair Vengeance LPX',300,16),(6,'Corsair','2x','DDR3',2300,15,1.5,1,'Desktop','~/images/ram/ram6.png','Corsair Vengeance LPX 8 GB',95,8),(7,'Corsair','2x','DDR3',2250,15,1.2,1,'Desktop','~/images/ram/ram7.png','Corsair 8 GB SODIMM DDR3',70,8),(8,'Crucial','1x','DDR4',1900,15,1.35,1,'Laptop','~/images/ram/ram8.png','Crucial 8 GB SODIMM DDR4',89,8),(9,'Crucial','2x','DDR4',2190,15,1.2,1,'Desktop','~/images/ram/ram9.png','Crucial Ballistix Sport LT',140,8),(10,'Crucial','2x','DDR3',1600,15,1.2,1,'Desktop','~/images/ram/ram10.png','Crucial Standard 16 GB SODIMM DDR3L',235,16);
+INSERT INTO `ram` (`ID`, `Brand`, `CompositionOfMemory`, `MemoryType`, `Clockspeed`, `CASlatency`, `Voltage`, `MemoryModuleConnection`, `MemorySuitableFor`, `ImagePath`, `Name`, `Price`, `Ramsize`) VALUES (1,'Kingston','1x','DDR3',2133,15,1.2,1,'Desktop','~/images/ram/ram1.jpg','Kingston ValueRAM',50,4),(2,'Kingston','2x','DDR3',2350,15,1.5,1,'Desktop','~/images/ram/ram2.png','Kingston HyperX Fury 10',220,16),(3,'Kingston','1x','DDR3',2200,15,1.2,1,'Desktop','~/images/ram/ram3.png','Kingston 8GB DDR3',80,8),(4,'Kingston','2x','DDR3',2180,15,1.25,1,'Desktop','~/images/ram/ram4.png','Kingston HyperX Impact',180,16),(5,'Corsair','2x','DDR4',2230,15,1.4,1,'Desktop','~/images/ram/ram5.png','Corsair Vengeance LPX',300,16),(6,'Corsair','2x','DDR3',2300,15,1.5,1,'Desktop','~/images/ram/ram6.png','Corsair Vengeance LPX 8 GB',95,8),(7,'Corsair','2x','DDR3',2250,15,1.2,1,'Desktop','~/images/ram/ram7.png','Corsair 8 GB SODIMM DDR3',70,8),(8,'Crucial','1x','DDR4',1900,15,1.35,1,'Laptop','~/images/ram/ram8.png','Crucial 8 GB SODIMM DDR4',89,8),(9,'Crucial','2x','DDR4',2190,15,1.2,1,'Desktop','~/images/ram/ram9.png','Crucial Ballistix Sport LT',140,8),(10,'Crucial','2x','DDR3',1600,15,1.2,1,'Desktop','~/images/ram/ram10.png','Crucial Standard 16 GB SODIMM DDR3L',235,16);
 /*!40000 ALTER TABLE `ram` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -539,7 +431,6 @@ CREATE TABLE `shoppingcart` (
 
 LOCK TABLES `shoppingcart` WRITE;
 /*!40000 ALTER TABLE `shoppingcart` DISABLE KEYS */;
-INSERT INTO `shoppingcart` VALUES (1,1,NULL,0,'Kingston ValueRAM','~/images/ram/ram1.jpg');
 /*!40000 ALTER TABLE `shoppingcart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -639,9 +530,17 @@ CREATE TABLE `wishlist` (
 
 LOCK TABLES `wishlist` WRITE;
 /*!40000 ALTER TABLE `wishlist` DISABLE KEYS */;
-INSERT INTO `wishlist` VALUES (1,4,0,0,'string','~/images/ram/ram1.jpg'),(5,1,0,0,'string','~/images/ram/ram5.png'),(6,1,0,0,'string','~/images/ram/ram6.png'),(9,1,0,0,'string','~/images/ram/ram9.png');
+INSERT INTO `wishlist` (`ProductId`, `Quantity`, `UserId`, `Price`, `ProductName`, `Imagepath`) VALUES (1,5,0,80,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(2,1,0,220,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(5,1,0,300,'Corsair Vengeance LPX','~/images/ram/ram5.png'),(7,6,0,70,'Corsair 8 GB SODIMM DDR3','~/images/ram/ram7.png'),(8,3,0,89,'Crucial 8 GB SODIMM DDR4','~/images/ram/ram8.png');
 /*!40000 ALTER TABLE `wishlist` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'new_test'
+--
+
+--
+-- Dumping routines for database 'new_test'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -652,4 +551,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-08 13:23:09
+-- Dump completed on 2018-01-12 13:27:14
