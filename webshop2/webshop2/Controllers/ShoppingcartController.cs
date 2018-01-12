@@ -64,7 +64,82 @@ namespace webshop2.Controllers
 
                 return View();
         }
+        public ActionResult Plus_To_Cart(int id)
+        {
+            //Console.WriteLine("Add to Shoppingcart is succesfully called");
+            int? ProductId;
+            ProductId = id;
 
+
+            using (new_testEntities db = new new_testEntities())
+            {
+
+                //user user = db.user.FirstOrDefault(x => x.ID == id);
+                shoppingcart Shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id);
+
+
+                Shoppingcart.Quantity += 1;
+                db.SaveChanges();
+
+
+                return RedirectToAction("Index", "Shoppingcart");
+            }
+
+        }
+        public ActionResult Minus_To_Cart(int id)
+        {
+            //Console.WriteLine("Add to shoppingcart is succesfully called");
+            int? ProductId;
+            ProductId = id;
+
+
+            using (new_testEntities db = new new_testEntities())
+            {
+
+                //user user = db.user.FirstOrDefault(x => x.ID == id);
+                shoppingcart Shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id);
+
+
+                Shoppingcart.Quantity -= 1;
+                db.SaveChanges();
+
+                if (Shoppingcart.Quantity <= 0)
+                {
+
+                    db.shoppingcart.Remove(Shoppingcart);
+                    db.SaveChanges();
+                }
+
+
+                return RedirectToAction("Index", "Shoppingcart");
+            }
+
+        }
+
+        public ActionResult Remove_From_Cart(int id)
+        {
+            //Console.WriteLine("Add to shoppingcart is succesfully called");
+            int? ProductId;
+            ProductId = id;
+
+
+            using (new_testEntities db = new new_testEntities())
+            {
+
+                //user user = db.user.FirstOrDefault(x => x.ID == id);
+                shoppingcart Shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id);
+
+
+                db.SaveChanges();
+
+                db.shoppingcart.Remove(Shoppingcart);
+                db.SaveChanges();
+
+
+                return RedirectToAction("Index", "Shoppingcart");
+            }
+
+        }
         public ActionResult Delete (int id)
         {
             using (new_testEntities db = new new_testEntities())

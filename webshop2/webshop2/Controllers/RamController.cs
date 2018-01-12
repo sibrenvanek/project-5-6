@@ -602,7 +602,7 @@ namespace webshop2.Controllers
                     db.SaveChanges();
                 }
 
-                return RedirectToAction("View/" + ID, "Ram");
+                return RedirectToAction("Index", "Wishlist");
             }
 
         }
@@ -632,7 +632,7 @@ namespace webshop2.Controllers
                     db.SaveChanges();
                 }
 
-                return RedirectToAction("View/" + ID, "Ram");
+                return RedirectToAction("Index", "Shoppingcart");
             }
         }
         public ActionResult search()

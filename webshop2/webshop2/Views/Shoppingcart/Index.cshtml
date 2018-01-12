@@ -38,9 +38,6 @@
                         @Html.DisplayNameFor(model => model.Quantity)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.UserId)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.Price)
                     </th>
                     <th>
@@ -62,23 +59,40 @@
                             @Html.DisplayFor(modelItem => item.Quantity)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.UserId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            €@Html.DisplayFor(modelItem => item.Price)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ProductName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Imagepath)
+                            <img src="@Url.Content(item.Imagepath)" width="125" height="75" />
                         </td>
                         <td>
-
-                            @Html.ActionLink("Remove from shoppingcart", "Delete/" + item.ProductId, "Shoppingcart")
+                            <a href="@Url.Action("Plus_To_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
+                                <img src="~/images/plus.png" title="Plus" alt="" width="25" height="25" />
+                            </a>
+                            <a href="@Url.Action("Minus_To_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
+                                <img src="~/images/minus.png" title="Minus" alt="" width="25" height="25" />
+                            </a>
+                            <a href="@Url.Action("Remove_From_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
+                                <img src="~/images/remove.png" title="Remove" alt="" width="25" height="25" />
+                            </a>
                         </td>
+
+
+                        @if (Request.IsAuthenticated)
+                        {
+
+                            <p>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </p>
+                        }
                     </tr>
+
                 }
+
             </table>
         }
         else

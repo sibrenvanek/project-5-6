@@ -111,20 +111,21 @@ namespace webshop2.Controllers
                 //user user = db.user.FirstOrDefault(x => x.ID == id);
                 product product = db.product.FirstOrDefault(x => x.ID == id);
                 shoppingcart shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id);
+                wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id);
 
                 if (shoppingcart == null)
                 {
 
-                    db.shoppingcart.Add(new shoppingcart { ProductId = product.ID, /*UserId = user.ID,*/ Quantity = 1, ProductName = product.ProductName, Price = (decimal)0.0, Imagepath = product.imagepath });
+                    db.shoppingcart.Add(new shoppingcart { ProductId = Wishlist.ProductId, /*UserId = user.ID,*/ Quantity = Wishlist.Quantity, ProductName = Wishlist.ProductName, Price = Wishlist.Price, Imagepath = Wishlist.Imagepath });
                     db.SaveChanges();
                 }
                 else
                 {
-                    shoppingcart.Quantity += 1;
+                    shoppingcart.Quantity += Wishlist.Quantity;
                     db.SaveChanges();
                 }
 
-                return RedirectToAction("Index", "Wishlist");
+                return RedirectToAction("Index", "Shoppingcart");
             }
         }
 
