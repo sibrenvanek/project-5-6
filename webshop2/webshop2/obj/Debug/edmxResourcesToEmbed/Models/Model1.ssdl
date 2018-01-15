@@ -223,7 +223,7 @@
     <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
     <Property Name="ProductName" Type="varchar" MaxLength="45" />
     <Property Name="Imagepath" Type="longtext" />
-    <Property Name="Email" Type="varchar" MaxLength="45" />
+    <Property Name="email" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="ssd">
     <Key>

@@ -202,8 +202,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HDDController.cs" />
+    <Compile Include="Controllers\purchasehistoryController.cs" />
     <Compile Include="Controllers\RamController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ShoppingcartController.cs" />
     <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -362,6 +364,7 @@
     <Content Include="Views\Ram\Add_To_Wishlist.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
     <Content Include="Views\Ram\search.cshtml" />
+    <Content Include="Views\Shoppingcart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

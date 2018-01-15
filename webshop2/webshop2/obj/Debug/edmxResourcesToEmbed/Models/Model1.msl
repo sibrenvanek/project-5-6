@@ -232,7 +232,7 @@
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
           <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

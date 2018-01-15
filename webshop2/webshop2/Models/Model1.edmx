@@ -228,7 +228,7 @@
           <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
           <Property Name="ProductName" Type="varchar" MaxLength="45" />
           <Property Name="Imagepath" Type="longtext" />
-          <Property Name="Email" Type="varchar" MaxLength="45" />
+          <Property Name="email" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="ssd">
           <Key>
@@ -718,7 +718,7 @@
           <Property Name="Price" Type="Decimal" />
           <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="product" Relationship="Self.Product_Shoppingcart_ID" FromRole="shoppingcart" ToRole="product" />
         </EntityType>
         <EntityType Name="ssd">
@@ -1201,7 +1201,7 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="email" ColumnName="email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

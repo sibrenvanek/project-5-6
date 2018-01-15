@@ -32,6 +32,7 @@ namespace webshop2.Models
         public Nullable<int> minsize { get; set; }
         public Nullable<int> maxsize { get; set; }
         public string ramtype { get; set; }
+        public string brand { get; set; }
     
         public virtual product product { get; set; }
     }

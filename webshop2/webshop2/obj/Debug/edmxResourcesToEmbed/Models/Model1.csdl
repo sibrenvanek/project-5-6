@@ -242,7 +242,7 @@
     <Property Name="Price" Type="Decimal" />
     <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_Shoppingcart_ID" FromRole="shoppingcart" ToRole="product" />
   </EntityType>
   <EntityType Name="ssd">
