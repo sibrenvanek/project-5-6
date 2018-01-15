@@ -18,6 +18,7 @@ namespace webshop2.Models
         public product()
         {
             this.wishlist = new HashSet<wishlist>();
+            this.purchasehistory = new HashSet<purchasehistory>();
         }
     
         public int ID { get; set; }
@@ -40,5 +41,7 @@ namespace webshop2.Models
         public virtual ssd ssd { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wishlist> wishlist { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<purchasehistory> purchasehistory { get; set; }
     }
 }

@@ -12,12 +12,13 @@ namespace webshop2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class aspnetuserlogins
+    public partial class purchasehistory
     {
-        public string LoginProvider { get; set; }
-        public string ProviderKey { get; set; }
-        public string UserId { get; set; }
+        public int ProductID { get; set; }
+        public string UserID { get; set; }
+        public System.DateTime PurchaseDate { get; set; }
+        public Nullable<int> Quantity { get; set; }
     
-        public virtual aspnetusers aspnetusers { get; set; }
+        public virtual product product { get; set; }
     }
 }

@@ -21,8 +21,6 @@ namespace webshop2.Models
         public string ProductName { get; set; }
         public string Imagepath { get; set; }
     
-        public string email { get; set; }
-
         public virtual product product { get; set; }
     }
 }
