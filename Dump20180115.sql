@@ -307,7 +307,7 @@ CREATE TABLE `product` (
   `ProductName` varchar(45) DEFAULT NULL,
   `PurchasedQuantity` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -316,7 +316,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` (`ID`, `price`, `imagepath`, `stock`, `Brand`, `Supplier`, `ProductName`, `PurchasedQuantity`) VALUES (1,80,'~/images/ram/ram1.jpg',87,'Kingston','testsupplier','Kingston ValueRAM',13),(2,220,'~/images/ram/ram2.png',99,'Kingston','testsupplier','Kingston HyperX Fury 10',2),(3,120,'~/images/ram/ram3.png',100,'Kingston','testsupplier','Kingston 8GB DDR3',NULL),(4,180,'~/images/ram/ram4.png',100,'Kingston','testsupplier','Kingston HyperX Impact',NULL),(5,300,'~/images/ram/ram5.png',95,'Corsair','testsupplier','Corsair Vengeance LPX',6),(6,95,'~/images/ram/ram6.png',99,'Corsair','testsupplier','Corsair Vengeance LPX 8 GB',2),(7,70,'~/images/ram/ram7.png',94,'Corsair','testsupplier','Corsair 8 GB SODIMM DDR3',7),(8,89,'~/images/ram/ram8.png',94,'Crucial','testsupplier','Crucial 8 GB SODIMM DDR4',7),(9,110,'~/images/ram/ram9.png',100,'Crucial','testsupplier','Crucial Ballistix Sport LT',NULL),(10,235,'~/images/ram/ram10.png',96,'Crucial','testsupplier','Crucial Standard 16 GB SODIMM DDR3L',5);
+INSERT INTO `product` (`ID`, `price`, `imagepath`, `stock`, `Brand`, `Supplier`, `ProductName`, `PurchasedQuantity`) VALUES (1,80,'~/images/ram/ram1.jpg',85,'Kingston','testsupplier','Kingston ValueRAM',15),(2,220,'~/images/ram/ram2.png',99,'Kingston','testsupplier','Kingston HyperX Fury 10',2),(3,120,'~/images/ram/ram3.png',100,'Kingston','testsupplier','Kingston 8GB DDR3',NULL),(4,180,'~/images/ram/ram4.png',100,'Kingston','testsupplier','Kingston HyperX Impact',NULL),(5,300,'~/images/ram/ram5.png',95,'Corsair','testsupplier','Corsair Vengeance LPX',6),(6,95,'~/images/ram/ram6.png',99,'Corsair','testsupplier','Corsair Vengeance LPX 8 GB',2),(7,70,'~/images/ram/ram7.png',94,'Corsair','testsupplier','Corsair 8 GB SODIMM DDR3',7),(8,89,'~/images/ram/ram8.png',94,'Crucial','testsupplier','Crucial 8 GB SODIMM DDR4',7),(9,110,'~/images/ram/ram9.png',100,'Crucial','testsupplier','Crucial Ballistix Sport LT',NULL),(10,235,'~/images/ram/ram10.png',96,'Crucial','testsupplier','Crucial Standard 16 GB SODIMM DDR3L',5);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -329,10 +329,10 @@ DROP TABLE IF EXISTS `purchasehistory`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `purchasehistory` (
   `ProductID` int(11) NOT NULL,
-  `UserID` int(11) NOT NULL,
-  `PurchaseDate` datetime DEFAULT NULL,
+  `UserID` varchar(45) NOT NULL,
+  `PurchaseDate` datetime NOT NULL,
   `Quantity` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ProductID`,`UserID`),
+  PRIMARY KEY (`ProductID`,`UserID`,`PurchaseDate`),
   CONSTRAINT `Products_Purchasehistory_ID` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -343,7 +343,7 @@ CREATE TABLE `purchasehistory` (
 
 LOCK TABLES `purchasehistory` WRITE;
 /*!40000 ALTER TABLE `purchasehistory` DISABLE KEYS */;
-INSERT INTO `purchasehistory` (`ProductID`, `UserID`, `PurchaseDate`, `Quantity`) VALUES (1,0,'2018-01-12 11:45:04',1),(8,0,'2018-01-12 11:45:33',6);
+INSERT INTO `purchasehistory` (`ProductID`, `UserID`, `PurchaseDate`, `Quantity`) VALUES (1,'0','2018-01-12 11:45:04',1),(1,'d015aeb6-bc8a-42c1-820b-b441a765358c','2018-01-12 14:20:58',1),(8,'0','2018-01-12 11:45:33',6);
 /*!40000 ALTER TABLE `purchasehistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -551,4 +551,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-12 13:27:14
+-- Dump completed on 2018-01-15 12:47:26
