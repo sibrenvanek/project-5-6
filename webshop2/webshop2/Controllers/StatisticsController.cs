@@ -41,7 +41,7 @@ namespace webshop2.Controllers
                 }
                 var chart = new Chart(width: 600, height: 400)
                     .AddSeries(
-                            chartType: "bar",
+                            chartType: "column",
                             xValue: listproductnames,
                             yValues: listproductpurchasedquantity)
                             .GetBytes("png");
@@ -69,7 +69,37 @@ namespace webshop2.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                using(new_testEntities db = new new_testEntities())
+                {
+                    product p = new product
+                    {
+                        price = Convert.ToDecimal(collection[11]),
+                        imagepath = collection[9],
+                        stock = 100,
+                        Brand=collection[1],
+                        Supplier="testsupplier",
+                        ProductName=collection[10]
+                    };
+                    ram r = new ram
+                    {
+                        ID=p.ID,
+                        Brand=p.Brand,
+                        CompositionOfMemory=collection[2],
+                        MemoryType=collection[3],
+                        Clockspeed=Convert.ToInt32(collection[4]),
+                        CASlatency=Convert.ToInt32(collection[5]),
+                        Voltage=(float)Convert.ToDouble(collection[6]),
+                        MemoryModuleConnection=Convert.ToInt32(collection[7]),
+                        MemorySuitableFor=collection[8],
+                        ImagePath=p.imagepath,
+                        Name=p.ProductName,
+                        Price=p.price,
+                        Ramsize=Convert.ToInt32(collection[12])
+                    };
+                    db.product.Add(p);
+                    db.ram.Add(r);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -81,7 +111,10 @@ namespace webshop2.Controllers
         // GET: Statistics/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (new_testEntities db = new new_testEntities())
+            {
+                return View(db.ram.FirstOrDefault(r=>r.ID==id));
+            }
         }
 
         // POST: Statistics/Edit/5
@@ -90,9 +123,32 @@ namespace webshop2.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                using (new_testEntities db = new new_testEntities())
+                {
+                    // TODO: Add update logic here
+                    ram ram = db.ram.FirstOrDefault(r => r.ID == id);
+                    product product = db.product.FirstOrDefault(p => p.ID == id);
+                    ram.ImagePath = collection[10];
+                    product.imagepath = collection[10];
+                    ram.Brand = collection[2];
+                    product.Brand = collection[2];
+                    ram.CompositionOfMemory = collection[3];
+                    ram.MemoryType = collection[4];
+                    ram.Clockspeed = Convert.ToInt32(collection[5]);
+                    ram.CASlatency = Convert.ToInt32(collection[6]);
+                    ram.Voltage = (float)Convert.ToDouble(collection[7]);
+                    ram.MemoryModuleConnection = Convert.ToInt32(collection[8]);
+                    ram.MemorySuitableFor = collection[9];
+                    ram.Name = collection[11];
+                    product.ProductName = collection[11];
+                    ram.Price = Convert.ToDecimal(collection[12]);
+                    product.price = Convert.ToDecimal(collection[12]);
+                    ram.Ramsize = Convert.ToInt32(collection[13]);
+                    
+                    db.SaveChanges();
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {
@@ -103,23 +159,15 @@ namespace webshop2.Controllers
         // GET: Statistics/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Statistics/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            using(new_testEntities db = new new_testEntities())
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                ram ram = db.ram.FirstOrDefault(r => r.ID == id);
+                product product = db.product.FirstOrDefault(p => p.ID == id);
+                db.ram.Remove(ram);
+                db.product.Remove(product);
+                db.SaveChanges();
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }

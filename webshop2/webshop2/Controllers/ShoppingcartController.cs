@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using webshop2.Models;
 
 namespace webshop2.Controllers
@@ -54,15 +55,28 @@ namespace webshop2.Controllers
                     db.SaveChanges();
                     db.shoppingcart.Remove(item);
                     db.SaveChanges();
+                    int productid = item.ProductId;
+                    string userid = User.Identity.GetUserId();
+                    int quantity = (int)item.Quantity;
+                    DateTime date = DateTime.Now;
+                    string productname = product.ProductName;
+                    string imagePath = product.imagepath;
+                    purchasehistory ph = new purchasehistory
+                    {
+                        ProductID = productid,
+                        UserID = userid,
+                        Quantity = quantity,
+                        PurchaseDate = date,
+                        ProductName = productname,
+                        imagepath = imagePath
+                    };
+                    db.purchasehistory.Add(ph);
+                    db.SaveChanges();
                 }
                 mail.SendAsync(message);
                 
             }
-            
-
-
-
-                return View();
+            return View();
         }
         public ActionResult Plus_To_Cart(int id)
         {
@@ -140,6 +154,7 @@ namespace webshop2.Controllers
             }
 
         }
+
         public ActionResult Delete (int id)
         {
             using (new_testEntities db = new new_testEntities())
