@@ -334,6 +334,8 @@ CREATE TABLE `purchasehistory` (
   `UserID` varchar(45) NOT NULL,
   `PurchaseDate` datetime NOT NULL,
   `Quantity` int(11) DEFAULT NULL,
+  `ProductName` varchar(45) NOT NULL,
+  `imagepath` varchar(45) NOT NULL,
   PRIMARY KEY (`ProductID`,`UserID`,`PurchaseDate`),
   CONSTRAINT `Products_Purchasehistory_ID` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
