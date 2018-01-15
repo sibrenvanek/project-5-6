@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `new_test` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `new_test`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: new_test
@@ -334,8 +332,8 @@ CREATE TABLE `purchasehistory` (
   `UserID` varchar(45) NOT NULL,
   `PurchaseDate` datetime NOT NULL,
   `Quantity` int(11) DEFAULT NULL,
-  `ProductName` varchar(45) NOT NULL,
-  `imagepath` varchar(45) NOT NULL,
+  `ProductName` varchar(45) DEFAULT NULL,
+  `imagepath` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ProductID`,`UserID`,`PurchaseDate`),
   CONSTRAINT `Products_Purchasehistory_ID` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -347,7 +345,7 @@ CREATE TABLE `purchasehistory` (
 
 LOCK TABLES `purchasehistory` WRITE;
 /*!40000 ALTER TABLE `purchasehistory` DISABLE KEYS */;
-INSERT INTO `purchasehistory` (`ProductID`, `UserID`, `PurchaseDate`, `Quantity`) VALUES (1,'0','2018-01-12 11:45:04',1),(1,'d015aeb6-bc8a-42c1-820b-b441a765358c','2018-01-12 14:20:58',1),(8,'0','2018-01-12 11:45:33',6);
+INSERT INTO `purchasehistory` (`ProductID`, `UserID`, `PurchaseDate`, `Quantity`, `ProductName`, `imagepath`) VALUES (1,'0','2018-01-12 11:45:04',1,NULL,NULL),(1,'d015aeb6-bc8a-42c1-820b-b441a765358c','2018-01-12 14:20:58',1,NULL,NULL),(8,'0','2018-01-12 11:45:33',6,NULL,NULL);
 /*!40000 ALTER TABLE `purchasehistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -372,6 +370,11 @@ CREATE TABLE `ram` (
   `Name` varchar(45) DEFAULT NULL,
   `Price` decimal(10,0) DEFAULT NULL,
   `Ramsize` int(11) DEFAULT NULL,
+  `minprice` int(11) DEFAULT NULL,
+  `maxprice` int(11) DEFAULT NULL,
+  `minsize` int(11) DEFAULT NULL,
+  `maxsize` int(11) DEFAULT NULL,
+  `ramtype` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   CONSTRAINT `Product_Ram_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -383,7 +386,7 @@ CREATE TABLE `ram` (
 
 LOCK TABLES `ram` WRITE;
 /*!40000 ALTER TABLE `ram` DISABLE KEYS */;
-INSERT INTO `ram` (`ID`, `Brand`, `CompositionOfMemory`, `MemoryType`, `Clockspeed`, `CASlatency`, `Voltage`, `MemoryModuleConnection`, `MemorySuitableFor`, `ImagePath`, `Name`, `Price`, `Ramsize`) VALUES (1,'Kingston','1x','DDR3',2133,15,1.2,1,'Desktop','~/images/ram/ram1.jpg','Kingston ValueRAM',50,4),(2,'Kingston','2x','DDR3',2350,15,1.5,1,'Desktop','~/images/ram/ram2.png','Kingston HyperX Fury 10',220,16),(3,'Kingston','1x','DDR3',2200,15,1.2,1,'Desktop','~/images/ram/ram3.png','Kingston 8GB DDR3',80,8),(4,'Kingston','2x','DDR3',2180,15,1.25,1,'Desktop','~/images/ram/ram4.png','Kingston HyperX Impact',180,16),(5,'Corsair','2x','DDR4',2230,15,1.4,1,'Desktop','~/images/ram/ram5.png','Corsair Vengeance LPX',300,16),(6,'Corsair','2x','DDR3',2300,15,1.5,1,'Desktop','~/images/ram/ram6.png','Corsair Vengeance LPX 8 GB',95,8),(7,'Corsair','2x','DDR3',2250,15,1.2,1,'Desktop','~/images/ram/ram7.png','Corsair 8 GB SODIMM DDR3',70,8),(8,'Crucial','1x','DDR4',1900,15,1.35,1,'Laptop','~/images/ram/ram8.png','Crucial 8 GB SODIMM DDR4',89,8),(9,'Crucial','2x','DDR4',2190,15,1.2,1,'Desktop','~/images/ram/ram9.png','Crucial Ballistix Sport LT',140,8),(10,'Crucial','2x','DDR3',1600,15,1.2,1,'Desktop','~/images/ram/ram10.png','Crucial Standard 16 GB SODIMM DDR3L',235,16);
+INSERT INTO `ram` (`ID`, `Brand`, `CompositionOfMemory`, `MemoryType`, `Clockspeed`, `CASlatency`, `Voltage`, `MemoryModuleConnection`, `MemorySuitableFor`, `ImagePath`, `Name`, `Price`, `Ramsize`, `minprice`, `maxprice`, `minsize`, `maxsize`, `ramtype`) VALUES (1,'Kingston','1x','DDR3',2133,15,1.2,1,'Desktop','~/images/ram/ram1.jpg','Kingston ValueRAM',50,4,NULL,NULL,NULL,NULL,NULL),(2,'Kingston','2x','DDR3',2350,15,1.5,1,'Desktop','~/images/ram/ram2.png','Kingston HyperX Fury 10',220,16,NULL,NULL,NULL,NULL,NULL),(3,'Kingston','1x','DDR3',2200,15,1.2,1,'Desktop','~/images/ram/ram3.png','Kingston 8GB DDR3',80,8,NULL,NULL,NULL,NULL,NULL),(4,'Kingston','2x','DDR3',2180,15,1.25,1,'Desktop','~/images/ram/ram4.png','Kingston HyperX Impact',180,16,NULL,NULL,NULL,NULL,NULL),(5,'Corsair','2x','DDR4',2230,15,1.4,1,'Desktop','~/images/ram/ram5.png','Corsair Vengeance LPX',300,16,NULL,NULL,NULL,NULL,NULL),(6,'Corsair','2x','DDR3',2300,15,1.5,1,'Desktop','~/images/ram/ram6.png','Corsair Vengeance LPX 8 GB',95,8,NULL,NULL,NULL,NULL,NULL),(7,'Corsair','2x','DDR3',2250,15,1.2,1,'Desktop','~/images/ram/ram7.png','Corsair 8 GB SODIMM DDR3',70,8,NULL,NULL,NULL,NULL,NULL),(8,'Crucial','1x','DDR4',1900,15,1.35,1,'Laptop','~/images/ram/ram8.png','Crucial 8 GB SODIMM DDR4',89,8,NULL,NULL,NULL,NULL,NULL),(9,'Crucial','2x','DDR4',2190,15,1.2,1,'Desktop','~/images/ram/ram9.png','Crucial Ballistix Sport LT',140,8,NULL,NULL,NULL,NULL,NULL),(10,'Crucial','2x','DDR3',1600,15,1.2,1,'Desktop','~/images/ram/ram10.png','Crucial Standard 16 GB SODIMM DDR3L',235,16,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `ram` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -424,6 +427,7 @@ CREATE TABLE `shoppingcart` (
   `Price` decimal(10,0) DEFAULT NULL,
   `ProductName` varchar(45) DEFAULT NULL,
   `Imagepath` longtext,
+  `Email` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ProductId`),
   CONSTRAINT `Product_Shoppingcart_ID` FOREIGN KEY (`ProductId`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -555,4 +559,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-15 12:56:51
+-- Dump completed on 2018-01-15 14:30:06

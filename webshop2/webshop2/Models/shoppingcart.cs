@@ -20,8 +20,8 @@ namespace webshop2.Models
         public Nullable<decimal> Price { get; set; }
         public string ProductName { get; set; }
         public string Imagepath { get; set; }
-        public string email { get; set; }
-
+        public string Email { get; set; }
+    
         public virtual product product { get; set; }
     }
 }
