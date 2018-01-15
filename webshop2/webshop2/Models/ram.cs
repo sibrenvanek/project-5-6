@@ -27,7 +27,13 @@ namespace webshop2.Models
         public string Name { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<int> Ramsize { get; set; }
-    
+        public int minsize { get; set; }
+        public int maxsize { get; set; }
+        public string brand { get; set; }
+        public int minprice { get; set; }
+        public int maxprice { get; set; }
+        public int ramtype { get; set; }
+
         public virtual product product { get; set; }
     }
 }
