@@ -358,9 +358,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\NewAccount\Index.cshtml" />
-    <Content Include="Views\NewAccount\Register.cshtml" />
-    <Content Include="Views\NewAccount\Login.cshtml" />
     <Content Include="Views\Ram\Index.cshtml" />
     <Content Include="Views\Ram\View.cshtml" />
     <Content Include="Views\Ram\Add_To_Wishlist.cshtml" />

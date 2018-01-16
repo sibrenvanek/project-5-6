@@ -111,8 +111,6 @@ namespace webshop2.Controllers
 
             using (new_testEntities db = new new_testEntities())
             {
-
-                //user user = db.user.FirstOrDefault(x => x.ID == id);
                 product product = db.product.FirstOrDefault(x => x.ID == id);
                 shoppingcart shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id);
                 wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id);
@@ -120,7 +118,7 @@ namespace webshop2.Controllers
                 if (shoppingcart == null)
                 {
 
-                    db.shoppingcart.Add(new shoppingcart { ProductId = Wishlist.ProductId, /*UserId = user.ID,*/ Quantity = Wishlist.Quantity, ProductName = Wishlist.ProductName, Price = Wishlist.Price, Imagepath = Wishlist.Imagepath });
+                    db.shoppingcart.Add(new shoppingcart { ProductId = Wishlist.ProductId, UserId = User.Identity.GetUserId(), Quantity = Wishlist.Quantity, ProductName = Wishlist.ProductName, Price = Wishlist.Price, Imagepath = Wishlist.Imagepath });
                     db.SaveChanges();
                 }
                 else
