@@ -75,17 +75,6 @@
                                 <img src="~/images/remove.png" title="Remove" alt="" width="25" height="25" />
                             </a>
                         </td>
-
-
-                        @if (Request.IsAuthenticated)
-                        {
-
-                            <p>
-                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                            </p>
-                        }
                     </tr>
 
                 }
