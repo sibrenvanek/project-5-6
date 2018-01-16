@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,11 +17,8 @@ namespace webshop2.Controllers
             List<wishlist> list_wishlist = new List<wishlist>();
             using (new_testEntities db = new new_testEntities())
             {
-                using (ApplicationDbContext db2 = new ApplicationDbContext())
-                {
-                    string userid = User.Identity.GetUserId();
-                    return View(db.wishlist.Where(item => item.UserId == userid).ToList());
-                }
+                list_wishlist = db.wishlist.ToList();
+                return View(list_wishlist);
             }
         }
         public ActionResult Plus_To_Wishlist(int id)
@@ -111,6 +107,8 @@ namespace webshop2.Controllers
 
             using (new_testEntities db = new new_testEntities())
             {
+
+                //user user = db.user.FirstOrDefault(x => x.ID == id);
                 product product = db.product.FirstOrDefault(x => x.ID == id);
                 shoppingcart shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id);
                 wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id);
@@ -118,7 +116,7 @@ namespace webshop2.Controllers
                 if (shoppingcart == null)
                 {
 
-                    db.shoppingcart.Add(new shoppingcart { ProductId = Wishlist.ProductId, UserId = User.Identity.GetUserId(), Quantity = Wishlist.Quantity, ProductName = Wishlist.ProductName, Price = Wishlist.Price, Imagepath = Wishlist.Imagepath });
+                    db.shoppingcart.Add(new shoppingcart { ProductId = Wishlist.ProductId, /*UserId = user.ID,*/ Quantity = Wishlist.Quantity, ProductName = Wishlist.ProductName, Price = Wishlist.Price, Imagepath = Wishlist.Imagepath });
                     db.SaveChanges();
                 }
                 else
@@ -134,7 +132,12 @@ namespace webshop2.Controllers
         // GET: Wishlist/WishlistItems/5
         public ActionResult WishlistItems()
         {
-            return View();
+            using (new_testEntities db = new new_testEntities())
+            {
+
+                return View();
+            }
+
         }
 
         public ActionResult View(int id)

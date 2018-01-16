@@ -18,8 +18,6 @@ namespace webshop2.Models
         public string UserID { get; set; }
         public System.DateTime PurchaseDate { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public string ProductName { get; set; }
-        public string imagepath { get; set; }
     
         public virtual product product { get; set; }
     }

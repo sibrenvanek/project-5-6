@@ -25,12 +25,7 @@ namespace webshop2.Controllers
                 List<shoppingcart> listshippingcartitems = new List<shoppingcart>();
                 using (new_testEntities db = new new_testEntities())
                 {
-                    string userid = "0";
-                    if (Request.IsAuthenticated)
-                    {
-                        userid = User.Identity.GetUserId();
-                    }
-                    listshippingcartitems = db.shoppingcart.Where(x=>x.UserId==userid).ToList();
+                    listshippingcartitems = db.shoppingcart.ToList();
                 }
 
                 return View(listshippingcartitems);
@@ -48,12 +43,7 @@ namespace webshop2.Controllers
             message.Body = "Thank you for your purchase. <br />You purchased the following items:";
             using (new_testEntities db = new new_testEntities())
             {
-                string userid = "0";
-                if (Request.IsAuthenticated)
-                {
-                    userid = User.Identity.GetUserId();
-                }
-                shoppingcartitems = db.shoppingcart.Where(x => x.UserId == userid).ToList();
+                shoppingcartitems = db.shoppingcart.ToList();
 
                 foreach (shoppingcart item in shoppingcartitems)
                 {
@@ -66,6 +56,7 @@ namespace webshop2.Controllers
                     db.shoppingcart.Remove(item);
                     db.SaveChanges();
                     int productid = item.ProductId;
+                    string userid = User.Identity.GetUserId();
                     int quantity = (int)item.Quantity;
                     DateTime date = DateTime.Now;
                     string productname = product.ProductName;

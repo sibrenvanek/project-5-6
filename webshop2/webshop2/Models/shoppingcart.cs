@@ -15,13 +15,13 @@ namespace webshop2.Models
     public partial class shoppingcart
     {
         public int ProductId { get; set; }
-        public string UserId { get; set; }
         public Nullable<int> Quantity { get; set; }
+        public Nullable<int> UserId { get; set; }
         public Nullable<decimal> Price { get; set; }
         public string ProductName { get; set; }
         public string Imagepath { get; set; }
         public string email { get; set; }
-    
+
         public virtual product product { get; set; }
     }
 }

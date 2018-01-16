@@ -17,7 +17,6 @@ namespace webshop2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public product()
         {
-            this.shoppingcart = new HashSet<shoppingcart>();
             this.wishlist = new HashSet<wishlist>();
             this.purchasehistory = new HashSet<purchasehistory>();
         }
@@ -38,8 +37,7 @@ namespace webshop2.Models
         public virtual motherboard motherboard { get; set; }
         public virtual powersupply powersupply { get; set; }
         public virtual ram ram { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<shoppingcart> shoppingcart { get; set; }
+        public virtual shoppingcart shoppingcart { get; set; }
         public virtual ssd ssd { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wishlist> wishlist { get; set; }

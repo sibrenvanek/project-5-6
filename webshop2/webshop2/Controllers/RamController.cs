@@ -588,13 +588,12 @@ namespace webshop2.Controllers
 
                 //user user = db.user.FirstOrDefault(x => x.ID == id);
                 product product = db.product.FirstOrDefault(x => x.ID == id);
-                string userid = User.Identity.GetUserId();
-                wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id && x.UserId == userid);
+                wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id);
 
                 if (Wishlist == null)
                 {
 
-                    db.wishlist.Add(new wishlist { ProductId = product.ID, UserId = userid, Quantity = 1, ProductName = product.ProductName, Price = product.price, Imagepath = product.imagepath });
+                    db.wishlist.Add(new wishlist { ProductId = product.ID, /*UserId = user.ID,*/ Quantity = 1, ProductName = product.ProductName, Price = product.price, Imagepath = product.imagepath });
                     db.SaveChanges();
                 }
                 else
@@ -618,24 +617,13 @@ namespace webshop2.Controllers
 
                 //user user = db.user.FirstOrDefault(x => x.ID == id);
                 product product = db.product.FirstOrDefault(x => x.ID == id);
-                string userid = "0";
-                if (Request.IsAuthenticated)
-                {
-                    userid = User.Identity.GetUserId();
-                }
-                shoppingcart shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id && x.UserId == userid);
+                shoppingcart shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id);
 
                 if (shoppingcart == null)
                 {
-                    db.shoppingcart.Add(new shoppingcart
-                    {
-                        ProductId = product.ID,
-                        UserId = userid,
-                        Quantity = 1,
-                        ProductName = product.ProductName,
-                        Price = (decimal)0.0,
-                        Imagepath = product.imagepath
-                    });
+
+                    db.shoppingcart.Add(new shoppingcart {
+                        ProductId = product.ID, /*UserId = user.ID,*/ Quantity = 1, ProductName = product.ProductName, Price = (decimal)0.0, Imagepath = product.imagepath });
                     db.SaveChanges();
                 }
                 else

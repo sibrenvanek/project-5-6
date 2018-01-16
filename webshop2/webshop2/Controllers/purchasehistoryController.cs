@@ -19,14 +19,7 @@ namespace webshop2.Controllers
                 using (ApplicationDbContext db2 = new ApplicationDbContext())
                 {
                     string userID = User.Identity.GetUserId();
-                    if (User.IsInRole("Admin"))
-                    {
-                        return View(db.purchasehistory.ToList());
-                    }
-                    else
-                    {
-                        return View(db.purchasehistory.Where(ph => ph.UserID == userID).ToList());
-                    }
+                    return View(db.purchasehistory.Where(ph => ph.UserID == userID).ToList());
                 }
             }
         }

@@ -10,10 +10,10 @@
     <title>Index</title>
 </head>
 <body>
-    @if (User.IsInRole("Admin"))
+    @if (Request.IsAuthenticated)
     {
         <p>
-            @Html.ActionLink("Create New Product", "~/Statistics/Create")
+            @Html.ActionLink("Create New", "Create")
         </p>
     }
     <style>
@@ -108,12 +108,12 @@
                             €@Html.DisplayFor(modelItem => item.Price)
                     </td>
 
-                    if(User.IsInRole("Admin")
+                    @if (Request.IsAuthenticated)
                     {
                         <td>
-                            @Html.ActionLink("Edit", "~/Statistics/Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Details", "~/Statistics/Details", new { id = item.ID }) |
-                            @Html.ActionLink("Delete", "~/Statistics/Delete", new { id = item.ID })
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                         </td>
                     }
                 </tr>

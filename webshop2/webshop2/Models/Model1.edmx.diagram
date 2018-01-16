@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="85d51e3a7e8b4978b3940d24209f2dd0" Name="Diagram1">
+      <Diagram DiagramId="14c33bb09ef7474abecedacfdf6683d7" Name="Diagram1">
         <EntityTypeShape EntityType="new_testModel.case" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.chat" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.cpucooler" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.gpu" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.internalharddisk" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.motherboard" Width="1.5" PointX="3" PointY="29.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.powersupply" Width="1.5" PointX="3" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.product" Width="1.5" PointX="0.75" PointY="28.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.purchasehistory" Width="1.5" PointX="3" PointY="38.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.ram" Width="1.5" PointX="3" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.internalharddisk" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.motherboard" Width="1.5" PointX="3" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.powersupply" Width="1.5" PointX="3" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.product" Width="1.5" PointX="0.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.purchasehistory" Width="1.5" PointX="3" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.ram" Width="1.5" PointX="3" PointY="40.875" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.roles" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.shoppingcart" Width="1.5" PointX="3" PointY="46.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.ssd" Width="1.5" PointX="3" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.shoppingcart" Width="1.5" PointX="3" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.ssd" Width="1.5" PointX="3" PointY="48.375" IsExpanded="true" />
         <EntityTypeShape EntityType="new_testModel.supplier" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="new_testModel.wishlist" Width="1.5" PointX="3" PointY="55.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="new_testModel.wishlist" Width="1.5" PointX="3" PointY="53.875" IsExpanded="true" />
         <AssociationConnector Association="new_testModel.Product_Case_ID" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.Product_CPUcooler_ID" ManuallyRouted="false" />
         <AssociationConnector Association="new_testModel.Product_GPU_ID" ManuallyRouted="false" />

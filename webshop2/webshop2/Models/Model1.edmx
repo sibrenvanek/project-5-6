@@ -185,8 +185,6 @@
           <Property Name="UserID" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="PurchaseDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="Quantity" Type="int" />
-          <Property Name="ProductName" Type="varchar" MaxLength="45" />
-          <Property Name="imagepath" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="ram">
           <Key>
@@ -205,11 +203,6 @@
           <Property Name="Name" Type="varchar" MaxLength="45" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
           <Property Name="Ramsize" Type="int" />
-          <Property Name="minprice" Type="int" />
-          <Property Name="maxprice" Type="int" />
-          <Property Name="minsize" Type="int" />
-          <Property Name="maxsize" Type="int" />
-          <Property Name="ramtype" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -221,15 +214,13 @@
         <EntityType Name="shoppingcart">
           <Key>
             <PropertyRef Name="ProductId" />
-            <PropertyRef Name="UserId" />
           </Key>
           <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="UserId" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Quantity" Type="int" />
+          <Property Name="UserId" Type="int" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
           <Property Name="ProductName" Type="varchar" MaxLength="45" />
           <Property Name="Imagepath" Type="longtext" />
-          <Property Name="email" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="ssd">
           <Key>
@@ -273,8 +264,8 @@
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="UserId" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Quantity" Type="int" />
+          <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
           <Property Name="ProductName" Type="varchar" MaxLength="45" />
           <Property Name="Imagepath" Type="longtext" />
@@ -365,7 +356,7 @@
         </Association>
         <Association Name="Product_Shoppingcart_ID">
           <End Role="product" Type="Self.product" Multiplicity="1" />
-          <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="*" />
+          <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="product">
               <PropertyRef Name="ID" />
@@ -674,8 +665,6 @@
           <Property Name="UserID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PurchaseDate" Type="DateTime" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
-          <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="imagepath" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="product" Relationship="Self.Products_Purchasehistory_ID" FromRole="purchasehistory" ToRole="product" />
         </EntityType>
         <EntityType Name="ram">
@@ -695,11 +684,6 @@
           <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Decimal" />
           <Property Name="Ramsize" Type="Int32" />
-          <Property Name="minprice" Type="Int32" />
-          <Property Name="maxprice" Type="Int32" />
-          <Property Name="minsize" Type="Int32" />
-          <Property Name="maxsize" Type="Int32" />
-          <Property Name="ramtype" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="product" Relationship="Self.Product_Ram_ID" FromRole="ram" ToRole="product" />
         </EntityType>
         <EntityType Name="roles">
@@ -712,15 +696,13 @@
         <EntityType Name="shoppingcart">
           <Key>
             <PropertyRef Name="ProductId" />
-            <PropertyRef Name="UserId" />
           </Key>
           <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
           <Property Name="Price" Type="Decimal" />
           <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="product" Relationship="Self.Product_Shoppingcart_ID" FromRole="shoppingcart" ToRole="product" />
         </EntityType>
         <EntityType Name="ssd">
@@ -766,8 +748,8 @@
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" />
           <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
@@ -859,7 +841,7 @@
         </Association>
         <Association Name="Product_Shoppingcart_ID">
           <End Role="product" Type="Self.product" Multiplicity="1" />
-          <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="*" />
+          <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="product">
               <PropertyRef Name="ID" />
@@ -1157,8 +1139,6 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="imagepath" ColumnName="imagepath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1178,11 +1158,6 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Ramsize" ColumnName="Ramsize" />
-                <ScalarProperty Name="minprice" ColumnName="minprice" />
-                <ScalarProperty Name="maxprice" ColumnName="maxprice" />
-                <ScalarProperty Name="minsize" ColumnName="minsize" />
-                <ScalarProperty Name="maxsize" ColumnName="maxsize" />
-                <ScalarProperty Name="ramtype" ColumnName="ramtype" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1198,12 +1173,11 @@
             <EntityTypeMapping TypeName="new_testModel.shoppingcart">
               <MappingFragment StoreEntitySet="shoppingcart">
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
-                <ScalarProperty Name="email" ColumnName="email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1249,8 +1223,8 @@
             <EntityTypeMapping TypeName="new_testModel.wishlist">
               <MappingFragment StoreEntitySet="wishlist">
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />

@@ -111,12 +111,9 @@
         <a href="@Url.Action("Add_To_Shoppingcart/" + Model.ID,"Ram")" class="navbar-brand">
             <img src="~/images/addcart.png" title="Add to Cart" alt="" width="100" height="100" />
         </a>
-        @if (Request.IsAuthenticated)
-        {
-            <a href="@Url.Action("Add_To_wishlist/" + Model.ID, "Ram")" class="navbar-brand">
-                <img src="~/images/addwishlist.png" title="Add to Wishlist" alt="" width="100" height="100" />
-            </a>
-        }
+        <a href="@Url.Action("Add_To_wishlist/" + Model.ID,"Ram")" class="navbar-brand">
+            <img src="~/images/addwishlist.png" title="Add to Wishlist" alt="" width="100" height="100" />
+        </a>
         <a href="@Url.Action("Index","Ram")" class="navbar-brand">
             <img src="~/images/back.png" title="Back to List" alt="" width="100" height="100" />
         </a>
