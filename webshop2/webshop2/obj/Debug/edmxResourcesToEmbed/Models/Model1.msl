@@ -227,8 +227,8 @@
       <EntityTypeMapping TypeName="new_testModel.shoppingcart">
         <MappingFragment StoreEntitySet="shoppingcart">
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
           <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
@@ -278,8 +278,8 @@
       <EntityTypeMapping TypeName="new_testModel.wishlist">
         <MappingFragment StoreEntitySet="wishlist">
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
           <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />

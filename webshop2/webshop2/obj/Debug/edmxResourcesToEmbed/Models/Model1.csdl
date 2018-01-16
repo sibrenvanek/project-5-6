@@ -235,10 +235,11 @@
   <EntityType Name="shoppingcart">
     <Key>
       <PropertyRef Name="ProductId" />
+      <PropertyRef Name="UserId" />
     </Key>
     <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
-    <Property Name="UserId" Type="Int32" />
     <Property Name="Price" Type="Decimal" />
     <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
@@ -288,8 +289,8 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
-    <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Decimal" />
     <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
@@ -381,7 +382,7 @@
   </Association>
   <Association Name="Product_Shoppingcart_ID">
     <End Role="product" Type="Self.product" Multiplicity="1" />
-    <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="0..1" />
+    <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="product">
         <PropertyRef Name="ID" />

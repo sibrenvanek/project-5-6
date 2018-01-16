@@ -216,10 +216,11 @@
   <EntityType Name="shoppingcart">
     <Key>
       <PropertyRef Name="ProductId" />
+      <PropertyRef Name="UserId" />
     </Key>
     <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="45" Nullable="false" />
     <Property Name="Quantity" Type="int" />
-    <Property Name="UserId" Type="int" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
     <Property Name="ProductName" Type="varchar" MaxLength="45" />
     <Property Name="Imagepath" Type="longtext" />
@@ -267,8 +268,8 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="45" Nullable="false" />
     <Property Name="Quantity" Type="int" />
-    <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
     <Property Name="ProductName" Type="varchar" MaxLength="45" />
     <Property Name="Imagepath" Type="longtext" />
@@ -359,7 +360,7 @@
   </Association>
   <Association Name="Product_Shoppingcart_ID">
     <End Role="product" Type="Self.product" Multiplicity="1" />
-    <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="0..1" />
+    <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="product">
         <PropertyRef Name="ID" />
