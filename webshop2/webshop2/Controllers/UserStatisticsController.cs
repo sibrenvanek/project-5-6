@@ -41,7 +41,11 @@ namespace webshop2.Controllers
             {
                 // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+                using (ApplicationDbContext db2 = new ApplicationDbContext())
+                {
+                    
+                }
+                    return RedirectToAction("Index");
             }
             catch
             {
@@ -50,9 +54,14 @@ namespace webshop2.Controllers
         }
 
         // GET: UserStatistics/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            using (ApplicationDbContext db2 = new ApplicationDbContext())
+            {
+
+                
+                return View(db2.Users.FirstOrDefault(U => U.Id== id  ));
+            }
         }
 
         // POST: UserStatistics/Edit/5
@@ -74,7 +83,7 @@ namespace webshop2.Controllers
         // GET: UserStatistics/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return RedirectToAction("Index");
         }
 
         // POST: UserStatistics/Delete/5

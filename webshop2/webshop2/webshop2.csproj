@@ -206,6 +206,7 @@
     <Compile Include="Controllers\RamController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShoppingcartController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\UserStatisticsController.cs" />
     <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
@@ -367,6 +368,11 @@
     <Content Include="Views\Ram\search.cshtml" />
     <Content Include="Views\Shoppingcart\Index.cshtml" />
     <Content Include="Views\UserStatistics\Index.cshtml" />
+    <Content Include="Views\Statistics\create.cshtml" />
+    <Content Include="Views\Statistics\Edit.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\UserStatistics\Edit.cshtml" />
+    <Content Include="Views\UserStatistics\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
