@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Bright Yellow</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <style>
+        .foot{
+            padding-top: 450px;
+        }
+        .searchBar{
+            padding-right: 125px;
+            padding-top: 10px;
+        }
+    </style>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+        <img src="~/images/logo.png" title="Logo" alt="" width="100" height="100" />
+        </a>
+        <div class="form-group searchBar" align="center">
+            <form name="Search Bar" action="~/Ram/search" method="post">
+                <input type="text" placeholder="search bar" width="250" name="searchstring" />
+            </form>
+        </div>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse"><br /><br /><br />
+                <font size="5"><b><ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact ", "Contact", "Home")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Wishlist", "Index", "Wishlist")</li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </b></font></div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="foot">
+            <p>&copy; @DateTime.Now.Year - Bright Yellow</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

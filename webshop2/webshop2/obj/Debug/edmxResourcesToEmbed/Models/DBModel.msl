@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="new_testModelStoreContainer" CdmEntityContainer="new_testEntities">
+    <EntitySetMapping Name="case">
+      <EntityTypeMapping TypeName="new_testModel.case">
+        <MappingFragment StoreEntitySet="case">
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="casename" ColumnName="casename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product">
+      <EntityTypeMapping TypeName="new_testModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="productid" ColumnName="productid" />
+          <ScalarProperty Name="productname" ColumnName="productname" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="new_testModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

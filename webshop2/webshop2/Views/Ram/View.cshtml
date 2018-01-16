@@ -1,0 +1,126 @@
+﻿
+@model webshop2.Models.ram
+@using webshop2.Controllers
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+</head>
+<body>
+    <div>
+        <h4>@Html.DisplayFor(model => model.Name)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Image
+            </dt>
+    
+            <dd>
+                <img src="@Url.Content(Model.ImagePath)" width="350" height="200" />
+            </dd>
+    
+            <h2>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    €@Html.DisplayFor(model => model.Price)
+                </dd>
+
+            </h2>
+            <dt>
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ramsize)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ramsize) GB
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CompositionOfMemory)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CompositionOfMemory)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MemoryType)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MemoryType)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Clockspeed)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Clockspeed) MHz
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CASlatency)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CASlatency)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Voltage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Voltage) V
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MemoryModuleConnection)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MemoryModuleConnection)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MemorySuitableFor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MemorySuitableFor)
+            </dd>
+            
+    
+        </dl>
+    </div>
+    
+    
+        <a href="@Url.Action("Add_To_Shoppingcart/" + Model.ID,"Ram")" class="navbar-brand">
+            <img src="~/images/addcart.png" title="Add to Cart" alt="" width="100" height="100" />
+        </a>
+        @if (Request.IsAuthenticated)
+        {
+            <a href="@Url.Action("Add_To_wishlist/" + Model.ID, "Ram")" class="navbar-brand">
+                <img src="~/images/addwishlist.png" title="Add to Wishlist" alt="" width="100" height="100" />
+            </a>
+        }
+        <a href="@Url.Action("Index","Ram")" class="navbar-brand">
+            <img src="~/images/back.png" title="Back to List" alt="" width="100" height="100" />
+        </a>
+
+
+</body>
+</html>

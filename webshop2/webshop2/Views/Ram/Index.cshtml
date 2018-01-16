@@ -1,0 +1,132 @@
+﻿@model IEnumerable<webshop2.Models.ram>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @if (Request.IsAuthenticated)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+    <style>
+        .left {
+            float: left;
+            width: 100px;
+        }
+
+        .table {
+            float: right;
+            width: 950px;
+        }
+    </style>
+    <script type="text/javascript">
+        function filter(min, max) {
+            PageMethods.FilterRam(min, max);
+        }
+    </script>
+    @if (!(Model.Count() == 0))
+    {
+        <div class="left">
+            <form class="form-control-static" method="post">
+                Prijs: van @Html.TextBoxFor(model => model.ToArray()[0].minprice) tot @Html.TextBoxFor(model => model.ToArray()[0].maxprice)
+                Size: van @Html.TextBoxFor(model => model.ToArray()[0].minsize) tot @Html.TextBoxFor(model => model.ToArray()[0].maxsize)
+                Brand:  <br /> Kingston @Html.RadioButtonFor(model => model.ToArray()[0].brand, "Kingston")
+                        <br /> Corsair @Html.RadioButtonFor(model => model.ToArray()[0].brand, "Corsair")
+                        <br /> Crucial @Html.RadioButtonFor(model => model.ToArray()[0].brand, "Crucial")
+                Ramtype:<br /> DDR3 @Html.RadioButtonFor(model=>model.ToArray()[0].ramtype, "DDR3")
+                        <br /> DDR4 @Html.RadioButtonFor(model=>model.ToArray()[0].ramtype, "DDR4")
+                <button runat="server">UPDATE LIST</button>
+            </form>
+        </div>
+        <table class="table">
+            <tr>
+                <th>
+                    Image
+                </th>
+                <th>
+                    Ramsize
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Brand)
+                </th>
+                <th>
+                    Composition Of Memory
+                </th>
+                <th>
+                    Memory Type
+                </th>
+                <th>
+                    Memory Suitable For
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            <img src="@Url.Content(item.ImagePath)" width="125" height="75" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.Ramsize) GB
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.Brand)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.CompositionOfMemory)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.MemoryType)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.MemorySuitableFor)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            €@Html.DisplayFor(modelItem => item.Price)
+                    </td>
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </td>
+                    }
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <h2>We couldn't find anything with that filter.</h2>
+        <form action="~/Ram/Index" method="get">
+            <input type="submit" value="reload" />
+        </form>
+    }
+</body>
+</html>

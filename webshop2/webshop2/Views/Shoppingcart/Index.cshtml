@@ -1,0 +1,104 @@
+﻿@model IEnumerable<webshop2.Models.shoppingcart>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @if (Model == null)
+    {
+        <h2>Thank you for your order</h2>
+        <h2>we will sent your purchase as soon as possible</h2>
+        <form action="~/Home/Index" method="get">
+            <input type="submit" value="home" />
+        </form>
+    }
+    else
+    {
+        if (Model.Count() > 0)
+        {
+            <form method="post">
+                EmailAddress: @Html.TextBoxFor(model => model.ToArray()[0].email)
+                <button runat="server">Check out</button>
+            </form>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Quantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Imagepath)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            €@Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td>
+                            <img src="@Url.Content(item.Imagepath)" width="125" height="75" />
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Plus_To_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
+                                <img src="~/images/plus.png" title="Plus" alt="" width="25" height="25" />
+                            </a>
+                            <a href="@Url.Action("Minus_To_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
+                                <img src="~/images/minus.png" title="Minus" alt="" width="25" height="25" />
+                            </a>
+                            <a href="@Url.Action("Remove_From_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
+                                <img src="~/images/remove.png" title="Remove" alt="" width="25" height="25" />
+                            </a>
+                        </td>
+
+
+                        @if (Request.IsAuthenticated)
+                        {
+
+                            <p>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </p>
+                        }
+                    </tr>
+
+                }
+
+            </table>
+        }
+        else
+        {
+            <h2>We couldn't find anything in your shoppingcart.</h2><br />
+            <form action="~/Home/index" method="get">
+                <input type="submit" value="Home" />
+            </form>
+        }
+    }
+</body>
+</html>

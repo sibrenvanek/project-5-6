@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="new_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="case">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ComputerHousing" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="FormatMotherboard" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="USB2" Type="Int32" />
+    <Property Name="USB3" Type="Int32" />
+    <Property Name="Bays35" Type="Int32" />
+    <Property Name="Bays25" Type="Int32" />
+    <Property Name="Bays525" Type="Int32" />
+    <Property Name="ExtensionLocks" Type="Int32" />
+    <Property Name="Max_Length_Videocard" Type="Int32" />
+    <Property Name="fanpositions" Type="Int32" />
+    <Property Name="FrontFan" Type="Int32" />
+    <Property Name="RearSideFan" Type="Int32" />
+    <Property Name="SideFan" Type="Int32" />
+    <Property Name="TopSideLock" Type="Int32" />
+    <Property Name="FanSupplied" Type="Int32" />
+    <Property Name="MaximumAltitutdeOricessir" Type="Int32" />
+    <Property Name="LocationPowerSupply" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="PanelDoor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="NoiseReduction" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="DustFilter" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="FanController" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="SoundProofingMats" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Width" Type="Int32" />
+    <Property Name="Depth" Type="Int32" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="Color" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Material" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_Case_ID" FromRole="case" ToRole="product" />
+  </EntityType>
+  <EntityType Name="chat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="content" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ChatStopped" Type="SByte" />
+  </EntityType>
+  <EntityType Name="cpucooler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="FanConnections" Type="Int32" />
+    <Property Name="CoolingMethod" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Socket" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="DiameterFan" Type="Int32" />
+    <Property Name="Min_RotationSpeed" Type="Int32" />
+    <Property Name="Max_RotationSpeed" Type="Int32" />
+    <Property Name="Min_SoundProduction" Type="Single" />
+    <Property Name="Max_SoundProduction" Type="Single" />
+    <Property Name="HeatPipes" Type="Int32" />
+    <Property Name="Weight" Type="Single" />
+    <Property Name="Width" Type="Single" />
+    <Property Name="Depth" Type="Single" />
+    <Property Name="Height" Type="Single" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_CPUcooler_ID" FromRole="cpucooler" ToRole="product" />
+  </EntityType>
+  <EntityType Name="gpu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="BusType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="FreeLocksRequired" Type="Int32" />
+    <Property Name="LowProfile" Type="SByte" />
+    <Property Name="Resolution" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="TypeOfGPU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Clockspeed" Type="Int32" />
+    <Property Name="Turbofrequency" Type="Int32" />
+    <Property Name="StreamProcessors" Type="Int32" />
+    <Property Name="CoolingMethod" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="VideoMemory" Type="Int32" />
+    <Property Name="TypeOfMemory" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ClockspeedMemoryModule" Type="Int32" />
+    <Property Name="BandwithMemoryBus" Type="Int32" />
+    <Property Name="VGAport" Type="Int32" />
+    <Property Name="DVIOutputs" Type="Int32" />
+    <Property Name="HDMIOutputs" Type="Int32" />
+    <Property Name="DisplayPorts" Type="Int32" />
+    <Property Name="MaxPowerConsumption" Type="Int32" />
+    <Property Name="MinRequiredFeed" Type="Int32" />
+    <Property Name="PowerConnectors" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Directx" Type="Single" />
+    <Property Name="OpenGL" Type="Single" />
+    <Property Name="AMDCrossfireX" Type="SByte" />
+    <Property Name="NVIDEASLI" Type="SByte" />
+    <Property Name="HDCP" Type="SByte" />
+    <Property Name="Width" Type="Single" />
+    <Property Name="Depth" Type="Single" />
+    <Property Name="Height" Type="Single" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_GPU_ID" FromRole="gpu" ToRole="product" />
+  </EntityType>
+  <EntityType Name="internalharddisk">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="HDDSpeed" Type="Int32" />
+    <Property Name="Cache" Type="Int32" />
+    <Property Name="HDDFormat" Type="Single" />
+    <Property Name="Height" Type="Single" />
+    <Property Name="InternalHDDDiskcol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="StorageCapacity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" />
+    <NavigationProperty Name="product" Relationship="Self.Product_Internalharddisk_ID" FromRole="internalharddisk" ToRole="product" />
+  </EntityType>
+  <EntityType Name="motherboard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="FormatMotherboard" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Socket" Type="Int32" />
+    <Property Name="Chipset" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ClockSpeedMemoryModule" Type="Int32" />
+    <Property Name="Max_AmountOfMemory" Type="Int32" />
+    <Property Name="MemoryLockedTotal" Type="Int32" />
+    <Property Name="Memory" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Width" Type="Single" />
+    <Property Name="Depth" Type="Single" />
+    <Property Name="Height" Type="Single" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_Motherboard_ID" FromRole="motherboard" ToRole="product" />
+  </EntityType>
+  <EntityType Name="powersupply">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="VersionFormFactor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Modular" Type="SByte" />
+    <Property Name="DiameterFan" Type="Single" />
+    <Property Name="Power" Type="Int32" />
+    <Property Name="Certification" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="AverageLifespan" Type="Int32" />
+    <Property Name="Width" Type="Single" />
+    <Property Name="Depth" Type="Single" />
+    <Property Name="Height" Type="Single" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_Powersupply_ID" FromRole="powersupply" ToRole="product" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="price" Type="Decimal" />
+    <Property Name="imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="stock" Type="Int32" />
+    <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Supplier" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="PurchasedQuantity" Type="Int32" />
+    <NavigationProperty Name="case" Relationship="Self.Product_Case_ID" FromRole="product" ToRole="case" />
+    <NavigationProperty Name="cpucooler" Relationship="Self.Product_CPUcooler_ID" FromRole="product" ToRole="cpucooler" />
+    <NavigationProperty Name="gpu" Relationship="Self.Product_GPU_ID" FromRole="product" ToRole="gpu" />
+    <NavigationProperty Name="internalharddisk" Relationship="Self.Product_Internalharddisk_ID" FromRole="product" ToRole="internalharddisk" />
+    <NavigationProperty Name="motherboard" Relationship="Self.Product_Motherboard_ID" FromRole="product" ToRole="motherboard" />
+    <NavigationProperty Name="powersupply" Relationship="Self.Product_Powersupply_ID" FromRole="product" ToRole="powersupply" />
+    <NavigationProperty Name="ram" Relationship="Self.Product_Ram_ID" FromRole="product" ToRole="ram" />
+    <NavigationProperty Name="shoppingcart" Relationship="Self.Product_Shoppingcart_ID" FromRole="product" ToRole="shoppingcart" />
+    <NavigationProperty Name="ssd" Relationship="Self.Product_ssd_ID" FromRole="product" ToRole="ssd" />
+    <NavigationProperty Name="wishlist" Relationship="Self.Product_Wishlist_ID" FromRole="product" ToRole="wishlist" />
+    <NavigationProperty Name="purchasehistory" Relationship="Self.Products_Purchasehistory_ID" FromRole="product" ToRole="purchasehistory" />
+  </EntityType>
+  <EntityType Name="purchasehistory">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="PurchaseDate" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PurchaseDate" Type="DateTime" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="imagepath" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Products_Purchasehistory_ID" FromRole="purchasehistory" ToRole="product" />
+  </EntityType>
+  <EntityType Name="ram">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CompositionOfMemory" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="MemoryType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Clockspeed" Type="Int32" />
+    <Property Name="CASlatency" Type="Int32" />
+    <Property Name="Voltage" Type="Single" />
+    <Property Name="MemoryModuleConnection" Type="Int32" />
+    <Property Name="MemorySuitableFor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Ramsize" Type="Int32" />
+    <Property Name="minprice" Type="Int32" />
+    <Property Name="maxprice" Type="Int32" />
+    <Property Name="minsize" Type="Int32" />
+    <Property Name="maxsize" Type="Int32" />
+    <Property Name="ramtype" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_Ram_ID" FromRole="ram" ToRole="product" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shoppingcart">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_Shoppingcart_ID" FromRole="shoppingcart" ToRole="product" />
+  </EntityType>
+  <EntityType Name="ssd">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Connection" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="StorageCapacity" Type="Int32" />
+    <Property Name="AverageTimeBetweenFailures" Type="Int32" />
+    <Property Name="TypeOfMemory" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="SSDController" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="HardDiskFormat" Type="Single" />
+    <Property Name="Max_ReadSpeed" Type="Int32" />
+    <Property Name="Min_ReadingSpeed" Type="Int32" />
+    <Property Name="Random_ReadingSpeed" Type="Int32" />
+    <Property Name="Random_WriteSpeed" Type="Int32" />
+    <Property Name="Width" Type="Single" />
+    <Property Name="Depth" Type="Single" />
+    <Property Name="Height" Type="Single" />
+    <Property Name="Color" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_ssd_ID" FromRole="ssd" ToRole="product" />
+  </EntityType>
+  <EntityType Name="supplier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Street" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Housenumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="KvKNumber" Type="Int32" />
+    <Property Name="ShippingTime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="wishlist">
+    <Key>
+      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" />
+    <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="product" Relationship="Self.Product_Wishlist_ID" FromRole="wishlist" ToRole="product" />
+  </EntityType>
+  <Association Name="Product_Case_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="case" Type="Self.case" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="case">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_CPUcooler_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="cpucooler" Type="Self.cpucooler" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="cpucooler">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_GPU_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="gpu" Type="Self.gpu" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="gpu">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_Internalharddisk_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="internalharddisk" Type="Self.internalharddisk" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="internalharddisk">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_Motherboard_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="motherboard" Type="Self.motherboard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="motherboard">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_Powersupply_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="powersupply" Type="Self.powersupply" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="powersupply">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_Ram_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="ram" Type="Self.ram" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ram">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_Shoppingcart_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="shoppingcart">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_ssd_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="ssd" Type="Self.ssd" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ssd">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_Wishlist_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="wishlist">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Products_Purchasehistory_ID">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="purchasehistory" Type="Self.purchasehistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="purchasehistory">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="new_testEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="case" EntityType="Self.case" />
+    <EntitySet Name="chat" EntityType="Self.chat" />
+    <EntitySet Name="cpucooler" EntityType="Self.cpucooler" />
+    <EntitySet Name="gpu" EntityType="Self.gpu" />
+    <EntitySet Name="internalharddisk" EntityType="Self.internalharddisk" />
+    <EntitySet Name="motherboard" EntityType="Self.motherboard" />
+    <EntitySet Name="powersupply" EntityType="Self.powersupply" />
+    <EntitySet Name="product" EntityType="Self.product" />
+    <EntitySet Name="purchasehistory" EntityType="Self.purchasehistory" />
+    <EntitySet Name="ram" EntityType="Self.ram" />
+    <EntitySet Name="roles" EntityType="Self.roles" />
+    <EntitySet Name="shoppingcart" EntityType="Self.shoppingcart" />
+    <EntitySet Name="ssd" EntityType="Self.ssd" />
+    <EntitySet Name="supplier" EntityType="Self.supplier" />
+    <EntitySet Name="wishlist" EntityType="Self.wishlist" />
+    <AssociationSet Name="Product_Case_ID" Association="Self.Product_Case_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="case" EntitySet="case" />
+    </AssociationSet>
+    <AssociationSet Name="Product_CPUcooler_ID" Association="Self.Product_CPUcooler_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="cpucooler" EntitySet="cpucooler" />
+    </AssociationSet>
+    <AssociationSet Name="Product_GPU_ID" Association="Self.Product_GPU_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="gpu" EntitySet="gpu" />
+    </AssociationSet>
+    <AssociationSet Name="Product_Internalharddisk_ID" Association="Self.Product_Internalharddisk_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="internalharddisk" EntitySet="internalharddisk" />
+    </AssociationSet>
+    <AssociationSet Name="Product_Motherboard_ID" Association="Self.Product_Motherboard_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="motherboard" EntitySet="motherboard" />
+    </AssociationSet>
+    <AssociationSet Name="Product_Powersupply_ID" Association="Self.Product_Powersupply_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="powersupply" EntitySet="powersupply" />
+    </AssociationSet>
+    <AssociationSet Name="Product_Ram_ID" Association="Self.Product_Ram_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="ram" EntitySet="ram" />
+    </AssociationSet>
+    <AssociationSet Name="Product_Shoppingcart_ID" Association="Self.Product_Shoppingcart_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="shoppingcart" EntitySet="shoppingcart" />
+    </AssociationSet>
+    <AssociationSet Name="Product_ssd_ID" Association="Self.Product_ssd_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="ssd" EntitySet="ssd" />
+    </AssociationSet>
+    <AssociationSet Name="Product_Wishlist_ID" Association="Self.Product_Wishlist_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="wishlist" EntitySet="wishlist" />
+    </AssociationSet>
+    <AssociationSet Name="Products_Purchasehistory_ID" Association="Self.Products_Purchasehistory_ID">
+      <End Role="product" EntitySet="product" />
+      <End Role="purchasehistory" EntitySet="purchasehistory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
