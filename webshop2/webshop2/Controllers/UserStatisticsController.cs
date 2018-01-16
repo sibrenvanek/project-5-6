@@ -123,6 +123,7 @@ namespace webshop2.Controllers
                         //edit logic 
                         string userid = User.Identity.GetUserId();
                         user = db2.Users.FirstOrDefault(U => U.Id == id);
+
                         return View(user);
                     }
                     else
