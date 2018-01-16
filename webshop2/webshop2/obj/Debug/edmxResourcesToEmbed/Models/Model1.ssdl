@@ -180,6 +180,8 @@
     <Property Name="UserID" Type="varchar" MaxLength="45" Nullable="false" />
     <Property Name="PurchaseDate" Type="datetime" Precision="0" Nullable="false" />
     <Property Name="Quantity" Type="int" />
+    <Property Name="ProductName" Type="varchar" MaxLength="45" />
+    <Property Name="imagepath" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="ram">
     <Key>
@@ -198,6 +200,11 @@
     <Property Name="Name" Type="varchar" MaxLength="45" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
     <Property Name="Ramsize" Type="int" />
+    <Property Name="minprice" Type="int" />
+    <Property Name="maxprice" Type="int" />
+    <Property Name="minsize" Type="int" />
+    <Property Name="maxsize" Type="int" />
+    <Property Name="ramtype" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="roles">
     <Key>
@@ -216,6 +223,7 @@
     <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
     <Property Name="ProductName" Type="varchar" MaxLength="45" />
     <Property Name="Imagepath" Type="longtext" />
+    <Property Name="email" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="ssd">
     <Key>

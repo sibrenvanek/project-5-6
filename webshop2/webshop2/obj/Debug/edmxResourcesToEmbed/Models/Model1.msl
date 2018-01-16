@@ -186,6 +186,8 @@
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="imagepath" ColumnName="imagepath" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -205,6 +207,11 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Ramsize" ColumnName="Ramsize" />
+          <ScalarProperty Name="minprice" ColumnName="minprice" />
+          <ScalarProperty Name="maxprice" ColumnName="maxprice" />
+          <ScalarProperty Name="minsize" ColumnName="minsize" />
+          <ScalarProperty Name="maxsize" ColumnName="maxsize" />
+          <ScalarProperty Name="ramtype" ColumnName="ramtype" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -225,6 +232,7 @@
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
           <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+          <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

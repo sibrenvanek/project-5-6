@@ -202,8 +202,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HDDController.cs" />
+    <Compile Include="Controllers\purchasehistoryController.cs" />
     <Compile Include="Controllers\RamController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ShoppingcartController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\UserStatisticsController.cs" />
     <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -317,7 +321,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -352,14 +358,18 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\NewAccount\Index.cshtml" />
-    <Content Include="Views\NewAccount\Register.cshtml" />
-    <Content Include="Views\NewAccount\Login.cshtml" />
     <Content Include="Views\Ram\Index.cshtml" />
     <Content Include="Views\Ram\View.cshtml" />
     <Content Include="Views\Ram\Add_To_Wishlist.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
     <Content Include="Views\Ram\search.cshtml" />
+    <Content Include="Views\Shoppingcart\Index.cshtml" />
+    <Content Include="Views\UserStatistics\Index.cshtml" />
+    <Content Include="Views\Statistics\create.cshtml" />
+    <Content Include="Views\Statistics\Edit.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\UserStatistics\Edit.cshtml" />
+    <Content Include="Views\UserStatistics\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

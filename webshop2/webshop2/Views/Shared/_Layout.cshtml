@@ -40,7 +40,10 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact ", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Users","Index","User")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Wishlist", "Index", "Wishlist")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </b></font></div>
