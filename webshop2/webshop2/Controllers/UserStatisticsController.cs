@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,17 +15,38 @@ namespace webshop2.Controllers
         {
             using (ApplicationDbContext db2 = new ApplicationDbContext())
             {
-
-                return View(db2.Users.ToList());
+                List<ApplicationUser> listusers = new List<ApplicationUser>();
+                string userid = User.Identity.GetUserId();
+                if (User.IsInRole("Admin"))
+                {
+                    listusers = db2.Users.ToList();
+                    return View(listusers);
+                }
+                else
+                    return View(listusers);
+                
             }
 
             
         }
 
         // GET: UserStatistics/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            using (ApplicationDbContext db2 = new ApplicationDbContext())
+            {
+                ApplicationUser user = new ApplicationUser();
+                
+                string userid = User.Identity.GetUserId();
+                if (User.IsInRole("Admin"))
+                {
+                    user = db2.Users.FirstOrDefault(x => x.Id == id);
+                    return View(user);
+                }
+                else
+                    return View(user);
+
+            }
         }
 
         // GET: UserStatistics/Create
@@ -43,9 +65,17 @@ namespace webshop2.Controllers
 
                 using (ApplicationDbContext db2 = new ApplicationDbContext())
                 {
-                    
+                    string userid = User.Identity.GetUserId();
+                    if (User.IsInRole("Admin"))
+                    {
+                        //create logic 
+                        return View();
+                    }
+                    else
+                        return RedirectToAction("Index");
+
                 }
-                    return RedirectToAction("Index");
+                
             }
             catch
             {
@@ -56,23 +86,49 @@ namespace webshop2.Controllers
         // GET: UserStatistics/Edit/5
         public ActionResult Edit(string id)
         {
-            using (ApplicationDbContext db2 = new ApplicationDbContext())
-            {
 
+                using (ApplicationDbContext db2 = new ApplicationDbContext())
+                {
+                ApplicationUser user = new ApplicationUser();
+                    
+                    if (User.IsInRole("Admin"))
+                    {
+                    //edit logic 
+                    string userid = User.Identity.GetUserId();
+                    user = db2.Users.FirstOrDefault(U => U.Id == id);
+                    return View(user);
+                    }
+                    else
+                        return View(user);
+
+                }
                 
-                return View(db2.Users.FirstOrDefault(U => U.Id== id  ));
-            }
+            
         }
 
         // POST: UserStatistics/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                using (ApplicationDbContext db2 = new ApplicationDbContext())
+                {
+                    ApplicationUser user = new ApplicationUser();
+
+                    if (User.IsInRole("Admin"))
+                    {
+                        //edit logic 
+                        string userid = User.Identity.GetUserId();
+                        user = db2.Users.FirstOrDefault(U => U.Id == id);
+                        return View(user);
+                    }
+                    else
+                        return View(user);
+
+                }
             }
             catch
             {
@@ -81,20 +137,49 @@ namespace webshop2.Controllers
         }
 
         // GET: UserStatistics/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            return RedirectToAction("Index");
+            using (ApplicationDbContext db2 = new ApplicationDbContext())
+            {
+                string userid = User.Identity.GetUserId();
+                if (User.IsInRole("Admin"))
+                {
+                    //delete logic 
+                    ApplicationUser user = new ApplicationUser();
+                    user = db2.Users.FirstOrDefault(x => x.Id == id);
+                    db2.Users.Remove(user);
+                    db2.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                    return RedirectToAction("Index");
+
+            }
         }
 
         // POST: UserStatistics/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
+                using (ApplicationDbContext db2 = new ApplicationDbContext())
+                {
+                    string userid = User.Identity.GetUserId();
+                    if (User.IsInRole("Admin"))
+                    {
+                        //delete logic 
+                        ApplicationUser user = new ApplicationUser();
+                        user = db2.Users.FirstOrDefault(x => x.Id == id);
+                        db2.Users.Remove(user);
+                        db2.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    else
+                        return RedirectToAction("Index");
 
-                return RedirectToAction("Index");
+                }
             }
             catch
             {
