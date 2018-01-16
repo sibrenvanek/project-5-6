@@ -197,6 +197,8 @@
     <Property Name="UserID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PurchaseDate" Type="DateTime" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="imagepath" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Products_Purchasehistory_ID" FromRole="purchasehistory" ToRole="product" />
   </EntityType>
   <EntityType Name="ram">
@@ -216,6 +218,11 @@
     <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Price" Type="Decimal" />
     <Property Name="Ramsize" Type="Int32" />
+    <Property Name="minprice" Type="Int32" />
+    <Property Name="maxprice" Type="Int32" />
+    <Property Name="minsize" Type="Int32" />
+    <Property Name="maxsize" Type="Int32" />
+    <Property Name="ramtype" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_Ram_ID" FromRole="ram" ToRole="product" />
   </EntityType>
   <EntityType Name="roles">
@@ -228,13 +235,15 @@
   <EntityType Name="shoppingcart">
     <Key>
       <PropertyRef Name="ProductId" />
+      <PropertyRef Name="UserId" />
     </Key>
     <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
-    <Property Name="UserId" Type="Int32" />
     <Property Name="Price" Type="Decimal" />
     <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="product" Relationship="Self.Product_Shoppingcart_ID" FromRole="shoppingcart" ToRole="product" />
   </EntityType>
   <EntityType Name="ssd">
@@ -280,8 +289,8 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
-    <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Decimal" />
     <Property Name="ProductName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Imagepath" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
@@ -373,7 +382,7 @@
   </Association>
   <Association Name="Product_Shoppingcart_ID">
     <End Role="product" Type="Self.product" Multiplicity="1" />
-    <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="0..1" />
+    <End Role="shoppingcart" Type="Self.shoppingcart" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="product">
         <PropertyRef Name="ID" />
