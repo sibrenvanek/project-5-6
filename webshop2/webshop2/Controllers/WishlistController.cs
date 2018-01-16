@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,8 +18,11 @@ namespace webshop2.Controllers
             List<wishlist> list_wishlist = new List<wishlist>();
             using (new_testEntities db = new new_testEntities())
             {
-                list_wishlist = db.wishlist.ToList();
-                return View(list_wishlist);
+                using (ApplicationDbContext db2 = new ApplicationDbContext())
+                {
+                    string userid = User.Identity.GetUserId();
+                    return View(db.wishlist.Where(item => item.UserId == userid).ToList());
+                }
             }
         }
         public ActionResult Plus_To_Wishlist(int id)
@@ -132,12 +136,7 @@ namespace webshop2.Controllers
         // GET: Wishlist/WishlistItems/5
         public ActionResult WishlistItems()
         {
-            using (new_testEntities db = new new_testEntities())
-            {
-
-                return View();
-            }
-
+            return View();
         }
 
         public ActionResult View(int id)
