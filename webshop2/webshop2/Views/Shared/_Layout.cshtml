@@ -43,6 +43,11 @@
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Wishlist", "Index", "Wishlist")</li>
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Statistics", "Index", "Statistics")</li>
+                            <li>@Html.ActionLink("UserStatistics", "Index", "UserStatistics")</li>
+                        }
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
