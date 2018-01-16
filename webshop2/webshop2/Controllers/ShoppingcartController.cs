@@ -22,7 +22,7 @@ namespace webshop2.Controllers
             else
             {
                 ViewBag.Message = "Your Shopping Cart.";
-                List<shoppingcart> listshippingcartitems = new List<shoppingcart>();
+                List<shoppingcart> listshoppingcartitems = new List<shoppingcart>();
                 using (new_testEntities db = new new_testEntities())
                 {
                     string userid = "0";
@@ -30,10 +30,17 @@ namespace webshop2.Controllers
                     {
                         userid = User.Identity.GetUserId();
                     }
-                    listshippingcartitems = db.shoppingcart.Where(x=>x.UserId==userid).ToList();
+                    listshoppingcartitems = db.shoppingcart.Where(x=>x.UserId==userid).ToList();
+                    if (Request.IsAuthenticated && listshoppingcartitems.Count > 0)
+                    {
+                        using (ApplicationDbContext db2 = new ApplicationDbContext())
+                        {
+                            listshoppingcartitems[0].email = db2.Users.FirstOrDefault(user=>user.Id==userid).Email;
+                        }
+                    }
                 }
 
-                return View(listshippingcartitems);
+                return View(listshoppingcartitems);
             }
         }
         public ActionResult CheckOut()

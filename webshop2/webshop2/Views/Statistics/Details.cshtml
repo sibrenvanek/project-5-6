@@ -1,0 +1,170 @@
+﻿@model webshop2.Models.ram
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>ram</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CompositionOfMemory)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CompositionOfMemory)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MemoryType)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MemoryType)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Clockspeed)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Clockspeed)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CASlatency)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CASlatency)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Voltage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Voltage)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MemoryModuleConnection)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MemoryModuleConnection)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MemorySuitableFor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MemorySuitableFor)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ImagePath)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Ramsize)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Ramsize)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.minprice)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.minprice)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.maxprice)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.maxprice)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.minsize)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.minsize)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.maxsize)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.maxsize)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ramtype)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ramtype)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.brand)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.brand)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
