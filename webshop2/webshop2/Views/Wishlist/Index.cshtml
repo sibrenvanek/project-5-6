@@ -23,7 +23,7 @@
                 Product Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Imagepath)
+                Image
             </th>
             <th></th>
         </tr>
@@ -65,5 +65,8 @@
     </table>
 
 
+    <a href="@Url.Action("Index","Ram")" class="navbar-brand">
+        <img src="~/images/back.png" title="Back to List" alt="" width="100" height="100" />
+    </a>
 </body>
 </html>
