@@ -112,7 +112,12 @@ namespace webshop2.Controllers
             using (new_testEntities db = new new_testEntities())
             {
                 product product = db.product.FirstOrDefault(x => x.ID == id);
-                shoppingcart shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id);
+                string userid = "0";
+                if (Request.IsAuthenticated)
+                {
+                    userid = User.Identity.GetUserId();
+                }
+                shoppingcart shoppingcart = db.shoppingcart.FirstOrDefault(x => x.ProductId == id && x.UserId == userid);
                 wishlist Wishlist = db.wishlist.FirstOrDefault(x => x.ProductId == id);
 
                 if (shoppingcart == null)

@@ -27,6 +27,9 @@
                     Image
                 </th>
                 <th>
+                    Product Name
+                </th>
+                <th>
                     Ramsize
                 </th>
                 <th>
@@ -55,6 +58,11 @@
 
                         <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
                             <img src="@Url.Content(item.ImagePath)" width="125" height="75" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("View/" + Convert.ToString(item.ID), "Ram")" class="navbar-brand">
+                            @Html.DisplayFor(modelItem => item.Name)
                         </a>
                     </td>
                     <td>
