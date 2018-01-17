@@ -593,7 +593,6 @@ namespace webshop2.Controllers
 
                 if (Wishlist == null)
                 {
-
                     db.wishlist.Add(new wishlist { ProductId = product.ID, UserId = userid, Quantity = 1, ProductName = product.ProductName, Price = product.price, Imagepath = product.imagepath });
                     db.SaveChanges();
                 }
@@ -633,7 +632,7 @@ namespace webshop2.Controllers
                         UserId = userid,
                         Quantity = 1,
                         ProductName = product.ProductName,
-                        Price = (decimal)0.0,
+                        Price = product.price,
                         Imagepath = product.imagepath
                     });
                     db.SaveChanges();
