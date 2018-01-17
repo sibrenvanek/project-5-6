@@ -89,14 +89,7 @@ namespace webshop2.Controllers
                     db.purchasehistory.Add(ph);
                     db.SaveChanges();
                 }
-                try
-                {
-                    mail.SendAsync(message);
-                }
-                catch
-                {
-
-                }
+                mail.SendAsync(message);
                 
             }
             return View();
