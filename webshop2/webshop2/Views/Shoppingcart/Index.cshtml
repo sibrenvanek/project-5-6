@@ -41,44 +41,68 @@
                         @Html.DisplayNameFor(model => model.ProductName)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Imagepath)
+                        Image
                     </th>
                     <th></th>
                 </tr>
 
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProductId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Quantity)
-                        </td>
-                        <td>
-                            €@Html.DisplayFor(modelItem => item.Price)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProductName)
-                        </td>
-                        <td>
-                            <img src="@Url.Content(item.Imagepath)" width="125" height="75" />
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Plus_To_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
-                                <img src="~/images/plus.png" title="Plus" alt="" width="25" height="25" />
-                            </a>
-                            <a href="@Url.Action("Minus_To_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
-                                <img src="~/images/minus.png" title="Minus" alt="" width="25" height="25" />
-                            </a>
-                            <a href="@Url.Action("Remove_From_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
-                                <img src="~/images/remove.png" title="Remove" alt="" width="25" height="25" />
-                            </a>
-                        </td>
-                    </tr>
+                    if (item.ProductName != " ")
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                €@Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td>
+                                <img src="@Url.Content(item.Imagepath)" width="125" height="75" />
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Plus_To_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
+                                    <img src="~/images/plus.png" title="Plus" alt="" width="25" height="25" />
+                                </a>
+                                <a href="@Url.Action("Minus_To_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
+                                    <img src="~/images/minus.png" title="Minus" alt="" width="25" height="25" />
+                                </a>
+                                <a href="@Url.Action("Remove_From_Cart/" + item.ProductId, "Shoppingcart")" class="navbar-brand">
+                                    <img src="~/images/remove.png" title="Remove" alt="" width="25" height="25" />
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>
 
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                €@Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                    }
                 }
-
             </table>
         }
         else

@@ -31,6 +31,24 @@ namespace webshop2.Controllers
                         userid = User.Identity.GetUserId();
                     }
                     listshoppingcartitems = db.shoppingcart.Where(x=>x.UserId==userid).ToList();
+                    if (listshoppingcartitems.Count > 0)
+                    {
+                        int totalquantity = 0;
+                        decimal totalprice = 0;
+                        foreach (var item in listshoppingcartitems)
+                        {
+                            totalquantity += (int)item.Quantity;
+                            totalprice += (decimal)item.Price * (int)item.Quantity;
+                        }
+                        listshoppingcartitems.Add(
+                            new shoppingcart
+                            {
+                                Quantity = totalquantity,
+                                Price = totalprice,
+                                ProductName = " ",
+                                Imagepath = " "
+                            });
+                    }
                     if (Request.IsAuthenticated && listshoppingcartitems.Count > 0)
                     {
                         using (ApplicationDbContext db2 = new ApplicationDbContext())
