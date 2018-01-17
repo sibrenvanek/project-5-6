@@ -17,7 +17,7 @@ namespace webshop2.Controllers
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        public ApplicationUserManager _userManager;
 
         public AccountController()
         {
