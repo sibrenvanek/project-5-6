@@ -368,9 +368,8 @@
     <Content Include="Views\Statistics\create.cshtml" />
     <Content Include="Views\Statistics\Edit.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\UserStatistics\Edit.cshtml" />
     <Content Include="Views\UserStatistics\Create.cshtml" />
-    <Content Include="Views\Statistics\Details.cshtml" />
-    <Content Include="Views\UserStatistics\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -52,7 +52,7 @@ namespace webshop2.Controllers
         // GET: UserStatistics/Create
         public ActionResult Create()
         {
-            return RedirectToAction("../Account/Register");
+            return View();
         }
 
         // POST: UserStatistics/Create
@@ -69,7 +69,7 @@ namespace webshop2.Controllers
                     if (User.IsInRole("Admin"))
                     {
                         //create logic 
-                        return RedirectToAction("../Account/Register");
+                        return View();
                     }
                     else
                         return RedirectToAction("Index");
@@ -84,7 +84,27 @@ namespace webshop2.Controllers
         }
 
         // GET: UserStatistics/Edit/5
-        
+        public ActionResult Edit(string id)
+        {
+
+                using (ApplicationDbContext db2 = new ApplicationDbContext())
+                {
+                ApplicationUser user = new ApplicationUser();
+                    
+                    if (User.IsInRole("Admin"))
+                    {
+                    //edit logic 
+                    string userid = User.Identity.GetUserId();
+                    user = db2.Users.FirstOrDefault(U => U.Id == id);
+                    return View(user);
+                    }
+                    else
+                        return View(user);
+
+                }
+                
+            
+        }
 
         // POST: UserStatistics/Edit/5
         [HttpPost]
