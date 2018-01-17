@@ -65,7 +65,12 @@ namespace webshop2.Controllers
         // GET: Statistics/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ram ram = new ram();
+            using (new_testEntities db = new new_testEntities())
+            {
+                ram = db.ram.FirstOrDefault(x => x.ID == id);
+            }
+                return View(ram);
         }
 
         // GET: Statistics/Create
