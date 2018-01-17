@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `new_test` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `new_test`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: new_test
@@ -318,7 +316,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` (`ID`, `price`, `imagepath`, `stock`, `Brand`, `Supplier`, `ProductName`, `PurchasedQuantity`) VALUES (1,80,'~/images/ram/ram1.jpg',85,'Kingston','testsupplier','Kingston ValueRAM',15),(2,220,'~/images/ram/ram2.png',99,'Kingston','testsupplier','Kingston HyperX Fury 10',2),(3,120,'~/images/ram/ram3.png',100,'Kingston','testsupplier','Kingston 8GB DDR3',NULL),(4,180,'~/images/ram/ram4.png',100,'Kingston','testsupplier','Kingston HyperX Impact',NULL),(5,300,'~/images/ram/ram5.png',95,'Corsair','testsupplier','Corsair Vengeance LPX',6),(6,95,'~/images/ram/ram6.png',99,'Corsair','testsupplier','Corsair Vengeance LPX 8 GB',2),(7,70,'~/images/ram/ram7.png',94,'Corsair','testsupplier','Corsair 8 GB SODIMM DDR3',7),(8,89,'~/images/ram/ram8.png',94,'Crucial','testsupplier','Crucial 8 GB SODIMM DDR4',7),(9,110,'~/images/ram/ram9.png',100,'Crucial','testsupplier','Crucial Ballistix Sport LT',NULL),(10,235,'~/images/ram/ram10.png',96,'Crucial','testsupplier','Crucial Standard 16 GB SODIMM DDR3L',5);
+INSERT INTO `product` VALUES (1,50,'~/images/ram/ram1.jpg',69,'Kingston','testsupplier','Kingston ValueRAM',31),(2,220,'~/images/ram/ram2.png',61,'Kingston','testsupplier','Kingston HyperX Fury 10',40),(3,120,'~/images/ram/ram3.png',95,'Kingston','testsupplier','Kingston 8GB DDR3',6),(4,180,'~/images/ram/ram4.png',96,'Kingston','testsupplier','Kingston HyperX Impact',5),(5,300,'~/images/ram/ram5.png',91,'Corsair','testsupplier','Corsair Vengeance LPX',10),(6,95,'~/images/ram/ram6.png',96,'Corsair','testsupplier','Corsair Vengeance LPX 8 GB',5),(7,70,'~/images/ram/ram7.png',94,'Corsair','testsupplier','Corsair 8 GB SODIMM DDR3',7),(8,89,'~/images/ram/ram8.png',93,'Crucial','testsupplier','Crucial 8 GB SODIMM DDR4',8),(9,110,'~/images/ram/ram9.png',99,'Crucial','testsupplier','Crucial Ballistix Sport LT',2),(10,235,'~/images/ram/ram10.png',95,'Crucial','testsupplier','Crucial Standard 16 GB SODIMM DDR3L',6);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,8 +332,8 @@ CREATE TABLE `purchasehistory` (
   `UserID` varchar(45) NOT NULL,
   `PurchaseDate` datetime NOT NULL,
   `Quantity` int(11) DEFAULT NULL,
-  `ProductName` varchar(45) NOT NULL,
-  `imagepath` varchar(45) NOT NULL,
+  `ProductName` varchar(45) DEFAULT NULL,
+  `imagepath` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ProductID`,`UserID`,`PurchaseDate`),
   CONSTRAINT `Products_Purchasehistory_ID` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -347,7 +345,7 @@ CREATE TABLE `purchasehistory` (
 
 LOCK TABLES `purchasehistory` WRITE;
 /*!40000 ALTER TABLE `purchasehistory` DISABLE KEYS */;
-INSERT INTO `purchasehistory` (`ProductID`, `UserID`, `PurchaseDate`, `Quantity`) VALUES (1,'0','2018-01-12 11:45:04',1),(1,'d015aeb6-bc8a-42c1-820b-b441a765358c','2018-01-12 14:20:58',1),(8,'0','2018-01-12 11:45:33',6);
+INSERT INTO `purchasehistory` VALUES (1,'0','2018-01-17 12:25:39',1,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(1,'0','2018-01-17 14:08:32',1,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(1,'0','2018-01-17 14:43:02',1,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(1,'0','2018-01-17 15:36:20',1,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(1,'14f0fb9a-8502-4339-8693-54aaf002b267','2018-01-17 13:35:52',1,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(1,'5216cca2-62a7-465e-ba5f-5c96fd73c964','2018-01-17 13:47:07',1,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(1,'5216cca2-62a7-465e-ba5f-5c96fd73c964','2018-01-17 13:48:58',5,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(1,'d4308ef9-8966-4b33-bd8e-177e52fb2ef4','2018-01-15 15:01:56',3,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(1,'d4308ef9-8966-4b33-bd8e-177e52fb2ef4','2018-01-15 15:02:57',1,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(1,'d4308ef9-8966-4b33-bd8e-177e52fb2ef4','2018-01-16 13:20:45',1,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(2,'0','2018-01-16 13:13:44',1,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'0','2018-01-16 13:15:46',1,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'0','2018-01-17 15:36:20',1,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'5216cca2-62a7-465e-ba5f-5c96fd73c964','2018-01-17 13:48:58',15,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'5216cca2-62a7-465e-ba5f-5c96fd73c964','2018-01-17 13:49:51',14,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'86b06f10-82de-4a2c-9581-772a0836a1e9','2018-01-16 15:45:55',1,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'ad7c3958-25ab-4e99-ac80-d93e55b0acd2','2018-01-16 12:36:28',1,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'d015aeb6-bc8a-42c1-820b-b441a765358c','2018-01-16 11:25:30',1,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'d015aeb6-bc8a-42c1-820b-b441a765358c','2018-01-16 13:23:27',1,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'d015aeb6-bc8a-42c1-820b-b441a765358c','2018-01-17 14:54:31',1,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(2,'d4308ef9-8966-4b33-bd8e-177e52fb2ef4','2018-01-15 15:01:56',1,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(3,'0','2018-01-17 11:47:55',1,'Kingston 8GB DDR3','~/images/ram/ram3.png'),(3,'0','2018-01-17 11:56:48',1,'Kingston 8GB DDR3','~/images/ram/ram3.png'),(3,'0','2018-01-17 12:25:40',1,'Kingston 8GB DDR3','~/images/ram/ram3.png'),(3,'0','2018-01-17 13:33:54',1,'Kingston 8GB DDR3','~/images/ram/ram3.png'),(3,'5216cca2-62a7-465e-ba5f-5c96fd73c964','2018-01-17 13:49:51',1,'Kingston 8GB DDR3','~/images/ram/ram3.png'),(4,'0','2018-01-17 15:36:20',1,'Kingston HyperX Impact','~/images/ram/ram4.png'),(4,'2b4ee1cc-9f89-415c-bf86-43d9b44ed7af','2018-01-17 15:33:16',1,'Kingston HyperX Impact','~/images/ram/ram4.png'),(4,'5216cca2-62a7-465e-ba5f-5c96fd73c964','2018-01-17 13:47:07',1,'Kingston HyperX Impact','~/images/ram/ram4.png'),(4,'fbd4502d-2e38-4c75-b4c1-aebae0673b17','2018-01-17 14:41:54',1,'Kingston HyperX Impact','~/images/ram/ram4.png'),(5,'0','2018-01-17 14:08:32',2,'Corsair Vengeance LPX','~/images/ram/ram5.png'),(5,'0','2018-01-17 14:43:02',1,'Corsair Vengeance LPX','~/images/ram/ram5.png'),(5,'72c6f763-4842-4b40-800f-72ed05cda04c','2018-01-17 14:09:33',1,'Corsair Vengeance LPX','~/images/ram/ram5.png'),(6,'0a55e941-32b1-4d22-8638-4156b4e7ffe7','2018-01-17 11:57:50',1,'Corsair Vengeance LPX 8 GB','~/images/ram/ram6.png'),(6,'a8d83b58-718b-4d3a-9e76-3afb754a1fcc','2018-01-17 11:49:03',2,'Corsair Vengeance LPX 8 GB','~/images/ram/ram6.png'),(8,'0','2018-01-17 14:08:33',1,'Crucial 8 GB SODIMM DDR4','~/images/ram/ram8.png'),(9,'0','2018-01-17 13:44:01',1,'Crucial Ballistix Sport LT','~/images/ram/ram9.png'),(10,'0','2018-01-17 15:36:20',1,'Crucial Standard 16 GB SODIMM DDR3L','~/images/ram/ram10.png');
 /*!40000 ALTER TABLE `purchasehistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -372,6 +370,11 @@ CREATE TABLE `ram` (
   `Name` varchar(45) DEFAULT NULL,
   `Price` decimal(10,0) DEFAULT NULL,
   `Ramsize` int(11) DEFAULT NULL,
+  `minprice` int(11) DEFAULT NULL,
+  `maxprice` int(11) DEFAULT NULL,
+  `minsize` int(11) DEFAULT NULL,
+  `maxsize` int(11) DEFAULT NULL,
+  `ramtype` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   CONSTRAINT `Product_Ram_ID` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -383,7 +386,7 @@ CREATE TABLE `ram` (
 
 LOCK TABLES `ram` WRITE;
 /*!40000 ALTER TABLE `ram` DISABLE KEYS */;
-INSERT INTO `ram` (`ID`, `Brand`, `CompositionOfMemory`, `MemoryType`, `Clockspeed`, `CASlatency`, `Voltage`, `MemoryModuleConnection`, `MemorySuitableFor`, `ImagePath`, `Name`, `Price`, `Ramsize`) VALUES (1,'Kingston','1x','DDR3',2133,15,1.2,1,'Desktop','~/images/ram/ram1.jpg','Kingston ValueRAM',50,4),(2,'Kingston','2x','DDR3',2350,15,1.5,1,'Desktop','~/images/ram/ram2.png','Kingston HyperX Fury 10',220,16),(3,'Kingston','1x','DDR3',2200,15,1.2,1,'Desktop','~/images/ram/ram3.png','Kingston 8GB DDR3',80,8),(4,'Kingston','2x','DDR3',2180,15,1.25,1,'Desktop','~/images/ram/ram4.png','Kingston HyperX Impact',180,16),(5,'Corsair','2x','DDR4',2230,15,1.4,1,'Desktop','~/images/ram/ram5.png','Corsair Vengeance LPX',300,16),(6,'Corsair','2x','DDR3',2300,15,1.5,1,'Desktop','~/images/ram/ram6.png','Corsair Vengeance LPX 8 GB',95,8),(7,'Corsair','2x','DDR3',2250,15,1.2,1,'Desktop','~/images/ram/ram7.png','Corsair 8 GB SODIMM DDR3',70,8),(8,'Crucial','1x','DDR4',1900,15,1.35,1,'Laptop','~/images/ram/ram8.png','Crucial 8 GB SODIMM DDR4',89,8),(9,'Crucial','2x','DDR4',2190,15,1.2,1,'Desktop','~/images/ram/ram9.png','Crucial Ballistix Sport LT',140,8),(10,'Crucial','2x','DDR3',1600,15,1.2,1,'Desktop','~/images/ram/ram10.png','Crucial Standard 16 GB SODIMM DDR3L',235,16);
+INSERT INTO `ram` VALUES (1,'Kingston','1x','DDR3',2133,15,12,1,'Desktop','~/images/ram/ram1.jpg','Kingston ValueRAM',50,4,NULL,NULL,NULL,NULL,NULL),(2,'Kingston','2x','DDR3',2350,15,1.5,1,'Desktop','~/images/ram/ram2.png','Kingston HyperX Fury 10',220,16,NULL,NULL,NULL,NULL,NULL),(3,'Kingston','1x','DDR3',2200,15,1.2,1,'Desktop','~/images/ram/ram3.png','Kingston 8GB DDR3',80,8,NULL,NULL,NULL,NULL,NULL),(4,'Kingston','2x','DDR3',2180,15,1.25,1,'Desktop','~/images/ram/ram4.png','Kingston HyperX Impact',180,16,NULL,NULL,NULL,NULL,NULL),(5,'Corsair','2x','DDR4',2230,15,1.4,1,'Desktop','~/images/ram/ram5.png','Corsair Vengeance LPX',300,16,NULL,NULL,NULL,NULL,NULL),(6,'Corsair','2x','DDR3',2300,15,1.5,1,'Desktop','~/images/ram/ram6.png','Corsair Vengeance LPX 8 GB',95,8,NULL,NULL,NULL,NULL,NULL),(7,'Corsair','2x','DDR3',2250,15,1.2,1,'Desktop','~/images/ram/ram7.png','Corsair 8 GB SODIMM DDR3',70,8,NULL,NULL,NULL,NULL,NULL),(8,'Crucial','1x','DDR4',1900,15,1.35,1,'Laptop','~/images/ram/ram8.png','Crucial 8 GB SODIMM DDR4',89,8,NULL,NULL,NULL,NULL,NULL),(9,'Crucial','2x','DDR4',2190,15,1.2,1,'Desktop','~/images/ram/ram9.png','Crucial Ballistix Sport LT',140,8,NULL,NULL,NULL,NULL,NULL),(10,'Crucial','2x','DDR3',1600,15,1.2,1,'Desktop','~/images/ram/ram10.png','Crucial Standard 16 GB SODIMM DDR3L',235,16,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `ram` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,12 +422,13 @@ DROP TABLE IF EXISTS `shoppingcart`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `shoppingcart` (
   `ProductId` int(11) NOT NULL,
+  `UserId` varchar(45) NOT NULL,
   `Quantity` int(11) DEFAULT NULL,
-  `UserId` int(11) DEFAULT NULL,
   `Price` decimal(10,0) DEFAULT NULL,
   `ProductName` varchar(45) DEFAULT NULL,
   `Imagepath` longtext,
-  PRIMARY KEY (`ProductId`),
+  `email` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ProductId`,`UserId`),
   CONSTRAINT `Product_Shoppingcart_ID` FOREIGN KEY (`ProductId`) REFERENCES `product` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -516,8 +520,8 @@ DROP TABLE IF EXISTS `wishlist`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `wishlist` (
   `ProductId` int(11) NOT NULL,
+  `UserId` varchar(45) NOT NULL,
   `Quantity` int(11) DEFAULT NULL,
-  `UserId` int(11) NOT NULL,
   `Price` decimal(10,0) DEFAULT NULL,
   `ProductName` varchar(45) DEFAULT NULL,
   `Imagepath` longtext,
@@ -534,7 +538,7 @@ CREATE TABLE `wishlist` (
 
 LOCK TABLES `wishlist` WRITE;
 /*!40000 ALTER TABLE `wishlist` DISABLE KEYS */;
-INSERT INTO `wishlist` (`ProductId`, `Quantity`, `UserId`, `Price`, `ProductName`, `Imagepath`) VALUES (1,5,0,80,'Kingston ValueRAM','~/images/ram/ram1.jpg'),(2,1,0,220,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(5,1,0,300,'Corsair Vengeance LPX','~/images/ram/ram5.png'),(7,6,0,70,'Corsair 8 GB SODIMM DDR3','~/images/ram/ram7.png'),(8,3,0,89,'Crucial 8 GB SODIMM DDR4','~/images/ram/ram8.png');
+INSERT INTO `wishlist` VALUES (2,'d015aeb6-bc8a-42c1-820b-b441a765358c',1,220,'Kingston HyperX Fury 10','~/images/ram/ram2.png'),(4,'2b4ee1cc-9f89-415c-bf86-43d9b44ed7af',1,180,'Kingston HyperX Impact','~/images/ram/ram4.png');
 /*!40000 ALTER TABLE `wishlist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -555,4 +559,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-15 12:56:51
+-- Dump completed on 2018-01-17 18:34:21
