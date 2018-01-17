@@ -69,7 +69,7 @@ namespace webshop2.Controllers
                     if (User.IsInRole("Admin"))
                     {
                         //create logic 
-                        return View();
+                        return RedirectToAction("../Account/Register");
                     }
                     else
                         return RedirectToAction("Index");

@@ -65,6 +65,7 @@ namespace webshop2.Controllers
         // GET: Statistics/Details/5
         public ActionResult Details(int id)
         {
+
             return View();
         }
 
